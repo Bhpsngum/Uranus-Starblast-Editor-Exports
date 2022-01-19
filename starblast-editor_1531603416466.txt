@@ -1,0 +1,65 @@
+ballSide = (angle)->
+  return k = 
+    section_segments: 6
+    angle: angle
+    offset:
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: [0,0,0,0,0,0,0,0,0,0]
+      y: [-80,-75,-60,-50,-30,0]
+      z: [0,0,0,0,0,0,0,0,0,0]
+    width: [0,20,30,10,25,25]
+    height: [0,10,12,8,22,22]
+    texture: [16.8,63,0.9,10,17]
+ballTori = (angle)->
+  return t = 
+    section_segments: 12
+    angle: angle
+    offset:
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: [0,0,0,0,0,0,0,0,0,0]
+      y: [-10,-10,0,10,10,0,-10]
+      z: [0,0,0,0,0,0,0,0,0,0]
+    width: [60,75,77,75,60,50,60]
+    height: [60,75,77,75,60,50,60]
+    texture: [3.8,63,63,3.8]
+return model =
+  name: 'Ball'
+  level: 6
+  model: 1
+  size: 2.4
+  specs:
+    shield:
+      capacity: [1,1]
+      reload: [1,1]
+    generator:
+      capacity: [1,1]
+      reload: [1,1]
+    ship:
+      mass: 200
+      speed: [80,80]
+      rotation: [30,30]
+      acceleration: [60,60]
+  bodies:
+    side1:ballSide(0)
+    side2:ballSide(60)
+    side3:ballSide(120)
+    side4:ballSide(180)
+    side5:ballSide(240)
+    side6:ballSide(300)
+    
+    side7:ballSide(30)
+    side8:ballSide(90)
+    side9:ballSide(150)
+    side10:ballSide(210)
+    side11:ballSide(270)
+    side12:ballSide(330)
+    
+    t1:ballTori(30)
+    t2:ballTori(90)
+    t3:ballTori(150)

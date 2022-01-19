@@ -1,0 +1,177 @@
+multiplyArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m)
+  return k;
+
+addArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m)
+  return k;
+
+return model =
+  name: 'Bullet'
+  level: 3
+  model: 4
+  size: 1.7
+  specs:
+    shield:
+      capacity: [150,200]
+      reload: [5,8]
+    generator:
+      capacity: [50,80]
+      reload: [20,27]
+    ship:
+      mass: 210
+      speed: [100,115]
+      rotation: [30,50]
+      acceleration: [150,180]
+      dash:
+        rate: 2
+        burst_speed: [180,230]
+        speed: [150,170]
+        acceleration: [100,100]
+        initial_energy: [30,55]
+        energy: [15,20]
+  bodies:
+    main:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-25,-22,-15,0,15,42,54,43]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,17,25,26,25,17,10,0]
+      height: [0,17,25,26,25,17,10,0]
+      texture: [63,4,4,18,8,18,12]
+      propeller: true
+    mainSides:
+      section_segments: 12
+      offset:
+        x: -1
+        y: -5
+        z: -4
+      position:
+        x: [-4,-2,0,0,0,0,0,0]
+        y: [-25,-22,-15,1]
+        z: [2,3,1,0,0,0,0,0,0]
+      width: [0,27,45,51,25,17,10,0]
+      height: multiplyArray([0,17,25,29,25,17,10,0], 0.8)
+      texture: [4]
+      angle:90
+    cockpit:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -15
+        z: 15
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-38,-31,-16,-5,1,20]
+        z: [-15,-9,-1,1,1,-5]
+      width: [3,10,14,15,15,14]
+      height: [0,8,10,10,10,10]
+      texture: [4,9,9,3,4,4]
+      
+
+    antennae2:
+      section_segments: 4
+      offset:
+        x: 13
+        y: -60
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-25,-20,-15,35]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,1,0.5,0.5]
+      height: [0,1,0.5,0.5]
+      texture: [17,18,3]  
+    
+    wingAnchors:
+      section_segments: 6
+      offset:
+        x: 22
+        y: -5
+        z: 0
+      position:
+        x: [0,0,0,0,0,-5,0,0]
+        y: [-10,5,7,10,10,30,]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [25,20,13,10,0]
+      height: [10,10,7,6,0]
+      texture: [3.8,3.8,2.9,2.9]
+      angle:90
+
+    ###
+    guns:
+      section_segments: 6
+      offset:
+        x: 30
+        y: -24
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,-10,0]
+        y: [-10,-25,-15,-7,-3,20,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,3,5,5,7,7,7]
+      height: [0,3,5,5,7,7,7]
+      texture: [16.8,13,18,3.8,2.8] 
+      laser:
+        damage: [5,8]
+        rate: 6
+        type: 1
+        speed: [130,200]
+        number: 1
+        error: 10
+    ###
+        
+    sideEngines:
+      section_segments: 6
+      offset:
+        x: 23
+        y: 30
+        z: 0
+      position:
+        x: [-10,-5,-2,0,0,0,0,0]
+        y: [-22,-10,5,10,15,35,15]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,8,9,10,10,7,0]
+      height: [0,7,7,10,10,7,0]
+      texture: [3.8,3.8,2.8,3.8,13,16.8] 
+      propeller:true
+    
+    topEngine:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 30
+        z: 23
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-22,-10,5,10,15,35,15]
+        z: [-10,-5,-2,0,0,0,0,0,0]
+      width: [0,8,9,10,10,7,0]
+      height: [0,7,7,10,10,7,0]
+      texture: [3.8,3.8,2.8,3.8,13,16.8] 
+      propeller:true
+      
+    bottomEngine:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 30
+        z: -23
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-22,-10,5,10,15,35,15]
+        z: [10,5,2,0,0,0,0,0,0]
+      width: [0,8,9,10,10,7,0]
+      height: [0,7,7,10,10,7,0]
+      texture: [3.8,3.8,2.8,3.8,13,16.8] 
+      propeller:true
+

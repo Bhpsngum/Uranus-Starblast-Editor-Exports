@@ -1,0 +1,203 @@
+mode = 1
+
+if mode == 0
+  glow = 63
+else
+  glow = 17
+
+return model =
+  name: 'Shadow Phoenix MK-II'
+  level: 6
+  model: 4
+  size: 1.4
+  specs:
+    shield:
+      capacity: [250,315]
+      reload: [2,2]
+    generator:
+      capacity: [0.01+mode*700,380]
+      reload: [0.01,75]
+    ship:
+      mass: 140
+      speed: [100,140]
+      rotation: [120+mode*-100,120]
+      acceleration: [90+mode*-80,105]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -47
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-184,-160,-108,100,105,110,137,130]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,10,20,30,20,20,10,0]
+      height: [0,10,20,20,20,24,12,0]
+      texture: [5,4,18,4,glow,4,glow]
+      #propeller: true
+    engines1:
+      section_segments: 12
+      offset:
+        x: 183
+        y: -165
+        z: -92
+      position:
+        x: [0,0,0,0,0,0]
+        y: [10,0,20,55,120,115]
+        z: [0,0,0,0,0,0]
+      width: [0,3,7,10,7,0]
+      height: [0,3,7,10,7,0]
+      texture: [17,13,18,4]
+      propeller: true
+      laser:
+        damage: [5,5]
+        rate: 3
+        type: 1
+        speed: [150,160]
+        number: 1
+        error: 0
+    engines2:
+      section_segments: 12
+      offset:
+        x: 140
+        y: -120
+        z: -60
+      position:
+        x: [0,0,0,0,0,0]
+        y: [10,0,20,55,120,115]
+        z: [0,0,0,0,0,0]
+      width: [0,3,7,10,7,0]
+      height: [0,3,7,10,7,0]
+      texture: [17,13,18,4]
+      propeller: true
+      laser:
+        damage: [5,5]
+        rate: 3
+        type: 1
+        speed: [150,160]
+        number: 1
+        error: 0
+    engines3:
+      section_segments: 12
+      offset:
+        x: 100
+        y: -110
+        z: -34
+      position:
+        x: [0,0,0,0,0,0]
+        y: [10,0,20,55,120,115]
+        z: [0,0,0,0,0,0]
+      width: [0,3,7,10,7,0]
+      height: [0,3,7,10,7,0]
+      texture: [17,13,18,4]
+      propeller: true
+      laser:
+        damage: [5,5]
+        rate: 3
+        type: 1
+        speed: [150,160]
+        number: 1
+        error: 0
+    cockpit:
+      section_segments: 10
+      offset:
+        x: 0
+        y: -180
+        z: 10
+      position:
+        x: [0,0,0,0,0]
+        y: [0,18,36,44,49]
+        z: [0,5,10,5,0]
+      width: [10,15,15,5,0]
+      height: [5,5,5,3,0]
+      texture: [9]
+      propeller: false
+    join:
+      section_segments: 8
+      offset:
+        x: 40
+        y: -60
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0,56,56,56,56,56,56,56]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,0]
+      height: [0,5,5,0]
+      texture: [18]
+  wings:
+    outer:
+      offset:
+        x: 50
+        y: -30
+        z: 10
+      length: [0,22,25,50,10,65]
+      width: [0,120,170,100,80,75,15]
+      angle: [-15,-15,-50,-30,-30,-40]
+      position: [0,0,0,0,0,-15,-100]
+      texture: [glow,4,glow,4,glow,4]
+      doubleside: true
+      bump:
+        position: 30
+        size: 10
+    inner:
+      offset:
+        x: 35
+        y: -40
+        z: 10
+      length: [0,7,14,21,28,35]
+      width: [140,120,100,80,60,40,20]
+      angle: [60,60,60,60,60,60]
+      position: [0,0,0,0,0,10,60]
+      texture: [glow]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+    top:
+      offset:
+        x: 20
+        y: -40
+        z: 10
+      length: [0,4,8,12,16,20]
+      width: [140,120,100,80,60,40,20]
+      angle: [90,90,90,90,90,90]
+      position: [0,0,0,0,0,0,0]
+      texture: [glow]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+    side:
+      offset:
+        x: 0
+        y: -140
+        z: 0
+      length: [0,4,8,12,16,20]
+      width: [140,120,100,180,100,40,20]
+      angle: [0,0,0,0,0,0]
+      position: [0,0,0,0,0,0,0]
+      texture: [glow]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+    wingtop:
+      offset:
+        x: 0
+        y: 100
+        z: 0
+      length: [0,4,8,12,16,20]
+      width: [140,120,100,180,100,40,20]
+      angle: [0,0,0,0,0,0]
+      position: [0,0,0,0,0,0,0]
+      texture: [glow]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+
+
+

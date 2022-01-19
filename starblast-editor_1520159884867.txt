@@ -1,0 +1,102 @@
+return model =
+  name: 'Fly'
+  level: 1
+  model: 1
+  size: 1.05
+  specs:
+    shield:
+      capacity: [75,100]
+      reload: [2,3]
+    generator:
+      capacity: [40,60]
+      reload: [10,15]
+    ship:
+      mass: 60
+      speed: [125,145]
+      rotation: [110,130]
+      acceleration: [100,120]
+  bodies:
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 2000
+        z: 12
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-45,-40,-25,0,5]
+        z: [0,0,0,0,0,0]
+      width: [0,10,15,5,0]
+      height: [0,10,15,5,0]
+      texture: [9]
+    thrusters:
+      section_segments: 8
+      offset:
+        x: 40
+        y: 263
+        z: -15
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-25,-20,0,20,40,30]
+        z: [0,0,0,0,0,0]
+      width: [0,15,20,15,15,0]
+      height: [0,15,20,15,15,0]
+      texture: [63,2,2,2,17]
+      propeller: true
+  wings:
+    wings:
+      doubleside:true
+      offset:
+        x: 5
+        y: 35
+        z: 10
+      length: [80,80]
+      width: [80,80,80]
+      angle: [-20,-160]
+      position: [-30,50,-30]
+      texture: [4]
+      bump:
+        position: 30
+        size: 2
+    wings2:
+      doubleside:true
+      offset:
+        x: 5
+        y: 90
+        z: 10
+      length: [80,80]
+      width: [80,80,80]
+      angle: [-20,-160]
+      position: [130,50,130]
+      texture: [4]
+      bump:
+        position: -30
+        size: 2
+    wings3:
+      doubleside:true
+      offset:
+        x: 5
+        y: -60
+        z: 4
+      length: [60,60]
+      width: [80,80,80]
+      angle: [-20,-160]
+      position: [0,50,0]
+      texture: [3]
+      bump:
+        position: -30
+        size: 2
+    connector:
+      doubleside:true
+      offset:
+        x: 5
+        y: -70
+        z: -17
+      length: [80,80]
+      width: [80,40]
+      angle: [0,-160]
+      position: [0,110,20]
+      texture: [13]
+      bump:
+        position: 50
+        size: 40

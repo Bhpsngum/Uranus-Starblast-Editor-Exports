@@ -1,0 +1,145 @@
+anim = 0;
+
+model =
+  name: 'Fly'
+  level: 1
+  model: 1
+  size: 1.05
+  specs:
+    shield:
+      capacity: [75,100]
+      reload: [2,3]
+    generator:
+      capacity: [40,60]
+      reload: [10,15]
+    ship:
+      mass: 60
+      speed: [125,145]
+      rotation: [110,130]
+      acceleration: [100,120]
+  bodies:
+    front:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: -3
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-125,-120,-80,-50,10,30,55,75,60]
+        z: [-7,-7,-7,0,0,0,0,0,0]
+      width: [10,15,20,30,25,30,18,15,0]
+      height: [0,8,8,15,20,20,18,15,0]
+      texture: [63,63,63,1,1,1,12,17]
+    gunMain:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -80
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-20,-55,-40,10,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,6,8,6]
+      height: [0,5,6,8,6]
+      texture: [17,8,4,63]   
+    gunRods:
+      section_segments: 4
+      offset:
+        x: 12
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-150,-150,10,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,4,4,0]
+      texture: [4] 
+     template:
+      section_segments: 4
+      offset:
+        x: 50
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-20,-10,10,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,10,10,0]
+      texture: [4,63,4] 
+    
+    gunCircle1:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -130
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-5,-5,-3,3,5,5,2,-2]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [8,10,12,20,20,12,10,8,8]
+      height: [8,10,12,20,20,12,10,8,8]
+      texture: [16.8,3.8,3.8,16.8,3.8,3.8,16.8,16.8] 
+    gunCircle2:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -140
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-5,-5,-3,3,5,5,2,-2]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [8,10,12,20,20,12,10,8,8]
+      height: [8,10,12,20,20,12,10,8,8]
+      texture: [16.8,3.8,3.8,16.8,3.8,3.8,16.8,16.8] 
+    gunCircle3:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -150
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-5,-5,-3,3,5,5,2,-2]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [8,10,12,20,20,12,10,8,8]
+      height: [8,10,12,20,20,12,10,8,8]
+      texture: [16.8,3.8,3.8,16.8,3.8,3.8,16.8,16.8] 
+    
+      
+  ###wings: main:
+    length: [60,20]
+    width: [100,50,40]
+    angle: [-10,10]
+    position: [0,20,10]
+    doubleside: true
+    offset:
+      x: 0
+      y: 10
+      z: 5
+    bump:
+      position: 30
+      size: 20
+    texture: [11,63]
+###
+
+offy = 0;
+for k,v of model.bodies 
+  v.offset.y += offy;
+    
+for k,v of model.wings 
+  v.offset.y += offy;
+  
+b = model.bodies
+w = model.wings
+b.gunRods.offset.y += anim*(-60);
+b.gunCircle1.offset.y += anim*(-20);
+b.gunCircle2.offset.y += anim*(-40);
+b.gunCircle3.offset.y += anim*(-60);
+  
+return model;

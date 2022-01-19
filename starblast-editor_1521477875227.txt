@@ -1,0 +1,63 @@
+return model =
+  name: 'Fly'
+  level: 1
+  model: 1
+  size: 1.05
+  specs:
+    shield:
+      capacity: [75,100]
+      reload: [2,3]
+    generator:
+      capacity: [40,60]
+      reload: [10,15]
+    ship:
+      mass: 60
+      speed: [125,145]
+      rotation: [110,130]
+      acceleration: [100,120]
+  bodies:
+    main:
+      section_segments: 16
+      offset:
+        x: 0
+        y: 0
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-100,-97,-85,-55,35,60,75,85]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,12,22,30,35,36,37,37]
+      height: [0,10,12,16,18,20,20,20]
+      propeller: false
+      texture: [1,1,1,1,1,63,1]
+    strip:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 41
+        z: 26
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-131,-100,20]
+        z: [-5.8,0,4,0,0,0]
+      width: [8,8,8,8]
+      height: [1,1,1,1]
+      propeller: false
+      texture: [63]
+  wings: 
+    cockpit:
+      length: [6,6]
+      width: [12,10,0]
+      angle: [0,0]
+      position: [0,1,8]
+      doubleside: true
+      offset:
+        x: 2
+        y: -84
+        z: 21
+      bump:
+        position: 30
+        size: 20
+      texture: [7]
+
+  

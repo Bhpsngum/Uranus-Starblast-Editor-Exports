@@ -1,0 +1,393 @@
+y = -30
+
+multiplyArrays = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m[i])
+  return k;
+
+addArrays = (arr, m, mult=1) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m[i]*mult)
+  return k;
+  
+multiplyArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m)
+  return k;
+
+addArray = (arr, m, mult=1) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m*mult)
+  return k;
+
+circle = (m, id, xx, yy, zz, segments, radPosY, radPosZ, tx, h=1) ->
+  widths = [];
+  heights = [];
+  posx = [];
+  for i in [0..radPosY.length]
+    posx.push(0);
+    heights.push(h);
+    widths.push(radPosY[i]*Math.tan(Math.PI/segments))
+  for i in [0..segments] by 1
+    m.bodies[id+"segment"+i] = 
+      section_segments: 4
+      offset:
+        x: xx
+        y: yy
+        z: zz
+      position:
+        x: posx
+        y: radPosY
+        z: radPosZ
+      width: widths
+      height: heights
+      angle: 360*(i/segments)
+      texture: tx
+  return m
+
+squareBody = (model, id, xx, yy, zz, w, h, posx, posy, posz, txtop, txsides, txbottom, bump) ->
+  flatw = [];
+  flath = [];
+  for i in [0..w.length]
+    flatw.push(bump)
+    flath.push(bump)
+  
+  sides = 
+    section_segments: 4
+    offset:
+      x: xx+0.01
+      y: yy
+      z: zz
+    position:
+      x: addArrays(posx,w,1)
+      y: posy
+      z: posz
+    width: flatw
+    height: h
+    texture: txsides
+  top = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h)
+    width: w
+    height: flath
+    texture: txtop
+  bottom = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h,-1)
+    width: w
+    height: flath
+    texture: txbottom
+    
+  model.bodies[id+"t"] = top;
+  model.bodies[id+"b"] = bottom;
+  model.bodies[id+"sides"] = sides;
+    
+  return model;
+    
+reactorPipes = (a) ->
+  return k =
+      section_segments: 6
+      offset:
+        x: 0.01
+        y: 90+y
+        z: 22
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-40,-37,-35,-30,-20]
+        z: [-15,-6,-4,-1,0,0,0,0,0]
+      width: [3,3,3,3,3]
+      height: [3,3,3,3,3]
+      angle:a
+      texture: [13] 
+  
+model =
+  name: 'Fusionblade'
+  level: 5
+  model: 4
+  size: 0.9
+  specs:
+    shield:
+      capacity: [210,250]
+      reload: [4,6]
+    generator:
+      capacity: [180,270]
+      reload: [40,70]
+    ship:
+      mass: 160
+      speed: [100,130]
+      rotation: [20,35]
+      acceleration: [110,150]
+      dash:
+        rate: 0.2
+        burst_speed: [180,260]
+        speed: [140,190]
+        acceleration: [100,100]
+        initial_energy: [20,30]
+        energy: [10,20]
+  bodies:
+      
+    frontEnd:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -155+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,-3,0,5,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,15,15,10]
+      height: [0,7,12,12,10]
+      texture: [16.8,18,1,1] 
+    
+    backMain:
+      section_segments: 6
+      offset:
+        x: 5
+        y: 54+y
+        z: 5
+      position:
+        x: [0,0,0,-5,-5,-5,-5,-5,-5,-5]
+        y: [-10,-5,5,30,60,70,80,120,125]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [10,25,30,40,40,30,10,10,0]
+      height: [10,20,20,20,20,20,5,5,0]
+      texture: [3.8] 
+      
+    backCockpitSmooth:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 45+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,0,20,30,-10,0,40,60]
+        z: [20,23,23,10,-10,-13,-13,-0,0,0,0]
+      width: [12,12,12,12,12,12,12,12]
+      height: [0,4,4,0,0,4,4,0]
+      texture: [3.8] 
+    ### 
+    enginesTop:
+      section_segments: 6
+      offset:
+        x: 26
+        y: 129+y
+        z: 7
+      position:
+        x: [-1,0,0,0,0,0,0,0]
+        y: [-30,0,10,20,10]
+        z: [-1,0,0,0,0,0,0,0,0]
+      width: [10,8,8,5,0]
+      height: [10,8,8,5,0]
+      propeller:true
+      texture: [3.8,18,13,16.8] 
+    enginesBottom:
+      section_segments: 6
+      offset:
+        x: 13
+        y: 131+y
+        z: -3
+      position:
+        x: [-1,0,0,0,0,0,0,0]
+        y: [-30,0,10,20,10]
+        z: [2,0,0,0,0,0,0,0,0]
+      width: [10,8,8,5,0]
+      height: [10,8,8,5,0]
+      propeller:true
+      texture: [3.8,18,13,16.8] 
+    ###
+      
+    enginesT:
+      section_segments: 8
+      offset:
+        x: 20
+        y: 160+y
+        z: 14
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-30,-30,-25,-20,10,15,40,20]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,5,8,9,9,8,7,0]
+      height: [0,5,8,9,9,8,7,0]
+      texture: [4,4,3,18,8,13,17] 
+      propeller:true
+    enginesB:
+      section_segments: 8
+      offset:
+        x: 25
+        y: 160+y
+        z: -5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-30,-30,-25,-20,10,15,40,20]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,5,8,9,9,8,7,0]
+      height: [0,5,8,9,9,8,7,0]
+      texture: [4,4,3,18,8,13,17] 
+      propeller:true
+    
+    pipes1:reactorPipes(30)
+    pipes2:reactorPipes(50)
+    
+    wings:
+      section_segments: 6
+      offset:
+        x: 25
+        y: 60+y
+        z: 0
+      position:
+        x: [0,0,0,-10,-10,0,0,0]
+        y: [-10,0,5,20,50]
+        z: [0,0,0,0,-10,0,0,0,0]
+      width: [40,40,65,50,20]
+      height: [10,8,8,7,0]
+      texture: [2.8,2.8,4,18] 
+      angle:90
+      
+    blades:
+      section_segments: 6
+      offset:
+        x: 45
+        y: -120+y
+        z: -7
+      position:
+        x: [-20,0,4,5,11,19,0,0,0]
+        y: [-40,70,80,120,137,150]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: multiplyArray([0,20,19,20,12,0],0.8)
+      height: [0,8,8,8,8,0]
+      texture: [16.8,63,16.8,63,63] 
+      laser:
+        damage: [10,25]
+        rate: 4
+        type: 2
+        speed: [1,1]
+        number: 2
+        error: 360
+      
+    bladeHolders1:
+      section_segments: 6
+      offset:
+        x: 30
+        y: -60+y
+        z: -3
+      position:
+        x: [0,0,0,5,0,0,0,0,0,0]
+        y: [-30,-10,-8,5]
+        z: [0,0,0,-5,0,0,0,0,0]
+      width: [17,15,5,3]
+      height: [7,7,5,3]
+      texture: [2.9,3.8,2.8] 
+      angle: 90
+    bladeHolders2:
+      section_segments: 6
+      offset:
+        x: 35
+        y: -20+y
+        z: -3
+      position:
+        x: [0,0,0,-3,0,0,0,0,0,0]
+        y: [-30,-10,-8,5]
+        z: [0,0,0,-5,0,0,0,0,0]
+      width: [17,15,5,3]
+      height: [7,7,5,3]
+      texture: [3.9,3.8,2.8] 
+      angle: 93
+      
+  wings:
+    wingsT:
+      doubleside: true
+      offset:
+        x: 72
+        y: 40
+        z: -10
+      length: [0,10,0,10,10]
+      width: [0,50,50,120,90,30]
+      angle: [90,90,90,120,120]
+      position: [0,0,0,0,0,0]
+      texture: [4,4,3,17,4]
+      bump:
+        position: 0
+        size: 4
+    wingsB:
+      doubleside: true
+      offset:
+        x: 72
+        y: 40
+        z: -10
+      length: [0,10,0,10,5]
+      width: [0,50,50,120,90,30]
+      angle: [-90,-90,-90,-120,-120]
+      position: [0,0,0,0,0,0]
+      texture: [4,4,3,17,4]
+      bump:
+        position: 0
+        size: 4
+        
+    backFins:
+      doubleside: true
+      offset:
+        x: 7
+        y: 120
+        z: 5
+      length: [0,20,0,15,10]
+      width: [0,30,30,50,30,20]
+      angle: [0,0,0,-20,-20]
+      position: [0,0,0,20,30,35]
+      texture: [4,4,3,63]
+      bump:
+        position: 0
+        size: 4
+    backRudders:
+      doubleside: true
+      offset:
+        x: 27
+        y: 120
+        z: 5
+      length: [0,20,10]
+      width: [0,50,30,20]
+      angle: [0,70,90]
+      position: [0,20,50,65]
+      texture: [63]
+      bump:
+        position: 0
+        size: 4
+      
+model = squareBody(model, "main", 0, 0+y, 0, 
+[4,12,14,14,20,22,24], #width
+[4,8,9,9,10,10,10,10], #height
+[0,0,0,0,0,0,0,0], #x
+[-155,-150,-100,-50,-40,10,50], #y
+[0,0,0,0,0,0,0,0], #z
+[4,4,16,8,11,8], [4,4,12,8,18,4], [4,4,13,8,4,4], 3) #stuff
+
+model = squareBody(model, "cockpit", 0, 42+y, 10, 
+[10,10,10,10,10], #width
+[6,8,10,10,10], #height
+[0,0,0,0,0,0,0], #x
+[-80,-65,-20,5,10], #y
+[-6,0,0,0,0,0,0], #z
+[9,9,4], [18,9,9,4], 9, 3) #stuff
+
+model = circle(model, "c", 0, 90+y, 25, 6, [0,10,12,16,18,25,30], [0,0,2,2,0,0,-15], [18,17,17,17,4,4],0) 
+
+return model

@@ -1,0 +1,33 @@
+return model =
+  name: 'Spectatorship'
+  level: 3
+  model: 1
+  size: 1
+  zoom:0.4
+  specs:
+    shield:
+      capacity: [1000,1000]
+      reload: [100,100]
+    generator:
+      capacity: [1,1]
+      reload: [100,100]
+    ship:
+      mass: 0.0000001
+      speed: [200,200]
+      rotation: [1,1]
+      acceleration: [1,1]
+  bodies:
+    template:
+      section_segments: 6
+      offset:
+        x: 15
+        y: 0
+        z: 0
+      position:
+        x: [0,4,4,3,0,0,0,0,0]
+        y: [-60,-30,25,30,35,45,60,60,55]
+        z: [0,-4,-4,-2,0,2,2,2]
+      width: [0,2,0,2,5,5,5,4,0]
+      height: [0,3,3,5,7,7,5,4,0]
+      texture: [4,1,1,1,1,4,4,17,4]
+      propeller: false

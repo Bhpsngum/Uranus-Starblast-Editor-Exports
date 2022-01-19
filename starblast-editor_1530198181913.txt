@@ -1,0 +1,48 @@
+return model =
+  name: 'Radiators'
+  level: 1
+  model: 1
+  size: 1
+  bodies:
+    beam:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-300,-300,-20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,5]
+      height: [0,5,5]
+      texture: [4,4]
+      angle:90
+    connector:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-30,-25,-20,-15,-10,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,20,25,25]
+      height: [0,15,15,20,25,25]
+      texture: [3,3,13,1]
+      angle:90
+  wings: main:
+    length: [100,100,100,100,100]
+    width: [200,200,200,200,200,200]
+    angle: [0,0,0,0,0,0,0,0,0,0]
+    position: [0,0,0,0,0,0,0,0]
+    doubleside: true
+    offset:
+      x: 40
+      y: 0
+      z: 0
+    bump:
+      position: 0
+      size: 0
+    texture: [14]

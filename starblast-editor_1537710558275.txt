@@ -1,0 +1,3801 @@
+return model =
+  name: 'Fly'
+  level: 1
+  model: 1
+  size: 1.05
+  specs:
+    shield:
+      capacity: [75,100]
+      reload: [2,3]
+    generator:
+      capacity: [40,60]
+      reload: [10,15]
+    ship:
+      mass: 60
+      speed: [125,145]
+      rotation: [110,130]
+      acceleration: [100,120]
+  bodies:
+    detail:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -100
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-13,-13,-10,-3,20,23,170,177,200,200]
+        z: [0,0,0,0,0,0,0,-2,-2,0]
+      width: [10,10,19,25,25,20,20,30,30,20]
+      height: [0,7,7,7,7,7,7,8,8,0]
+      texture: [4,4,4,4,4,2,63,2]
+    detail2:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 7
+        y: -114
+        z: 16
+      position:
+        x: [0,0,0,0]
+        y: [-5,-5,5,5]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,9,9,0]
+      texture: [1]
+    detail3:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -110
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-5,-5,5,5]
+        z: [0,0,0,0]
+      width: [4,4,4,0]
+      height: [0,4,4,0]
+      texture: [15,63]
+    detail4:
+      section_segments: 4
+      angle: -90
+      offset:
+        x: 7
+        y: -118
+        z: 16
+      position:
+        x: [0,0,0,0]
+        y: [-4.9,-4.9,0,0]
+        z: [0,0,0,0]
+      width: [0,0.5,0.5,0]
+      height: [0,4,4,0]
+      texture: [4,17,4]
+    detail5:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 7
+        y: -118
+        z: 16
+      position:
+        x: [0,0,0,0]
+        y: [-4.9,-4.9,0,0]
+        z: [0,0,0,0]
+      width: [0,0.5,0.5,0]
+      height: [0,4,4,0]
+      texture: [4,17,4]
+    detail6:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -128
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-13,-13,13,13]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [63]
+    detail7:
+      section_segments: 6
+      angle: 35
+      offset:
+        x: 19
+        y: -123
+        z: 0
+      position:
+        x: [-3.5,-3.5,0,0,0.2,0,-15,-15]
+        y: [-9,-9,-4.5,0,0,20,40,40]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,3,2,2,4,4,4,0]
+      height: [0,1,1,1,2.5,2.5,2.5,0]
+      texture: [4,4,4,4,63]
+    detail8:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -90
+        z: 9
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,6,6,0]
+      texture: [2]
+    detail9:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -105
+        z: 21
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,10,10]
+        z: [-10,0,0,-10]
+      width: [0,10,10,0]
+      height: [0,2,2,0]
+      texture: [3]
+    detail10:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -101
+        z: 16
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-13,-13,-10,-3,20,23,23,140,172,179,201,201]
+        z: [0,0,0,0,0,0,1,1,1,1,1,1,1]
+      width: [10,10,20,28,28,23,18,18,18,28,28,0]
+      height: [0,3,4,4,4,4,3,3,3,3,4,0]
+      texture: [1,1,63,11,1,3,3,15,63,2]
+    detail11:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -105
+        z: 11
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,10,10]
+        z: [10,0,0,10]
+      width: [0,10,10,0]
+      height: [0,2,2,0]
+      texture: [4]
+    detail12:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: -115
+        z: 16
+      position:
+        x: [20,0,0,20]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,5,5,0]
+      texture: [4]
+    detail13:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -95
+        z: 16
+      position:
+        x: [20,0,0,20]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,5,5,0]
+      texture: [4]
+    detail14:
+      section_segments: 8
+      offset:
+        x: 20
+        y: -95
+        z: 16
+      position:
+        x: [-6,-4,-2,0,0,0]
+        y: [-17,-17,-15,-10,10,10]
+        z: [0,0,0,0,0,0]
+      width: [0,4,7,10,10,0]
+      height: [5,6,6,6,6,0]
+      texture: [4]
+    detail15:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 5
+        y: -102
+        z: 23
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,3,3,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail16:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -90
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-30,-30,30,30]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,1,1,0]
+      texture: [2]
+    detail17:
+      section_segments: 4
+      offset:
+        x: 8
+        y: -120
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,1,1,0]
+      texture: [2]
+    detail18:
+      section_segments: 3
+      angle: 90
+      offset:
+        x: 0
+        y: -70
+        z: 26.5
+      position:
+        x: [-10,0,2,0,-10,0,0]
+        y: [-14.7,-10,0,10,14.37]
+        z: [-4,-1,0.5,-1,-3,0,0]
+      width: [0,8,9,8,0]
+      height: [0,4,4,4,0]
+      texture: [3.7,8.62,8.62,3.7]
+    detail19:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -69
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [-13,-13,13,13]
+        z: [0,0,0,0]
+      width: [0,19,19,0]
+      height: [0,6,6,0]
+      texture: [4]
+    detail20:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -63
+        z: 30
+      position:
+        x: [-6,-1,0,-1,-6,0,0]
+        y: [-14,-10,0,10,14]
+        z: [-6,-1,0.5,-1,-6,0,0]
+      width: [5,8,9,8,5]
+      height: [0,1,1,1,0]
+      texture: [4,3,3,4]
+    detail21:
+      section_segments: 10
+      offset:
+        x: 0
+        y: -53
+        z: 21
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,21,21,0]
+      height: [0,13,13,0]
+      texture: [1]
+    detail22:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -62
+        z: 31
+      position:
+        x: [0,0,0,0]
+        y: [-10,-9,4,6]
+        z: [0,0,0,0]
+      width: [0,4,4,4]
+      height: [1,1,1,1]
+      texture: [2,11,4]
+    detail23:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -40
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,11,11]
+        z: [0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,10,10,0]
+      texture: [3,8,3]
+    detail24:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -43
+        z: 21
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,15,15]
+        z: [0,0,0,0]
+      width: [0,16,16,0]
+      height: [0,8,8,0]
+      texture: [63]
+    detail25:
+      section_segments: 8
+      offset:
+        x: 18
+        y: -41.5
+        z: 15
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-22,-22,-20,-3,3,20,22,22]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,4,7,7,7,7,4,0]
+      height: [0,4,7,7,7,7,4,0]
+      texture: [4,4,15,4,15,4,4]
+    detail26:
+      section_segments: 6
+      offset:
+        x: 8
+        y: -65
+        z: 11
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,11,11,0]
+      texture: [63]
+    detail27:
+      section_segments: 10
+      offset:
+        x: 0
+        y: -30
+        z: 21
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,21,21,0]
+      height: [0,13,13,0]
+      texture: [1]
+    detail28:
+      section_segments: 8
+      offset:
+        x: 18
+        y: -41.5
+        z: 5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-22,-22,-20,-3,3,20,22,22]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,4,7,7,7,7,4,0]
+      height: [0,4,7,7,7,7,4,0]
+      texture: [4,4,15,4,15,4,4]
+    detail29:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 35
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,-10,-6,-2,2,6,10,10]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,23,23,23,23,23,23,0]
+      height: [0,20,20,20,20,20,20,0]
+      texture: [4,11,11,11,11,11,4]
+    detail30:
+      section_segments: 6
+      offset:
+        x: 10
+        y: 0
+        z: 7
+      position:
+        x: [0,0,0,0]
+        y: [-30,-30,30,30]
+        z: [0,0,0,0]
+      width: [0,5,5,0]
+      height: [0,10,10,0]
+      texture: [15]
+    detail31:
+      section_segments: 6
+      offset:
+        x: 45
+        y: 0
+        z: 25
+      position:
+        x: [0,0,0,0]
+        y: [-7,-7,9.9,9.9]
+        z: [0,0,0,0]
+      width: [15,15,15,15]
+      height: [0,2,2,0]
+      texture: [63]
+    detail32:
+      section_segments: 6
+      offset:
+        x: 58
+        y: 0
+        z: 17.5
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [2,2,2,2]
+      height: [0,8,8,0]
+      texture: [3]
+    detail33:
+      section_segments: 6
+      offset:
+        x: 32
+        y: 0
+        z: 17.5
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [2,2,2,2]
+      height: [0,8,8,0]
+      texture: [3]
+    detail34:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 1
+        y: 1.3
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [-1,13,33,33]
+        z: [0,0,0,0]
+      width: [10,10,10,10]
+      height: [3,3,3,0]
+      texture: [11,8,2]
+    detail35:
+      section_segments: 8
+      offset:
+        x: 50
+        y: -2
+        z: 18
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-12,-12,-10,10,12,12]
+        z: [0,0,0,0,0,0]
+      width: [0,3,5.5,5.5,3,0]
+      height: [0,3,5.5,5.5,3,0]
+      texture: [4,4,8,4,4]
+    detail36:
+      section_segments: 8
+      offset:
+        x: 40
+        y: -2
+        z: 18
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-12,-12,-10,10,12,12]
+        z: [0,0,0,0,0,0]
+      width: [0,3,5.5,5.5,3,0]
+      height: [0,3,5.5,5.5,3,0]
+      texture: [4,4,8,4,4]
+    detail37:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 1.3
+        z: 14
+      position:
+        x: [0,0,0,0]
+        y: [-33,-33,33,33]
+        z: [0,0,0,0]
+      width: [10,10,10,10]
+      height: [0,3,3,0]
+      texture: [3]
+    detail38:
+      section_segments: 10
+      angle: 90
+      offset:
+        x: 4.5
+        y: 1.3
+        z: 20
+      position:
+        x: [0,0,0,0,0]
+        y: [3,-3,-3,3,3]
+        z: [0,0,0,0,0]
+      width: [12,12,15,15,12]
+      height: [12,12,15,15,12]
+      texture: [63]
+    detail39:
+      section_segments: 8
+      offset:
+        x: 45
+        y: -2
+        z: 9
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-9,-9,-8,8,9,9]
+        z: [0,0,0,0,0,0]
+      width: [0,3,7,7,3,0]
+      height: [0,3,7,7,3,0]
+      texture: [2]
+    detail40:
+      section_segments: 8
+      offset:
+        x: 45
+        y: -20
+        z: 13
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-38,-38,-40,-40,20,20]
+        z: [0,0,0,0,0,0]
+      width: [0,1.7,1.7,2,2,0]
+      height: [0,1.7,1.7,2,2,0]
+      texture: [4,1]
+    detail41:
+      section_segments: 8
+      offset:
+        x: 45
+        y: -20
+        z: 5
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-38,-38,-40,-40,20,20]
+        z: [0,0,0,0,0,0]
+      width: [0,1.7,1.7,2,2,0]
+      height: [0,1.7,1.7,2,2,0]
+      texture: [4,1]
+    detail42:
+      section_segments: 8
+      offset:
+        x: 41
+        y: -20
+        z: 11.2
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-38,-38,-40,-40,20,20]
+        z: [0,0,0,0,0,0]
+      width: [0,1.7,1.7,2,2,0]
+      height: [0,1.7,1.7,2,2,0]
+      texture: [4,1]
+    detail43:
+      section_segments: 8
+      offset:
+        x: 41
+        y: -20
+        z: 6.8
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-38,-38,-40,-40,20,20]
+        z: [0,0,0,0,0,0]
+      width: [0,1.7,1.7,2,2,0]
+      height: [0,1.7,1.7,2,2,0]
+      texture: [4,1]
+    detail44:
+      section_segments: 8
+      offset:
+        x: 49
+        y: -20
+        z: 6.8
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-38,-38,-40,-40,20,20]
+        z: [0,0,0,0,0,0]
+      width: [0,1.7,1.7,2,2,0]
+      height: [0,1.7,1.7,2,2,0]
+      texture: [4,1]
+    detail45:
+      section_segments: 8
+      offset:
+        x: 49
+        y: -20
+        z: 11.2
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-38,-38,-40,-40,20,20]
+        z: [0,0,0,0,0,0]
+      width: [0,1.7,1.7,2,2,0]
+      height: [0,1.7,1.7,2,2,0]
+      texture: [4,1]
+    detail46:
+      section_segments: 10
+      offset:
+        x: 45
+        y: -56
+        z: 9
+      position:
+        x: [0,0,0,0]
+        y: [-1,-1,1,1]
+        z: [0,0,0,0]
+      width: [0,8,8,0]
+      height: [0,8,8,0]
+      texture: [4]
+    detail47:
+      section_segments: 10
+      offset:
+        x: 45
+        y: -45
+        z: 9
+      position:
+        x: [0,0,0,0,0]
+        y: [1,-1,-1,1,1]
+        z: [0,0,0,0,0]
+      width: [6,6,7.5,7.5,6]
+      height: [6,6,7.5,7.5,6]
+      texture: [3]
+    detail48:
+      section_segments: 10
+      offset:
+        x: 45
+        y: -40
+        z: 9
+      position:
+        x: [0,0,0,0,0]
+        y: [1,-1,-1,1,1]
+        z: [0,0,0,0,0]
+      width: [6,6,7.5,7.5,6]
+      height: [6,6,7.5,7.5,6]
+      texture: [3]
+    detail49:
+      section_segments: 10
+      offset:
+        x: 45
+        y: -35
+        z: 9
+      position:
+        x: [0,0,0,0,0]
+        y: [1,-1,-1,1,1]
+        z: [0,0,0,0,0]
+      width: [6,6,7.5,7.5,6]
+      height: [6,6,7.5,7.5,6]
+      texture: [3]
+    detail50:
+      section_segments: 10
+      offset:
+        x: 45
+        y: -35
+        z: 9
+      position:
+        x: [0,0,0,0,0]
+        y: [1,-1,-1,1,1]
+        z: [0,0,0,0,0]
+      width: [6,6,7.5,7.5,6]
+      height: [6,6,7.5,7.5,6]
+      texture: [3]
+    detail51:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 95
+        z: -10
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-58,-56,-46,-43,0,0]
+        z: [0,0,0,0,0,0]
+      width: [0,14,14,5,6,0]
+      height: [0,5,6,4,4,4,0]
+      texture: [4,63,4,4]
+    detail52:
+      section_segments: 10
+      offset:
+        x: 15
+        y: 55
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,-10,-8,-2,2,8,10,10]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,11,11,11,11,11,11,0]
+      height: [0,7,7,7,7,7,7,0]
+      texture: [63,63,8,4,8,63,63]
+    detail53:
+      section_segments: 6
+      offset:
+        x: 10
+        y: 70
+        z: 9
+      position:
+        x: [0,0,0,10,10,10]
+        y: [-20,-20,-3,5,35,35]
+        z: [0,0,0,0,0,0]
+      width: [3,3,3,3,3,0]
+      height: [0,9,9,9,10,0]
+      texture: [4,4,4,15,4]
+    detail54:
+      section_segments: 8
+      offset:
+        x: 20
+        y: 100
+        z: 18
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-17,-17,-15,5,10,10]
+        z: [0,0,0,0,-5,-5]
+      width: [0,4,10,10,10,0]
+      height: [0,4,8,8,10,0]
+      texture: [4]
+    detail55:
+      section_segments: 8
+      offset:
+        x: 20
+        y: 100
+        z: -10
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-17,-17,-15,5,10,10]
+        z: [0,0,0,0,5,5]
+      width: [0,4,10,10,10,0]
+      height: [0,4,8,8,10,0]
+      texture: [4]
+    detail56:
+      section_segments: 10
+      offset:
+        x: 20
+        y: 108
+        z: 4
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-6,-4,-2,2,4,6]
+        z: [0,0,0,0,0,0]
+      width: [0,10,12,12,10,0]
+      height: [0,20,19,20,17,0]
+      texture: [4]
+    detail57:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 20
+        y: 113.5
+        z: 10
+      position:
+        x: [0,0,0,0]
+        y: [-5,-5,5,5]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,9,9,0]
+      texture: [1]
+    detail58:
+      section_segments: 4
+      angle: -90
+      offset:
+        x: 20
+        y: 117
+        z: 10
+      position:
+        x: [0,0,0,0]
+        y: [-4.9,-4.9,0,0]
+        z: [0,0,0,0]
+      width: [0,0.5,0.5,0]
+      height: [0,4,4,0]
+      texture: [4,17,4]
+    detail59:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 20
+        y: 117
+        z: 10
+      position:
+        x: [0,0,0,0]
+        y: [-4.9,-4.9,0,0]
+        z: [0,0,0,0]
+      width: [0,0.5,0.5,0]
+      height: [0,4,4,0]
+      texture: [4,17,4]
+    detail60:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 100
+        z: 4
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [0,0,0,0]
+      height: [0,11,11,0]
+      texture: [2]
+    detail61:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 105.1
+        z: 11
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-7,-7,-5.5,5.5,7,7]
+        z: [0,0,0,0,0,0]
+      width: [0,0.5,0.5,0.5,0.5,0]
+      height: [0,3,3,3,3,0]
+      texture: [4,4,15,4,4]
+    detail62:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 100.25
+        z: 10
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [0,5,5,0]
+      height: [0,5,5,0]
+      texture: [1]
+    detail63:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 128
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-27,-27,27,27]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [63]
+    detai64:
+      section_segments: 6
+      angle: -215
+      offset:
+        x: 33
+        y: 123
+        z: 0
+      position:
+        x: [2.5,2.5,0,0,0.2,0,17,17]
+        y: [-9,-9,-4.5,0,0,5,30,30]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,3,2,2,4,4,4,0]
+      height: [0,1,1,1,2.5,2.5,2.5,0]
+      texture: [4,4,4,4,63]
+    detail65:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 5
+        y: 100
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-30,-30,30,30]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,1,1,0]
+      texture: [2]
+    detail66:
+      section_segments: 4
+      offset:
+        x: 5
+        y: 110
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,1,1,0]
+      texture: [2]
+    detail67:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -81
+        z: -15
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [15,15,15,15]
+      height: [0,7,7,0]
+      texture: [4]
+    detail68:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -41
+        z: -15
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [15,15,15,15]
+      height: [0,7,7,0]
+      texture: [4]
+    detail69:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -1
+        z: -15
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [15,15,15,15]
+      height: [0,7,7,0]
+      texture: [4]
+    detail70:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 39
+        z: -15
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [15,15,15,15]
+      height: [0,7,7,0]
+      texture: [4]
+    detail71:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 79
+        z: -15
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [15,15,15,15]
+      height: [0,7,7,0]
+      texture: [4]
+    detail72:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: -8
+      position:
+        x: [0,0,0,0]
+        y: [-114,-114,100,100]
+        z: [0,0,0,0]
+      width: [0,15,15,0]
+      height: [0,7,7,0]
+      texture: [4,3,2]
+    detail73:
+      section_segments: 8
+      offset:
+        x: 18
+        y: -41.5
+        z: -5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-22,-22,-20,-3,3,20,22,22]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,4,7,7,7,7,4,0]
+      height: [0,4,7,7,7,7,4,0]
+      texture: [4,4,15,4,15,4,4]
+    detail74:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -119
+        z: -8.5
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-7,-7,-5.5,5.5,7,7]
+        z: [0,0,0,0,0,0]
+      width: [0,0.5,0.5,0.5,0.5,0]
+      height: [0,3,3,3,3,0]
+      texture: [4,4,15,4,4]
+    detail75:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -114
+        z: -8
+      position:
+        x: [0,0,0,0]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0]
+      width: [0,5,5,0]
+      height: [0,5,5,0]
+      texture: [1]
+    detail76:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 4
+        y: 95
+        z: 21.6
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,3,3,0]
+      height: [0,0.5,0.5,0]
+      texture: [8]
+    detail77:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 4
+        y: 88
+        z: 21.6
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,3,3,0]
+      height: [0,0.5,0.5,0]
+      texture: [8]
+    detail78:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 4
+        y: 81
+        z: 21.6
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,3,3,0]
+      height: [0,0.5,0.5,0]
+      texture: [8]
+    detail79:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 88
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [-11.9,-11.9,11.9,11.9]
+        z: [0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,2,2,0]
+      texture: [4]
+    detail80:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 45
+        z: 18.01
+      position:
+        x: [0,0,0,0]
+        y: [-0.2,-0.2,1,1]
+        z: [0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail81:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 50
+        z: 18.01
+      position:
+        x: [0,0,0,0]
+        y: [-0.2,-0.2,1,1]
+        z: [0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail82:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 55
+        z: 18.01
+      position:
+        x: [0,0,0,0]
+        y: [-0.2,-0.2,1,1]
+        z: [0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail83:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 60
+        z: 18.01
+      position:
+        x: [0,0,0,0]
+        y: [-0.2,-0.2,1,1]
+        z: [0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail84:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 65
+        z: 18.01
+      position:
+        x: [0,0,0,0]
+        y: [-0.2,-0.2,1,1]
+        z: [0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail85:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 70
+        z: 18.01
+      position:
+        x: [0,0,0,0]
+        y: [-0.2,-0.2,1,1]
+        z: [0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail86:
+      section_segments: 8
+      offset:
+        x: 14
+        y: 58
+        z: 15
+      position:
+        x: [0,0,0,0]
+        y: [-13,-13,13,13]
+        z: [0,0,0,0]
+      width: [0,6,6,0]
+      height: [0,6,6,0]
+      texture: [11]
+    detail87:
+      section_segments: 10
+      offset:
+        x: 0
+        y: -65
+        z: 27
+      position:
+        x: [-7,-7,-7,-7,-7]
+        y: [-3,-2,0,2,3]
+        z: [0,0,0,0,0]
+      width: [0,2,3,2,0]
+      height: [0,7,8,7,0]
+      texture: [63]
+    detail88:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -74
+        z: 25
+      position:
+        x: [-12.5,-12.5,-12.5,-12.5,-12.5]
+        y: [-3.5,-2.5,0,2.5,3.5]
+        z: [0,0,0,0,0]
+      width: [0,3,4,3,0]
+      height: [0,1,1,1,0]
+      texture: [1]
+    detail89:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -74
+        z: 30
+      position:
+        x: [-12.5,-12.5,-12.5,-12.5]
+        y: [-0.5,-0.5,0.5,0.5]
+        z: [0,0,0,0]
+      width: [0,0.5,0.5,0]
+      height: [0,25,25,0]
+      texture: [1]
+    detail90:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 21.8
+        z: 20
+      position:
+        x: [-8,-8,-10,-10,-10]
+        y: [-3,-3,0,5,5]
+        z: [0,0,0,0,0]
+      width: [0,1.5,1.5,1.5,0]
+      height: [0,1.5,1.5,1.5,0]
+      texture: [4]
+    detail91:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 20
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [-10,-8,8,10]
+        z: [0,0,0,0]
+      width: [0,1.5,1.5,0]
+      height: [0,1.5,1.5,0]
+      texture: [4]
+    detail92:
+      section_segments: 8
+      angle: 180
+      offset:
+        x: 0
+        y: 17.8
+        z: 20
+      position:
+        x: [-8,-8,-10,-10,-10]
+        y: [-3,-3,0,50,50]
+        z: [0,0,0,0,0]
+      width: [0,1.5,1.5,1.5,0]
+      height: [0,1.5,1.5,1.5,0]
+      texture: [4]
+    detail93:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 20
+      position:
+        x: [12,12,12,12]
+        y: [-30,-30,30,30]
+        z: [0,0,0,0]
+      width: [0,1.5,1.5,0]
+      height: [0,1.5,1.5,0]
+      texture: [4]
+    detail94:
+      section_segments: 8
+      angle: 180
+      offset:
+        x: 0
+        y: -24
+        z: 20
+      position:
+        x: [-3,-3,-5,-5,-5]
+        y: [-3,-3,0,7,7]
+        z: [0,0,0,0,0]
+      width: [0,1.5,1.5,1.5,0]
+      height: [0,1.5,1.5,1.5,0]
+      texture: [4]
+    detail95:
+      section_segments: 8
+      angle: 180
+      offset:
+        x: 0
+        y: -24
+        z: 20
+      position:
+        x: [5,5,7,7,7]
+        y: [-3,-3,0,7,7]
+        z: [0,0,0,0,0]
+      width: [0,1.5,1.5,1.5,0]
+      height: [0,1.5,1.5,1.5,0]
+      texture: [4]
+    detail96:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -21
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [-6,-4,2,4]
+        z: [0,0,0,0]
+      width: [0,1.5,1.5,0]
+      height: [0,1.5,1.5,0]
+      texture: [4]
+    detail97:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 20
+      position:
+        x: [-12,-12,-12,-12]
+        y: [-30,-30,30,30]
+        z: [0,0,0,0]
+      width: [0,1.5,1.5,0]
+      height: [0,1.5,1.5,0]
+      texture: [4]
+    detail98:
+      section_segments: 6
+      offset:
+        x: 20
+        y: 90
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-13,-13,-10,15,25,35,40,35]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,3,5,5,8,8,6,0]
+      height: [0,3,5,5,8,8,6,0]
+      texture: [63,63,1,4,15,4,17]
+    detail99:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 90
+        z: -1
+      position:
+        x: [-50,-50,-50,-50,-50,-50,-50,-50]
+        y: [-13,-13,-10,15,25,35,40,35]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,3,5,5,8,8,6,0]
+      height: [0,3,5,5,8,8,6,0]
+      texture: [63,63,1,4,15,4,17]
+    detail100:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 90
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-13,-13,-10,15,25,35,40,35]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,3,5,5,8,8,6,0]
+      height: [0,3,5,5,8,8,6,0]
+      texture: [63,63,1,4,15,4,17]
+    detail101:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 35
+        z: 6
+      position:
+        x: [0,0,0,0,0]
+        y: [0,26,26,22,22]
+        z: [0,0,0,0,0]
+      width: [5,5,4,4,0]
+      height: [5,5,4,4,0]
+      texture: [1.9,3.9,2.9,2.9]
+    detail102:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 35
+        z: 6
+      position:
+        x: [0,0,-5,-5,1]
+        y: [0,30,40,70,75]
+        z: [0,0,0,0,0]
+      width: [2,2,2,2,2]
+      height: [2,2,2,2,2]
+      texture: [63]
+    detail103:
+      section_segments: 12
+      angle: 90
+      offset:
+        x: 0
+        y: 37
+        z: 6
+      position:
+        x: [0,0,0,0,0]
+        y: [72,72,74,74,72]
+        z: [0,0,0,0,0]
+      width: [4,6,6,4,4]
+      height: [4,6,6,4,4]
+      texture: [63]
+    detail104:
+      section_segments: 12
+      angle: 90
+      offset:
+        x: 0
+        y: 37
+        z: 5
+      position:
+        x: [0,0,0,0,0]
+        y: [73.5,73.5,75.5,75.5,73.5]
+        z: [0,0,0,0,0]
+      width: [6,8,8,6,6]
+      height: [6,8,8,6,6]
+      texture: [63]
+    detail105:
+      section_segments: 12
+      angle: 90
+      offset:
+        x: 0
+        y: 37
+        z: 4
+      position:
+        x: [0,0,0,0,0]
+        y: [75,75,77,77,75]
+        z: [0,0,0,0,0]
+      width: [8,10,10,8,8]
+      height: [8,10,10,8,8]
+      texture: [63]
+    detail106:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: -20
+      position:
+        x: [0,0,0,0]
+        y: [-285,-210,230,305]
+        z: [0,0,0,0]
+      width: [100,175,175,100]
+      height: [0,0,0,0]
+      texture: [3]
+    detail107:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: -30
+      position:
+        x: [0,0,0,0]
+        y: [-285,-210,230,305]
+        z: [0,0,0,0]
+      width: [100,175,175,100]
+      height: [0,0,0,0]
+      texture: [3]
+    detail108:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -25
+      position:
+        x: [230,305,305,230]
+        y: [-175,-100,100,175]
+        z: [0,0,0,0,0]
+      width: [0,0,0,0]
+      height: [5,5,5,5]
+      texture: [3]
+    detail109:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 175
+        z: -25
+      position:
+        x: [0,0]
+        y: [-210,230]
+        z: [0,0,0]
+      width: [0,0]
+      height: [5,5]
+      texture: [3]
+    detail110:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -175
+        z: -25
+      position:
+        x: [0,0]
+        y: [-210,230]
+        z: [0,0,0]
+      width: [0,0]
+      height: [5,5]
+      texture: [3]
+    detail111:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -25
+      position:
+        x: [-210,-285,-285,-210]
+        y: [-175,-100,100,175]
+        z: [0,0,0,0,0]
+      width: [0,0,0,0]
+      height: [5,5,5,5]
+      texture: [3]
+    detail112:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -20
+      position:
+        x: [0,0,0,0]
+        y: [-143,-143,143,143]
+        z: [0,0,0,0]
+      width: [0,80,80,0]
+      height: [0,2,2,0]
+      texture: [0.9]
+    detail113:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -19
+      position:
+        x: [0,0,0,0]
+        y: [-137,-137,137,137]
+        z: [0,0,0,0]
+      width: [0,74,74,0]
+      height: [0,2,2,0]
+      texture: [2]
+    detail114:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [80,80]
+        y: [-115,120]
+        z: [0,0,0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [0.9]
+    detail115:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [180,180]
+        y: [-116,45]
+        z: [0,0,0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [0.9]
+    detail116:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [150.3,150.3]
+        y: [45,120]
+        z: [0,0,0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [0.9]
+    detail117:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 120
+        z: 0
+      position:
+        x: [0,0]
+        y: [80,150]
+        z: [0,0,0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [0.9]
+    detail118:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 45
+        z: 0
+      position:
+        x: [0,0]
+        y: [120,180]
+        z: [0,0,0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [0.9]
+    detail119:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -115
+        z: 0
+      position:
+        x: [0,0]
+        y: [80,180]
+        z: [0,0,0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [0.9]
+    detail120:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 30
+      position:
+        x: [129.5,129.5,115,115]
+        y: [-115,45,45,120]
+        z: [0,0,0,0,0,0]
+      width: [57.5,57.5,41,41]
+      height: [0,0,0,0]
+      texture: [0.9,0.9,9.76]
+    detail121:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 30.2
+      position:
+        x: [100,100,100,100]
+        y: [-25,-25,25,25]
+        z: [0,0,0,0]
+      width: [0,7,7,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail122:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 30.2
+      position:
+        x: [150,150,150,150]
+        y: [-25,-25,25,25]
+        z: [0,0,0,0]
+      width: [0,7,7,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail123:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 18
+        z: 30
+      position:
+        x: [125,125,125,125]
+        y: [-6,-6,7,7]
+        z: [0,0,0]
+      width: [35,35,35,35]
+      height: [3,3,3,3]
+      texture: [63]
+    detail124:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -18
+        z: 30
+      position:
+        x: [140,140,140,140]
+        y: [-7,-7,6,6]
+        z: [0,0,0]
+      width: [18,18,18,18]
+      height: [2,2,2,2]
+      texture: [63]
+    detail125:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 30.2
+      position:
+        x: [125,125,125,125]
+        y: [-25,-25,5,5]
+        z: [0,0,0,0]
+      width: [0,7,7,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail126:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -48
+        z: 30
+      position:
+        x: [125,125,125,125]
+        y: [-6,-6,7,7]
+        z: [0,0,0]
+      width: [35,35,35,35]
+      height: [3,3,3,3]
+      texture: [63]
+    detail127:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -88
+        z: 30
+      position:
+        x: [125,125,125,125]
+        y: [-6,-6,7,7]
+        z: [0,0,0]
+      width: [35,35,35,35]
+      height: [3,3,3,3]
+      texture: [63]
+    detail128:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -68
+        z: 30.2
+      position:
+        x: [100,100,100,100]
+        y: [-26,-26,26,26]
+        z: [0,0,0,0]
+      width: [0,7,7,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail129:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -68
+        z: 30.2
+      position:
+        x: [125,125,125,125]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [0,7,7,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail130:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 36
+        z: 8
+      position:
+        x: [0,0,0,0]
+        y: [66,67,90,90]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [4]
+    detail131:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 80
+        z: 30
+      position:
+        x: [95,95,95,95]
+        y: [-30,-30,30,30]
+        z: [0,0,0,0,0]
+      width: [0,5,5,0]
+      height: [0,7,7,0]
+      texture: [4,15,4]
+    detail132:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 80
+        z: 30
+      position:
+        x: [135,135,135,135]
+        y: [-30,-30,30,30]
+        z: [0,0,0,0,0]
+      width: [0,5,5,0]
+      height: [0,7,7,0]
+      texture: [4,15,4]
+    detail133:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -90
+        z: 14
+      position:
+        x: [80,80,80,80]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,4,4,0]
+      texture: [3.9]
+    detail134:
+      section_segments: 4
+      angle: 0
+      offset:
+        x: 0
+        y: -100
+        z: -5
+      position:
+        x: [79,79,79,79]
+        y: [-5,-5,0,0]
+        z: [0,0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,15,15,0]
+      texture: [63]
+    detail135:
+      section_segments: 4
+      angle: 0
+      offset:
+        x: 0
+        y: -80
+        z: -5
+      position:
+        x: [79,79,79,79]
+        y: [0,0,5,5]
+        z: [0,0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,15,15,0]
+      texture: [63]
+    detail136:
+      section_segments: 4
+      angle: 0
+      offset:
+        x: 0
+        y: -90
+        z: -5
+      position:
+        x: [79,79,79,79]
+        y: [-15,-15,15,15]
+        z: [0,0,0,0,0]
+      width: [0,0,0,0]
+      height: [0,15,15,0]
+      texture: [12]
+    detail137:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -90
+        z: -19
+      position:
+        x: [79,79,79,79]
+        y: [-11,-11,11,11]
+        z: [0,0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail138:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 120
+        z: -19
+      position:
+        x: [175,175,175,175]
+        y: [-16,-16,16,16]
+        z: [0,0,0,0]
+      width: [0,18,18,0]
+      height: [0,2,2,0]
+      texture: [2]
+    detail139:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 80
+        z: -19
+      position:
+        x: [175,175,175,175]
+        y: [-16,-16,16,16]
+        z: [0,0,0,0]
+      width: [0,18,18,0]
+      height: [0,2,2,0]
+      texture: [2]
+    detail140:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 100
+        z: -20
+      position:
+        x: [175,175,175,175]
+        y: [-41,-41,41,41]
+        z: [0,0,0,0]
+      width: [0,24,24,0]
+      height: [0,2,2,0]
+      texture: [1]
+    detail141:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 75
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-190,-194,-189,-187,-180,-178,-165,-158,-160]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,4,4.5,7.5,7.5,6,5,2,0]
+      height: [0,4,4.5,7.5,7.5,6,5,2,0]
+      texture: [17,63,3,8,3,1,63,4]
+    detail142:
+      section_segments: 6
+      angle: -90
+      offset:
+        x: 0
+        y: 75
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-193,-193,-189,-188,-177,-173,-170]
+        z: [0,0,0,0,0,0,0]
+      width: [0,8,13,17,17,6,0]
+      height: [0,0.5,0.5,1,1,1,0]
+      texture: [63,63,63,10]
+    detail143:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 75
+        z: -8
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-188,-188,-184,-183,-172,-168,-165]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,3,5,3,2,0]
+      height: [0,2,2,3,3,2,0]
+      texture: [4,4,4,9,7]
+    detail144:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 90
+        z: -8
+      position:
+        x: [0,0,0,0]
+        y: [-187,-187,-170,-170]
+        z: [0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,1,1,0]
+      texture: [4]
+    detail145:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 60
+        z: -8
+      position:
+        x: [0,0,0,0]
+        y: [-187,-187,-170,-170]
+        z: [0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,1,1,0]
+      texture: [4]
+    detail146:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 120
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-190,-194,-189,-187,-180,-178,-165,-158,-160]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,4,4.5,7.5,7.5,6,5,2,0]
+      height: [0,4,4.5,7.5,7.5,6,5,2,0]
+      texture: [17,63,3,8,3,1,63,4]
+    detail147:
+      section_segments: 6
+      angle: -90
+      offset:
+        x: 0
+        y: 120
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-193,-193,-189,-188,-177,-173,-170]
+        z: [0,0,0,0,0,0,0]
+      width: [0,8,13,17,17,6,0]
+      height: [0,0.5,0.5,1,1,1,0]
+      texture: [63,63,63,10]
+    detail148:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 120
+        z: -8
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-188,-188,-184,-183,-172,-168,-165]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,3,5,3,2,0]
+      height: [0,2,2,3,3,2,0]
+      texture: [4,4,4,9,7]
+    detail149:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 135
+        z: -8
+      position:
+        x: [0,0,0,0]
+        y: [-187,-187,-170,-170]
+        z: [0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,1,1,0]
+      texture: [4]
+    detail150:
+      section_segments: 8
+      angle: -90
+      offset:
+        x: 0
+        y: 105
+        z: -8
+      position:
+        x: [0,0,0,0]
+        y: [-187,-187,-170,-170]
+        z: [0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,1,1,0]
+      texture: [4]
+    detail151:
+      section_segments: 6
+      angle: -90
+      offset:
+        x: 0
+        y: 45
+        z: 14
+      position:
+        x: [0,0,0,0]
+        y: [-179,-179,-130,-130]
+        z: [0,0,0,0]
+      width: [0,3,3,0]
+      height: [0,3,3,0]
+      texture: [3.9]
+    detail152:
+      section_segments: 4
+      angle: -90
+      offset:
+        x: 0
+        y: 46
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-174,-174,-140,-140]
+        z: [0,0,0,0]
+      width: [0,0,0,0]
+      height: [0,14,14,0]
+      texture: [15]
+    detail153:
+      section_segments: 4
+      angle: -90
+      offset:
+        x: 0
+        y: 46
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-155,-155,-150,-150]
+        z: [0,0,0,0]
+      width: [0,3,3,0]
+      height: [0,15,15,0]
+      texture: [63]
+    detail154:
+      section_segments: 4
+      angle: -90
+      offset:
+        x: 0
+        y: 46
+        z: 0
+      position:
+        x: [0,0,0,0]
+        y: [-180,-180,-174,-174]
+        z: [0,0,0,0]
+      width: [0,3,3,0]
+      height: [0,15,15,0]
+      texture: [63]
+    detail155:
+      section_segments: 4
+      angle: 0
+      offset:
+        x: 0
+        y: -70
+        z: 0
+      position:
+        x: [79,79,79,79]
+        y: [0,0,5,5]
+        z: [0,0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,4,4,0]
+      texture: [4,13.5,4]
+    detail156:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 41
+      position:
+        x: [-200,-200,-200,-200]
+        y: [-175,-100,100,175]
+        z: [-60,20,20,-60]
+      width: [15,15,15,15]
+      height: [4,4,4,4]
+      texture: [4]
+    detail157:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 41
+      position:
+        x: [220,220,220,220]
+        y: [-175,-100,100,175]
+        z: [-60,20,20,-60]
+      width: [15,15,15,15]
+      height: [4,4,4,4]
+      texture: [4]
+    detail158:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -19
+      position:
+        x: [220,220,220,220]
+        y: [-175,-175,175,175]
+        z: [0,0,0,0]
+      width: [0,15,15,0]
+      height: [0,4,4,0]
+      texture: [2.9]
+    detail159:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -19
+      position:
+        x: [-200,-200,-200,-200]
+        y: [-175,-175,175,175]
+        z: [0,0,0,0]
+      width: [0,15,15,0]
+      height: [0,4,4,0]
+      texture: [2.9]
+    detail160:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 100
+        z: 60
+      position:
+        x: [0,0,0,0]
+        y: [-210,-210,230,230]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [3.9]
+    detail161:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -100
+        z: 60
+      position:
+        x: [0,0,0,0]
+        y: [-210,-210,230,230]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [3.9]
+    detail1162:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -65
+      position:
+        x: [10,10,10,10]
+        y: [-383,-383,383,383]
+        z: [0,0,0,0]
+      width: [0,5,5,0]
+      height: [0,3,3,0]
+      texture: [3.9]
+    detail1163:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 225
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-70,-70,90,90]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [3.9]
+    detail164:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 305
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-70,-70,90,90]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [3.9]
+    detail165:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -225
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-70,-70,90,90]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [3.9]
+    detail166:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -305
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-70,-70,90,90]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [3.9]
+    detail167:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -305
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [30,30,160,160]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail168:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -305
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-140,-140,-10,-10]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail169:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -225
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-140,-140,-10,-10]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail170:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -225
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [30,30,160,160]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail171:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 305
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [30,30,160,160]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail172:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 305
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-140,-140,-10,-10]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail173:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 225
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-140,-140,-10,-10]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail174:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 225
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [30,30,160,160]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail175:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: 60
+      position:
+        x: [0,0,0]
+        y: [-210,-210,-285]
+        z: [0,0,-80]
+      width: [0,100,100]
+      height: [0,0,0]
+      texture: [4]
+    detail176:
+      section_segments: 6
+      angle: 45
+      offset:
+        x: 0
+        y: 113
+        z: 60
+      position:
+        x: [0,0]
+        y: [-299,-354]
+        z: [0,-80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail177:
+      section_segments: 6
+      angle: 135
+      offset:
+        x: 0
+        y: -113
+        z: 60
+      position:
+        x: [0,0]
+        y: [-299,-354]
+        z: [0,-80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail178:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -25
+      position:
+        x: [-280,-280,-280,-280]
+        y: [-100,-100,100,100]
+        z: [0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,5,5,0]
+      texture: [3.9]
+    detail179:
+      section_segments: 10
+      angle: 0
+      offset:
+        x: 0
+        y: -80
+        z: -5
+      position:
+        x: [-150,-150,-150,-150,-150,-150]
+        y: [-40,-40,-35,35,40,40]
+        z: [0,0,0,0,0,0]
+      width: [0,10,15,15,10,0]
+      height: [0,10,15,15,10,0]
+      texture: [63]
+    detail180:
+      section_segments: 10
+      angle: 0
+      offset:
+        x: 0
+        y: -80
+        z: -5
+      position:
+        x: [-124,-124,-124,-124,-124,-124]
+        y: [-40,-40,-35,35,40,40]
+        z: [0,0,0,0,0,0]
+      width: [0,10,15,15,10,0]
+      height: [0,10,15,15,10,0]
+      texture: [63]
+    detail181:
+      section_segments: 10
+      angle: 0
+      offset:
+        x: 0
+        y: -80
+        z: 20
+      position:
+        x: [-150,-150,-150,-150,-150,-150]
+        y: [-40,-40,-35,35,40,40]
+        z: [0,0,0,0,0,0]
+      width: [0,10,15,15,10,0]
+      height: [0,10,15,15,10,0]
+      texture: [63]
+    detail182:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: -80
+        z: 20
+      position:
+        x: [-124,-124,-124,-124,-124,-124]
+        y: [-40,-40,-35,35,40,40]
+        z: [0,0,0,0,0,0]
+      width: [0,10,15,15,10,0]
+      height: [0,10,15,15,10,0]
+      texture: [63]
+    detail183:
+      section_segments: 3
+      angle: 0
+      offset:
+        x: 0
+        y: -100
+        z: 15
+      position:
+        x: [-137,-137,-137,-137]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,40,40,0]
+      height: [0,30,30,0]
+      texture: [3.7]
+    detail184:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -100
+        z: -10
+      position:
+        x: [-137,-137,-137,-137]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,40,40,0]
+      height: [0,20,20,0]
+      texture: [3.9]
+    detail185:
+      section_segments: 3
+      angle: 0
+      offset:
+        x: 0
+        y: -60
+        z: 15
+      position:
+        x: [-137,-137,-137,-137]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,40,40,0]
+      height: [0,30,30,0]
+      texture: [3.7]
+    detail186:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -60
+        z: -10
+      position:
+        x: [-137,-137,-137,-137]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,40,40,0]
+      height: [0,20,20,0]
+      texture: [3.9]
+    detail187:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: 60
+      position:
+        x: [0,0,0]
+        y: [230,230,305]
+        z: [0,0,-80]
+      width: [0,100,100]
+      height: [0,0,0]
+      texture: [4]
+    detail188:
+      section_segments: 6
+      angle: 135
+      offset:
+        x: 0
+        y: 133
+        z: 59
+      position:
+        x: [0,0]
+        y: [328,382]
+        z: [0,-80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail189:
+      section_segments: 6
+      angle: 45
+      offset:
+        x: 0
+        y: -133
+        z: 59
+      position:
+        x: [0,0]
+        y: [328,382]
+        z: [0,-80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail190:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -25
+      position:
+        x: [300,300,300,300]
+        y: [-100,-100,100,100]
+        z: [0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,5,5,0]
+      texture: [3.9]
+    detail191:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -180
+      position:
+        x: [10,10]
+        y: [-100,100]
+        z: [0,0]
+      width: [230,230]
+      height: [0,0]
+      texture: [3.9]
+    detail192:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 200
+        z: -180
+      position:
+        x: [10,10]
+        y: [-100,-25]
+        z: [0,80]
+      width: [230,230]
+      height: [0,0]
+      texture: [3.9]
+    detail193:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -200
+        z: -100
+      position:
+        x: [10,10]
+        y: [25,100]
+        z: [0,-80]
+      width: [230,230]
+      height: [0,0]
+      texture: [3.9]
+    detail194:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -174
+        z: -61
+      position:
+        x: [0,0]
+        y: [-210,230]
+        z: [0,0]
+      width: [0,0]
+      height: [40,40]
+      texture: [3.9]
+    detail195:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 174
+        z: -61
+      position:
+        x: [0,0]
+        y: [-210,230]
+        z: [0,0]
+      width: [0,0]
+      height: [40,40]
+      texture: [3.9]
+    detail196:
+      section_segments: 6
+      angle: 135
+      offset:
+        x: 0
+        y: 133
+        z: -179
+      position:
+        x: [0,0]
+        y: [328,382]
+        z: [0,80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail197:
+      section_segments: 6
+      angle: 45
+      offset:
+        x: 0
+        y: -133
+        z: -179
+      position:
+        x: [0,0]
+        y: [328,382]
+        z: [0,80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail198:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -161
+      position:
+        x: [-200,-200,-200,-200]
+        y: [-175,-100,100,175]
+        z: [60,-20,-20,60]
+      width: [15,15,15,15]
+      height: [4,4,4,4]
+      texture: [4]
+    detail199:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -161
+      position:
+        x: [220,220,220,220]
+        y: [-175,-100,100,175]
+        z: [60,-20,-20,60]
+      width: [15,15,15,15]
+      height: [4,4,4,4]
+      texture: [4]
+    detail200:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -100
+      position:
+        x: [220,220,220,220]
+        y: [-175,-175,175,175]
+        z: [0,0,0,0]
+      width: [0,15,15,0]
+      height: [0,4,4,0]
+      texture: [2.9]
+    detail201:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -100
+      position:
+        x: [-200,-200,-200,-200]
+        y: [-175,-175,175,175]
+        z: [0,0,0,0]
+      width: [0,15,15,0]
+      height: [0,4,4,0]
+      texture: [2.9]
+    detail202:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: -90
+      position:
+        x: [0,0,0,0]
+        y: [-285,-210,230,355]
+        z: [0,0,0,0]
+      width: [100,174,174,100]
+      height: [0,0,0,0]
+      texture: [3]
+    detail203:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: -100
+      position:
+        x: [0,0,0,0]
+        y: [-285,-210,230,355]
+        z: [0,0,0,0]
+      width: [100,174,174,100]
+      height: [0,0,0,0]
+      texture: [3]
+    detail204:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -95
+      position:
+        x: [230,355,355,230]
+        y: [-175,-100,100,175]
+        z: [0,0,0,0,0]
+      width: [0,0,0,0]
+      height: [5,5,5,5]
+      texture: [3]
+    detail205:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 175
+        z: -95
+      position:
+        x: [0,0]
+        y: [-210,230]
+        z: [0,0,0]
+      width: [0,0]
+      height: [5,5]
+      texture: [3]
+    detail206:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -95
+      position:
+        x: [-210,-285,-285,-210]
+        y: [-175,-100,100,175]
+        z: [0,0,0,0,0]
+      width: [0,0,0,0]
+      height: [5,5,5,5]
+      texture: [3]
+    detail207:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: -180
+      position:
+        x: [0,0,0]
+        y: [230,230,305]
+        z: [0,0,80]
+      width: [0,100,100]
+      height: [0,0,0]
+      texture: [4]
+    detail208:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -95
+      position:
+        x: [300,300,300,300]
+        y: [-100,-100,100,100]
+        z: [0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,5,5,0]
+      texture: [3.9]
+    detail209:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: -180
+      position:
+        x: [0,0,0]
+        y: [-210,-210,-285]
+        z: [0,0,80]
+      width: [0,100,100]
+      height: [0,0,0]
+      texture: [4]
+    detail210:
+      section_segments: 6
+      angle: 45
+      offset:
+        x: 0
+        y: 113
+        z: -180
+      position:
+        x: [0,0]
+        y: [-299,-354]
+        z: [0,80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail211:
+      section_segments: 6
+      angle: 135
+      offset:
+        x: 0
+        y: -113
+        z: -180
+      position:
+        x: [0,0]
+        y: [-299,-354]
+        z: [0,80]
+      width: [0,65]
+      height: [0,0]
+      texture: [4]
+    detail212:
+      section_segments: 6
+      angle: 45
+      offset:
+        x: 0
+        y: -110
+        z: -60
+      position:
+        x: [-350,-350]
+        y: [-55,50]
+        z: [0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [2.9]
+    detail213:
+      section_segments: 6
+      angle: 135
+      offset:
+        x: 0
+        y: 110
+        z: -60
+      position:
+        x: [350,350]
+        y: [-50,50]
+        z: [0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [1.9]
+    detail214:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -176
+        z: -60
+      position:
+        x: [-350,-350,-350,-350]
+        y: [-215,-215,-210,-210]
+        z: [0,0,0]
+      width: [0,5,5,0]
+      height: [0,40,40,0]
+      texture: [3]
+    detail215:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -524
+        z: -60
+      position:
+        x: [-350,-350,-350,-350]
+        y: [-215,-215,-210,-210]
+        z: [0,0,0]
+      width: [0,5,5,0]
+      height: [0,40,40,0]
+      texture: [3]
+    detail216:
+      section_segments: 6
+      angle: 45
+      offset:
+        x: 0
+        y: -315
+        z: -60
+      position:
+        x: [-350,-350]
+        y: [-50,100]
+        z: [0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [1.9]
+    detail217:
+      section_segments: 6
+      angle: 135
+      offset:
+        x: 0
+        y: 315
+        z: -60
+      position:
+        x: [350,350]
+        y: [-50,100]
+        z: [0,0]
+      width: [0,0]
+      height: [30,30]
+      texture: [1.9]
+    detail218:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 100
+        z: -25
+      position:
+        x: [0,0]
+        y: [300,350]
+        z: [0,-65]
+      width: [2,2]
+      height: [2,2]
+      texture: [3.9]
+    detail219:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -100
+        z: -25
+      position:
+        x: [0,0]
+        y: [300,350]
+        z: [0,-65]
+      width: [2,2]
+      height: [2,2]
+      texture: [3.9]
+    detail220:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -88
+      position:
+        x: [290,302,324,324,302,290]
+        y: [-50,-50,-35,35,50,50]
+        z: [0,0,0,0,0,0]
+      width: [0,0,0,0,0,0]
+      height: [10,10,10,10,10,10]
+      texture: [3.9]
+    detail221:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -55
+      position:
+        x: [50,50,50,50]
+        y: [-150,-150,150,150]
+        z: [0,0,0,0]
+      width: [0,0,0,0]
+      height: [0,37,37,0]
+      texture: [3.9]
+    detail222:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -88
+      position:
+        x: [290,317,317,290]
+        y: [-50,-33,33,50]
+        z: [0,0,0,0]
+      width: [0,0,0,0]
+      height: [10,10,10,10]
+      texture: [3.9]
+    detail223:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -79
+      position:
+        x: [296,320,320,296]
+        y: [-50,-35,35,50]
+        z: [0,0,0,0]
+      width: [5.2,5.2,5.2,5.2]
+      height: [0,0,0,0]
+      texture: [14.7]
+    detail224:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -90
+      position:
+        x: [305,305,305,305]
+        y: [-1,-1,1,1]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,6,6,0]
+      texture: [4]
+    detail225:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -85
+      position:
+        x: [305,305,305,305]
+        y: [-4,-4,4,4]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail226:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -82
+      position:
+        x: [302,302,302,302]
+        y: [-4,-4,4,4]
+        z: [0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,4,4,0]
+      texture: [63]
+    detail227:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 20
+        z: -90
+      position:
+        x: [305,305,305,305]
+        y: [-1,-1,1,1]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,6,6,0]
+      texture: [4]
+    detail228:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 20
+        z: -85
+      position:
+        x: [305,305,305,305]
+        y: [-4,-4,4,4]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail229:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 20
+        z: -82
+      position:
+        x: [302,302,302,302]
+        y: [-4,-4,4,4]
+        z: [0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,4,4,0]
+      texture: [63]
+    detail230:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: -20
+        z: -90
+      position:
+        x: [305,305,305,305]
+        y: [-1,-1,1,1]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,6,6,0]
+      texture: [4]
+    detail231:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -20
+        z: -85
+      position:
+        x: [305,305,305,305]
+        y: [-4,-4,4,4]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,1,1,0]
+      texture: [63]
+    detail232:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: -20
+        z: -82
+      position:
+        x: [302,302,302,302]
+        y: [-4,-4,4,4]
+        z: [0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,4,4,0]
+      texture: [63]
+    detail233:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: -90
+      position:
+        x: [302,302,302,302]
+        y: [-90,-90,90,90]
+        z: [0,0,0,0]
+      width: [0,50,50,0]
+      height: [0,1,1,0]
+      texture: [0.9]
+    detail234:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: -385
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-70,-70,90,90]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [3.9]
+    detail235:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -385
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [30,30,160,160]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail236:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -385
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,-140,-140]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail237:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 385
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [30,30,160,160]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail238:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: 385
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,-140,-140]
+        z: [0,0,0,0]
+      width: [0,35,35,0]
+      height: [0,1,1,0]
+      texture: [14]
+    detail239:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: 0
+        y: 385
+        z: -65
+      position:
+        x: [0,0,0,0]
+        y: [-70,-70,90,90]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,2.5,2.5,0]
+      texture: [3.9]
+    detail240:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 50
+        z: 0
+      position:
+        x: [-130,-130,-130,-130,-130,-130,-130]
+        y: [-45,-48,-40,30,30,70,70]
+        z: [0,0,0,0,0,0,0]
+      width: [0,8,13,13,20,20,0]
+      height: [0,3,8,8,6,6,0]
+      texture: [4,1,11,1,8]
+    detail241:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 55
+        z: -3
+      position:
+        x: [-140,-140,-140,-140]
+        y: [0,-5,15,10]
+        z: [0,0,0,0]
+      width: [0,18,18,0]
+      height: [0,7,7,0]
+      texture: [4,1,4]
+    detail242:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 47
+        z: 0
+      position:
+        x: [-125,-125,-125,-125]
+        y: [-22,-22,35,35]
+        z: [0,0,0,0]
+      width: [0,18,18,0]
+      height: [0,7,7,0]
+      texture: [1,10,1]
+    detail243:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 50
+        z: 5
+      position:
+        x: [-131,-131,-131,-131,-128,-128,-126]
+        y: [-25,-14,1,15,22,65,68]
+        z: [0,0,0,0,6,6,6]
+      width: [7,9,10,10,2,2,2]
+      height: [3,8,10,7,2,2,2]
+      texture: [9,9,3,3,63,63]
+    detail244:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 105
+        z: 5
+      position:
+        x: [-123,-123,-123,-125,-125]
+        y: [-10,-10,10,13,13.5]
+        z: [-6,-6,3,6,6]
+      width: [0,2,2,2,0]
+      height: [0,2,2,2,0]
+      texture: [63]
+    detail245:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 105
+        z: 5
+      position:
+        x: [-120,-120,-120,-120,-120,-120]
+        y: [-16,-15,-13,13,16,17]
+        z: [0,0,0,0,0,0]
+      width: [0,5,7,7,5,0]
+      height: [0,5,7,7,5,0]
+      texture: [4,4,15,4,4]
+    detail246:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 20
+        z: 5
+      position:
+        x: [-142,-142,-142,-142,-142,-142,-142,-142,-130]
+        y: [-9,-9,-11,-9,9,11,19,35,50]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,3,3,6,6,3,2,2,2]
+      height: [0,3,3,6,6,3,2,2,2]
+      texture: [17,17,4,1,4,18,63]
+    detail247:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 10
+        z: 2
+      position:
+        x: [-141,-141,-141,-141,-141,-141,-141]
+        y: [-30,-35,-5,0,20,25,20]
+        z: [0,0,0,0,0,0,0]
+      width: [0,2,3,5,5,3,0]
+      height: [0,2,3,5,5,3,0]
+      texture: [4,1,1,15,17]
+    detail248:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 90
+        z: 10
+      position:
+        x: [-120,-120,-120,-120,-120,-120,-120]
+        y: [0,-1.5,-1.5,0,1.5,1.5,0]
+        z: [0,0,0,0,0,0,0]
+      width: [3,3,4.4,5,4.4,3,3]
+      height: [3,3,4.4,5,4.4,3,3]
+      texture: [17]
+    detail249:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 100
+        z: 10
+      position:
+        x: [-120,-120,-120,-120,-120,-120,-120]
+        y: [0,-1.5,-1.5,0,1.5,1.5,0]
+        z: [0,0,0,0,0,0,0]
+      width: [3,3,4.4,5,4.4,3,3]
+      height: [3,3,4.4,5,4.4,3,3]
+      texture: [17]
+    detail250:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 95
+        z: 10
+      position:
+        x: [-120,-120,-120,-120,-120,-120,-120]
+        y: [0,-1.5,-1.5,0,1.5,1.5,0]
+        z: [0,0,0,0,0,0,0]
+      width: [3,3,4.4,5,4.4,3,3]
+      height: [3,3,4.4,5,4.4,3,3]
+      texture: [17]
+    detail251:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 25
+        z: 5
+      position:
+        x: [-137,-137,-137,-137,-137,-137,-137]
+        y: [0,-1.5,-1.5,0,1.5,1.5,0]
+        z: [0,0,0,0,0,0,0]
+      width: [3,3,4.4,5,4.4,3,3]
+      height: [3,3,4.4,5,4.4,3,3]
+      texture: [63]
+    detail252:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 60
+        z: 0
+      position:
+        x: [-100,-100,-100,-100,-100,-100,-100]
+        y: [-20,-20,-23,-20,20,25,15]
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,6,10,10,8,0]
+      height: [0,5,6,10,10,8,0]
+      texture: [17,17,4,17.7,4,17]
+    detail253:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 65
+        z: 0
+      position:
+        x: [-150,-150,-150,-150,-150,-150,-150]
+        y: [-20,-20,-23,-20,20,25,15]
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,6,10,10,8,0]
+      height: [0,5,6,10,10,8,0]
+      texture: [17,17,4,18,4,17]
+    detail254:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 105
+        z: -10
+      position:
+        x: [-141,-141,-141,-141,-141]
+        y: [-23,-20,20,25,15]
+        z: [0,0,0,0,0]
+      width: [0,10,10,8,0]
+      height: [0,10,10,8,0]
+      texture: [1,13,63,17]
+    detail255:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 105
+        z: -10
+      position:
+        x: [-119,-119,-119,-119,-119]
+        y: [-23,-20,20,25,15]
+        z: [0,0,0,0,0]
+      width: [0,10,10,8,0]
+      height: [0,10,10,8,0]
+      texture: [1,13,63,17]
+    detail256:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 65
+        z: -7
+      position:
+        x: [-130,-130,-130,-130]
+        y: [-25,-25,35,35]
+        z: [0,0,0,0]
+      width: [0,18,18,0]
+      height: [0,8,8,0]
+      texture: [2]
+    detail257:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 60
+        z: 7
+      position:
+        x: [0,0,0,0]
+        y: [-145,-145,-125,-125]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [63]
+    detail258:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 65
+        z: 7
+      position:
+        x: [0,0,0,0]
+        y: [-145,-145,-125,-125]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [63]
+    detail259:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 62
+        z: 7
+      position:
+        x: [-150,-150,-150,-150,-150]
+        y: [-15,-15,-5,15,15]
+        z: [0,0,0,0,0]
+      width: [0,6,8,8,0]
+      height: [0,5,5,5,0]
+      texture: [4,8,10,4]
+    detail260:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 60
+        z: 5
+      position:
+        x: [-170,-170,-170,-170,-170,-170,-170]
+        y: [-10,-15,-2,0,25,30,25]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,4,5,5,3,0]
+      height: [0,3,4,5,5,3,0]
+      texture: [4,63,63,8,17]
+    detail261:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 60
+        z: 5
+      position:
+        x: [-80,-80,-80,-80,-80,-80,-80]
+        y: [-10,-15,-2,0,25,30,25]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,4,5,5,3,0]
+      height: [0,3,4,5,5,3,0]
+      texture: [4,63,63,8,17]
+    detail262:
+      section_segments: 8
+      angle: -70
+      offset:
+        x: 0
+        y: 500
+        z: 5
+      position:
+        x: [-470,-470,-470,-470]
+        y: [-20,-20,10,10]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [63]
+    detail263:
+      section_segments: 8
+      angle: -70
+      offset:
+        x: 0
+        y: 510
+        z: 5
+      position:
+        x: [-470,-470,-470,-470]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [63]
+    detail264:
+      section_segments: 8
+      angle: 70
+      offset:
+        x: 0
+        y: -165
+        z: 5
+      position:
+        x: [-250,-250,-250,-250]
+        y: [-20,-20,10,10]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [63]
+    detail265:
+      section_segments: 8
+      angle: 70
+      offset:
+        x: 0
+        y: -175
+        z: 5
+      position:
+        x: [-250,-250,-250,-250]
+        y: [-20,-20,10,10]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [63]
+    detail266:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 17
+        z: 12
+      position:
+        x: [-142.3,-142.3,-142.8,-142.8]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,2,1.5,0]
+      height: [0,2,2,0]
+      texture: [17]
+    detail267:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 20
+        z: 12
+      position:
+        x: [-141.8,-141.8,-142.2,-142.2]
+        y: [-2,-2,2.5,2.5]
+        z: [0,0,0,0]
+      width: [0,1.7,1.3,0]
+      height: [0,2,2,0]
+      texture: [17]
+    detail268:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 23
+        z: 12
+      position:
+        x: [-141.2,-141.2,-141.7,-141.7]
+        y: [-2,-2,2,2]
+        z: [0,0,0,0]
+      width: [0,1.4,0.5,0]
+      height: [0,2,2,0]
+      texture: [17]
+    detail270:
+      section_segments: 8
+      angle: 0
+      offset:
+        x: 0
+        y: 20
+        z: 8.5
+      position:
+        x: [-142.2,-142.2,-142.2,-142.2]
+        y: [-6,-6,7,7]
+        z: [0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,5,5,0]
+      texture: [4]
+    detail271:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 63
+        z: -20
+      position:
+        x: [-130,-130,-130,-130]
+        y: [-80,-80,80,80]
+        z: [0,0,0,0]
+      width: [0,60,60,0]
+      height: [0,2,2,0]
+      texture: [0.9]
+    detail272:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 63
+        z: -19
+      position:
+        x: [-130,-130,-130,-130]
+        y: [-74,-74,74,74]
+        z: [0,0,0,0]
+      width: [0,54,54,0]
+      height: [0,2,2,0]
+      texture: [2]
+    detail273:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 60
+        z: -60
+      position:
+        x: [0,0,0,0,0]
+        y: [-295,-320,-320,-150,-150]
+        z: [0,0,0,0,0]
+      width: [0,21,25,35,0]
+      height: [0,21,25,35,0]
+      texture: [17,4,8,2]
+    detail274:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: 0
+        z: -60
+      position:
+        x: [0,0,0,0,0]
+        y: [-295,-320,-320,-150,-150]
+        z: [0,0,0,0,0]
+      width: [0,21,25,35,0]
+      height: [0,21,25,35,0]
+      texture: [17,4,8,2]
+    detail275:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 0
+        y: -60
+        z: -60
+      position:
+        x: [0,0,0,0,0]
+        y: [-295,-320,-320,-150,-150]
+        z: [0,0,0,0,0]
+      width: [0,21,25,35,0]
+      height: [0,21,25,35,0]
+      texture: [17,4,8,2]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

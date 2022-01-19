@@ -1,0 +1,58 @@
+return model =
+  name: 'Condor'
+  level: 6
+  model: 4
+  size: 1.5
+  specs:
+    shield:
+      capacity: [225,400]
+      reload: [7,10]
+    generator:
+      capacity: [70,130]
+      reload: [30,48]
+    ship:
+      mass: 200
+      speed: [75,105]
+      rotation: [50,70]
+      acceleration: [80,120]
+  bodies:
+    main:
+      section_segments: [30,45,45+90,60+90,120+90,45+902,45+90*3,60+90*3]
+      offset:
+        x: 0
+        y: 40
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-20,-20,-80,-77,-55,-50,-28,-23,15,5]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,38,38,45,45,55,55,45,45,0]
+      height: [0,25,25,30,30,30,30,30,30,0]
+      texture: [-30.63,15-45,63,11-15,11,-30]
+    cannons:
+      section_segments: 12
+      offset:
+        x: 250
+        y: 30
+        z: -25
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-50,-45,-20,0,20,50,55]
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,10,10,10,10,0]
+      height: [0,5,15,15,10,5,0]
+      texture: [6,4,10,4,1,4]
+    cockpit:
+      section_segments: 12
+      offset:
+        x: 200
+        y: -60
+        z: 8
+      position:
+        x: [0,0,0,0]
+        y: [-25,-8,20,65]
+        z: [0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,12,15,5]
+      texture: [9]
+

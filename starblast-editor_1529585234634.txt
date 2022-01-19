@@ -1,0 +1,174 @@
+return model =
+  name: 'Starsurfer'
+  level: 1
+  model: 8
+  size: 1.6
+  specs:
+    shield:
+      capacity: [230,230]
+      reload: [7,7]
+    generator:
+      capacity: [150,150]
+      reload: [20,20]
+    ship:
+      mass: 130
+      speed: [140,140]
+      rotation: [40,40]
+      acceleration: [210,210]
+      dash:
+        rate: 2
+        burst_speed: [200,20]
+        speed: [165,165]
+        acceleration: [230,230]
+        initial_energy: [45,45]
+        energy: [27,27]
+  bodies:
+    mainBody:
+      section_segments: 6
+      offset:
+        x: 20
+        y: 20
+        z: 5
+      position:
+        x: [-20,-20,-5,0,0,0,0,0,-10,-10]
+        y: [-145,-140,-120,-90,-30,-20,-15,15,40,40]
+        z: [-5,-5,-5,-5,-5,0,0,0,0,0,0]
+      width: [0,20,20,20,20,15,15,15,15,0]
+      height: [0,10,10,10,10,10,10,10,15,0]
+      texture: [4]
+    engineBottom:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 50
+        z: -3
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-20,-15,15,20,15]
+        z: [0,0,0,0,0,0]
+      width: [0,28,28,26,0]
+      height: [0,9,9,6,0]
+      texture: [3,3,2,17]
+      propeller:true
+    engineTop:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 50
+        z: 13
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-20,-15,15,20,15]
+        z: [0,0,0,0,0,0]
+      width: [0,24,24,22,0]
+      height: [0,9,9,6,0]
+      texture: [3,3,2,17]
+      propeller:true
+    reactor:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 8
+        z: 12
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-25,-20,-10,0,10,20,25,35]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,15,15,15,15,5,0]
+      height: [0,15,15,15,15,15,15,5,0]
+      texture: [1,1,17,1,17,1,1]
+    bottom:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 20
+        z: -3
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-141,-125,15,20]
+        z: [-5,0,0,0,0,0]
+      width: [0,15,15,0]
+      height: [0,10,10,0]
+      texture: [2]
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -5
+        z: 12
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-95,-62,-25,0,5]
+        z: [0,0,0,0,0,0]
+      width: [0,10,15,15,0]
+      height: [0,8,15,13,0]
+      texture: [9]
+    cockpit2:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -5
+        z: 10
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-115,-100,-55,-25,20]
+        z: [0,0,0,0,0,0]
+      width: [0,12,15,20,16]
+      height: [0,4,12,4,0]
+      texture: [13,18,8,1]
+    backStructural:
+      section_segments: 6
+      offset:
+        x: 32
+        y: 15
+        z: 0
+      position:
+        x: [0,5,5,0,0,0]
+        y: [-20,-15,40,50]
+        z: [0,0,0,0,0,0]
+      width: [3,3,3,3]
+      height: [3,3,3,3]
+      texture: [1]
+    backStructura2:
+      section_segments: 6
+      offset:
+        x: 32
+        y: 65
+        z: 0
+      position:
+        x: [0,0,0,0,0]
+        y: [-20,0,3]
+        z: [-3,0,0,0,0,0]
+      width: [3,3,0]
+      height: [3,3,0]
+      angle:90
+      texture: [1]
+  wings:
+    defense1:
+      doubleside: true
+      offset:
+        x: 37
+        y: 35
+        z: 0
+      length: [-9,-4,-20]
+      width: [5,5,20,20]
+      angle: [280,315,330]
+      position: [0,0,0,0]
+      texture: [3,18]
+      bump:
+        position: 0
+        size: -10
+     defense2:
+      doubleside: true
+      offset:
+        x: 37
+        y: 10
+        z: 0
+      length: [-9,-4,-20]
+      width: [5,5,20,20]
+      angle: [280,315,330]
+      position: [0,0,0,0]
+      texture: [3,18]
+      bump:
+        position: 0
+        size: -10

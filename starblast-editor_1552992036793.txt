@@ -1,0 +1,219 @@
+return model =
+  name: 'Shadow Phoenix MK-II'
+  level: 3
+  model: 4
+  size: 1.4
+  specs:
+    shield:
+      capacity: [270,315]
+      reload: [8,11]
+    generator:
+      capacity: [320,380]
+      reload: [60,75]
+    ship:
+      mass: 170
+      speed: [120,140]
+      rotation: [100,120]
+      acceleration: [90,105]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -47
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-184,-160,-108,100,105,110,137,130]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,10,20,30,20,20,10,0]
+      height: [0,10,20,20,20,24,12,0]
+      texture: [5,4,18,4,17,4,17]
+      propeller: true
+    engines1:
+      section_segments: 12
+      offset:
+        x: 195
+        y: -165
+        z: -97
+      position:
+        x: [0,0,0,0,0,0]
+        y: [0,10,20,55,130,125]
+        z: [0,0,0,0,0,0]
+      width: [0,3,7,10,7,0]
+      height: [0,3,7,10,7,0]
+      texture: [18]
+      propeller: true
+      laser:
+        damage: [5,5]
+        rate: 3
+        type: 1
+        speed: [150,160]
+        number: 1
+        error: 0
+    engines2:
+      section_segments: 12
+      offset:
+        x: 150
+        y: -120
+        z: -62
+      position:
+        x: [0,0,0,0,0,0]
+        y: [0,10,20,55,130,125]
+        z: [0,0,0,0,0,0]
+      width: [0,3,7,10,7,0]
+      height: [0,3,7,10,7,0]
+      texture: [18]
+      propeller: true
+      laser:
+        damage: [5,5]
+        rate: 3
+        type: 1
+        speed: [150,160]
+        number: 1
+        error: 0
+    engines3:
+      section_segments: 12
+      offset:
+        x: 100
+        y: -80
+        z: -34
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-20,-10,10,55,130,125]
+        z: [0,0,0,0,0,0]
+      width: [0,3,7,10,7,0]
+      height: [0,3,7,10,7,0]
+      texture: [18]
+      propeller: true
+      laser:
+        damage: [5,5]
+        rate: 3
+        type: 1
+        speed: [150,160]
+        number: 1
+        error: 0
+    cockpit:
+      section_segments: 10
+      offset:
+        x: 0
+        y: -180
+        z: 10
+      position:
+        x: [0,0,0,0,0]
+        y: [0,18,36,44,49]
+        z: [0,5,10,5,0]
+      width: [10,15,15,5,0]
+      height: [5,5,5,3,0]
+      texture: [9]
+      propeller: false
+    cannons:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -250
+        z: -17
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0,13,17,32,32,47,52,73]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,5,5,7,7,4,4,7,7]
+      height: [0,5,5,7,7,4,4,7,7]
+      texture: 4.5
+      propeller: false
+      angle: 1
+      laser:
+        damage: [20,26]
+        rate: 6
+        type: 1
+        speed: [100,115]
+        number: 2
+        angle: 5
+        error: 0
+    join:
+      section_segments: 8
+      offset:
+        x: 40
+        y: -80
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0,56,56,56,56,56,56,56]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,17,17,11,14,17,17]
+      height: [0,5,5,7,7,4,4,7,7]
+      texture: [18]
+  wings:
+    outer:
+      offset:
+        x: 50
+        y: -30
+        z: 10
+      length: [0,22,25,50,10,65]
+      width: [105,120,170,100,80,75,15]
+      angle: [-15,-15,-50,-30,-30,-30]
+      position: [0,0,0,0,0,-15,-100]
+      texture: [17,4,17,4,17,4]
+      doubleside: true
+      bump:
+        position: 30
+        size: 10
+    inner:
+      offset:
+        x: 35
+        y: -40
+        z: 10
+      length: [0,7,14,21,28,35]
+      width: [140,120,100,80,60,40,20]
+      angle: [60,60,60,60,60,60]
+      position: [0,0,0,0,0,10,60]
+      texture: [17]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+    top:
+      offset:
+        x: 20
+        y: -40
+        z: 10
+      length: [0,4,8,12,16,20]
+      width: [140,120,100,80,60,40,20]
+      angle: [90,90,90,90,90,90]
+      position: [0,0,0,0,0,0,0]
+      texture: [17]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+    side:
+      offset:
+        x: 0
+        y: -140
+        z: 0
+      length: [0,4,8,12,16,20]
+      width: [140,120,100,180,100,40,20]
+      angle: [0,0,0,0,0,0]
+      position: [0,0,0,0,0,0,0]
+      texture: [17]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+    wingtop:
+      offset:
+        x: 0
+        y: 100
+        z: 0
+      length: [0,4,8,12,16,20]
+      width: [140,120,100,180,100,40,20]
+      angle: [0,0,0,0,0,0]
+      position: [0,0,0,0,0,0,0]
+      texture: [17]
+      doubleside: true
+      bump:
+        position: 30
+        size: 4
+
+
+

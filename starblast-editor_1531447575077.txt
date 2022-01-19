@@ -1,0 +1,256 @@
+y=0
+sqSail = (px,py,pz,h,w,t)->
+  return s = 
+    section_segments: 4
+    offset:
+      x: px
+      y: py
+      z: pz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: [0,-8*h,-10*h,-9*h,-3*h,0]
+      z: [-10*h,-5*h,4*h,15*h,37*h,40*h]
+    width: [0,10*w,20*w,20*w,15*w,0]
+    height: [0,0,0,0,0,0,0]
+    texture: [t]
+    
+cdmg1=3
+cdmg2=5
+crate=3
+cbspeed1=160
+cbspeed2=200
+crecoil=0
+cnumber=1
+cerror=0
+
+cannon = (px,py,pz)->
+  return c =
+    section_segments: 8
+    offset:
+      x: px
+      y: py
+      z: pz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: [0,-2,-2,2,2,10]
+      z: [0,0,0,0,0,0,0,0]
+    width: [0,1,1.3,1.8,3,3]
+    height: [0,1,1.3,1.8,3,3]
+    texture: [5,4,4,63,63]
+    angle:-90
+    laser:
+      damage: [cdmg1,cdmg2]
+      rate: crate
+      type: 2
+      speed: [cbspeed1,cbspeed2]
+      recoil: crecoil
+      number: cnumber
+      error: cerror
+
+    
+return model =
+  name: 'Bull'
+  level: 1
+  model: 18
+  size: 1.1
+  specs:
+    shield:
+      capacity: [275,275]
+      reload: [15,15]
+    generator:
+      capacity: [150,150]
+      reload: [20,20]
+    ship:
+      mass: 170
+      speed: [140,140]
+      rotation: [40,40]
+      acceleration: [150,150]
+      dash:
+        rate: 1
+        burst_speed: [200,200]
+        speed: [180,180]
+        acceleration: [170,170]
+        initial_energy: [45,45]
+        energy: [30,30]
+  bodies:
+    deckheck:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-50,-30,-20,30,40,60,70]
+        z: [6,6,6,0,0,6,6,6]
+      width: [0,15,17,17,17,17,12,0]
+      height: [0,2,2,2,2,2,2,0]
+      texture: [12,12,3,13,3,12,12]
+    sides1:
+      section_segments: 4
+      offset:
+        x: 14
+        y: 0+y
+        z: 16
+      position:
+        x: [-14,-1,1,0,0,1,-3,-14,0,0]
+        y: [-80,-50,-30,-20,30,40,60,70]
+        z: [-3,-3,-3,-5,-5,-3,-3,-3]
+      width: [0,2,2,2,2,2,2,0]
+      height: [5,6,6,4,4,6,6,6,4]
+      texture: [1]
+    sides2:
+      section_segments: 4
+      offset:
+        x: 14
+        y: 0+y
+        z: 7
+      position:
+        x: [-14,-1,1,0,0,1,-3,-14,0,0]
+        y: [-79,-50,-30,-20,30,40,60,69]
+        z: [3,-1,-3,-3,-3,-3,-1,3]
+      width: [0,0,0,0,0,0,0,0,0,0]
+      height: [0,2,4,4,4,4,2,0]
+      texture: [63]
+    keel:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 1+y
+        z: 5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-90,-80,-60,-20,30,60,69,72]
+        z: [12,7,0,-10,-10,0,7,7,0,0]
+      width: [0,5,5,5,5,4,3,0]
+      height: [0,7,10,5,5,10,7,0]
+      texture: [3]
+    underside:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 0+y
+        z: 1.5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-50,-30,-20,30,40,60,70]
+        z: [6,3,-1,-1,-1,-1,3,6]
+      width: [0,14,16,15,15,16,11,0]
+      height: [0,7,7,7,7,7,7,0]
+      texture: [4]
+    frontSpikeThingy:
+      section_segments: 4
+      offset:
+        x: 0
+        y: -89+y
+        z: 20
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-25,-24,-4,10,12]
+        z: [2,2,-3,-7,-7]
+      width: [0,3,3,5,0]
+      height: [0,3,3,5,0]
+      texture: [2]
+      
+    mastF:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -40+y
+        z:9
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-3,-2,2,3]
+        z: [0,35,35,0]
+      width: [0,2,2,0]
+      height: [0,50,50,0]
+      texture: [1.9]
+    
+    mastMB:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y
+        z:6
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-4,-3,3,4]
+        z: [0,15,15,0]
+      width: [0,3,3,0]
+      height: [0,30,30,0]
+      texture: [1.9]
+    mastMT:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y
+        z:20
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-3,-2,2,3]
+        z: [0,35,35,0]
+      width: [0,2,2,0]
+      height: [0,50,50,0]
+      texture: [1.9]
+      
+    mastB:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 45+y
+        z:9
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-3,-2,2,3]
+        z: [0,35,35,0]
+      width: [0,2,2,0]
+      height: [0,50,50,0]
+      texture: [1.9]
+      
+    sail1: sqSail(0,-41,75,0.4,0.7,63)
+    sail2: sqSail(0,-41,45,0.6,0.9,63)
+    
+    sail3: sqSail(0,-1,85,0.4,0.7,63)
+    sail4: sqSail(0,-1,60,0.5,0.9,63)
+    sail5: sqSail(0,-2,27,0.7,1.2,63)
+    
+    sail6: sqSail(0,44,65,0.5,0.7,63)
+    sail7: sqSail(0,44,30,0.7,0.9,63)
+    
+    sailFrontTriangle:
+      section_segments: 4
+      offset:
+        x: 0
+        y: -90+y
+        z: 34
+      position:
+        x: [0,-6,-18,-34,0,0,0,0]
+        y: [-7,-7,0,16,-3,0]
+        z: [-10,-5,4,15,37,40]
+      width: [16,12,8,0]
+      height: [0,0,0,0,0,0,0]
+      texture: [63]
+      angle:60
+      
+    backSail:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 62+y
+        z: 34
+      position:
+        x: [0,6,-6]
+        y: [0,0,0]
+        z: [-10,20,25]
+      width: [16,14,0]
+      height: [0,0,0,0,0,0,0]
+      texture: [63]
+      angle:90
+      
+    cannon1:cannon(18,-20,4)
+    cannon2:cannon(18,-10,4)
+    cannon3:cannon(18,0,4)
+    cannon4:cannon(18,10,4)
+    cannon5:cannon(18,20,4)
+    cannon6:cannon(18,30,4)
+      

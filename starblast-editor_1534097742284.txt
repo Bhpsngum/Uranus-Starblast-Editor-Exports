@@ -1,0 +1,117 @@
+y = 0
+
+multiplyArrays = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m[i])
+  return k;
+
+addArrays = (arr, m, mult=1) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m[i]*mult)
+  return k;
+
+squareBody = (model, id, xx, yy, zz, w, h, posx, posy, posz, txtop, txsides, txbottom, bump) ->
+  flatw = [];
+  flath = [];
+  for i in [0..w.length]
+    flatw.push(bump)
+    flath.push(bump)
+  
+  sides = 
+    section_segments: 4
+    offset:
+      x: xx+0.01
+      y: yy
+      z: zz
+    position:
+      x: addArrays(posx,w,1)
+      y: posy
+      z: posz
+    width: flatw
+    height: h
+    texture: txsides
+  top = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h)
+    width: w
+    height: flath
+    texture: txtop
+  bottom = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h,-1)
+    width: w
+    height: flath
+    texture: txbottom
+    
+  model.bodies[id+"t"] = top;
+  model.bodies[id+"b"] = bottom;
+  model.bodies[id+"sides"] = sides;
+    
+  return model;
+    
+model =
+  name: 'AC4C WraithWing B'
+  level: 3
+  model: 4
+  size: 0.85
+  specs:
+    shield:
+      capacity: [130,160]
+      reload: [2,3]
+    generator:
+      capacity: [70,170]
+      reload: [20,40]
+    ship:
+      mass: 90
+      speed: [110,145]
+      rotation: [30,65]
+      acceleration: [140,160]
+  bodies:
+      
+    frontEnd:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -145+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,-3,0,5,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,15,15,10]
+      height: [0,7,12,12,10]
+      texture: [12,18,1,1] 
+      
+model = squareBody(model, "main", 0, 0+y, 0, 
+[4,12,14,15,15,14], #width
+[4,8,9,10,10,10,10], #height
+[0,0,0,0,0,0,0], #x
+[-145,-140,-90,-40,10,50], #y
+[0,0,0,0,0,0,0], #z
+[1,1,10,11,12], [1,1,12,18], [1,1,13,4,4], 3) #stuff
+
+model = squareBody(model, "cockpit", 0, 42+y, 10, 
+[10,10,10,10], #width
+[6,8,10,10], #height
+[0,0,0,0,0,0], #x
+[-80,-65,-20,10], #y
+[-6,0,0,0,0,0], #z
+[9,9,4], [18,9], 9, 3) #stuff
+
+return model

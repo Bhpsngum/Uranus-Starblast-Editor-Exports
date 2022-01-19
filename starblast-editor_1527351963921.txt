@@ -1,0 +1,109 @@
+return model =
+  name: 'Blastball'
+  level: 7
+  model: 5
+  size: 2.4
+  specs:
+    shield:
+      capacity: [300,400]
+      reload: [5,10]
+    generator:
+      capacity: [200,450]
+      reload: [10,24]
+    ship:
+      mass: 400
+      speed: [70,100]
+      rotation: [30,60]
+      acceleration: [50,100]
+  bodies:
+    sides1:
+      section_segments: 6
+      angle: 0
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-75,-60,-50,-10,10,50,60,75,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,30,35,20,22,22]
+      height: [0,10,12,8,12,12]
+      texture: [4,63,4,16.9,4,16.9,4,63,4]
+      laser:
+        damage: [60,120]
+        rate: 3
+        type: 1
+        speed: [100,150]
+        number: 1
+        error: 360
+    sides2:
+      section_segments: 6
+      angle: 180
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-75,-60,-50,-10,10,50,60,75,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,30,35,20,22,22]
+      height: [0,10,12,8,12,12]
+      texture: [4,63,4,16.9,4,16.9,4,63,4]
+    sides3:
+      section_segments: 6
+      angle: -60
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-75,-60,-50,-10,10,50,60,75,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,30,35,20,22,22]
+      height: [0,10,12,8,12,12]
+      texture: [4,63,4,16.9,4,16.9,4,63,4]
+    sides4:
+      section_segments: 6
+      angle: 60
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-75,-60,-50,-10,10,50,60,75,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,30,35,20,22,22]
+      height: [0,10,12,8,12,12]
+      texture: [4,63,4,16.9,4,16.9,4,63,4]
+    sides5:
+      section_segments: 6
+      angle: 120
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-75,-60,-50,-10,10,50,60,75,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,30,35,20,22,22]
+      height: [0,10,12,8,12,12]
+      texture: [4,63,4,16.9,4,16.9,4,63,4]
+    sides6:
+      section_segments: 6
+      angle: -120
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-75,-60,-50,-10,10,50,60,75,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,30,35,20,22,22]
+      height: [0,10,12,8,12,12]
+      texture: [4,63,4,16.9,4,16.9,4,63,4]

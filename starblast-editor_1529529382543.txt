@@ -1,0 +1,118 @@
+return model =
+  name: 'Blackbird'
+  level: 3
+  model: 1
+  size: 1
+  specs:
+    shield:
+      capacity: [250,250]
+      reload: [6,6]
+    generator:
+      capacity: [140,140]
+      reload: [15,15]
+    ship:
+      mass: 170
+      speed: [155,155]
+      rotation: [55,55]
+      acceleration: [150,150]
+  bodies:
+    main:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-300,-200,-160,-100,0,100,180,250,260]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,20,25,25,25,25,20,8,0]
+      height: [0,20,25,25,25,25,20,8,0]
+      propeller: false
+      texture: [1,1,10,10,1,10,1,63]    
+    main2:
+      section_segments: 10
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-300,-200,-160,-100,0,100,180,250,250]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,39,44,44,44,44,39,8,0]
+      height: [0,8,13,13,13,13,8,4,0]
+      propeller: false
+      texture: [63]    
+    cockpit:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -200
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-25,-10,16,30,45]
+        z: [13,16,19,21,23]
+      width: [0,8,12,10,0]
+      height: [0,8,14,10,0]
+      propeller: false
+      texture: [9,9,1,1,1]
+    propulsors:
+      section_segments: 12
+      offset:
+        x: 110
+        y: -14
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-40,10,0,0,24,130,190,220,180]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,16,18,18,23,23,23,18,0]
+      height: [0,16,18,18,23,23,23,18,0]
+      propeller: true
+      texture: [4,3,1,63,10,63,8,17]  
+    deco:
+      section_segments: 8
+      offset:
+        x: 132
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0]
+        y: [12,30,45,100,120]
+        z: [0,0,0,0,0]
+      width: [0,10,13,8,0]
+      height: [0,10,10,10,0]
+      texture: [4]
+      angle: 0
+      propeller: false
+  wings:
+    main:
+      length: [50,30,30,50]
+      width: [300,180,100,100,30]
+      angle: [0,0,0,0]
+      position: [30,70,70,100,120]
+      bump:
+        position: 0
+        size: 0
+      offset:
+        x: 30
+        y: 55
+        z: 0
+      texture: [11,1,10,63]
+      doubleside: true    
+    winglets:
+      doubleside: true
+      offset:
+        x: 110
+        y: 170
+        z: 23
+      length: [13,33,13]
+      width: [100,100,50]
+      angle: [110,110,110]
+      position: [-5,10,20,0]
+      texture: [1,63]
+      bump:
+        position: 0
+        size: 0

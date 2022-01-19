@@ -1,0 +1,145 @@
+y=0
+sqSail = (px,py,pz,h,w,t)->
+  return s = 
+    section_segments: 4
+    offset:
+      x: px
+      y: py
+      z: pz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: [0,-8*h,-10*h,-9*h,-3*h,0]
+      z: [-10*h,-5*h,4*h,15*h,37*h,40*h]
+    width: [0,10*w,20*w,20*w,15*w,0]
+    height: [0,0,0,0,0,0,0]
+    texture: [t]
+    
+cdmg1=3
+cdmg2=5
+crate=3
+cbspeed1=160
+cbspeed2=200
+crecoil=0
+cnumber=1
+cerror=0
+
+cannon = (px,py,pz)->
+  return c =
+    section_segments: 8
+    offset:
+      x: px
+      y: py
+      z: pz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: [0,-2,-2,2,2,10]
+      z: [0,0,0,0,0,0,0,0]
+    width: [0,1,1.3,1.8,3,3]
+    height: [0,1,1.3,1.8,3,3]
+    texture: [5,4,4,63,63]
+    angle:-90
+    laser:
+      damage: [cdmg1,cdmg2]
+      rate: crate
+      type: 2
+      speed: [cbspeed1,cbspeed2]
+      recoil: crecoil
+      number: cnumber
+      error: cerror
+
+    
+return model =
+  name: 'Small frigate'
+  level: 5
+  model: 1
+  size: 2.5
+  specs:
+    shield:
+      capacity: [200,400]
+      reload: [0,25]
+    generator:
+      capacity: [cdmg1*12,cdmg2*12]
+      reload: [10,30]
+    ship:
+      mass: 140
+      speed: [80,120]
+      rotation: [1,40]
+      acceleration: [1,1]
+  bodies:
+    deckheck:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-67,-50,-30,20,40,59,61]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,12,20,22,19,16,10,0]
+      height: [0,2,2,2,2,2,2,0]
+      texture: [12,12,12,1,1,12]
+    sides1:
+      section_segments: 4
+      offset:
+        x: 14
+        y: 0+y
+        z: 10
+      position:
+        x: [-14,-3,3,4,2,-1,-5,-14,0,0]
+        y: [-80,-67,-50,-30,20,40,59,61]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,2,2,2,2,2,2,0]
+      height: [4,4,4,4,4,5,7,7]
+      texture: [1]
+    sides2:
+      section_segments: 4
+      offset:
+        x: 11
+        y: 0+y
+        z: 5.5
+      position:
+        x: [-.8,0.2,0,0,-0.5,-1,1]
+        y: [-30,-20,-10,10,20,30,40]
+        z: [1,0,0,0,0,0,-1,0]
+      width: [8,7,7,6,6,5,2]
+      height: [0,5.6,5,5,5,5,0]
+      texture: [4]
+    
+    underside:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 0+y
+        z: 1.5
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-80,-67,-50,-30,-20,30,40,60,62]
+        z: [5,4.5,4.5,4.5,-1,0,3,3,6]
+      width: [0,11,17,18,11,11,14,9,0]
+      height: [0,3,3,3,5,5,7,7,0]
+      texture: [4]
+    underside2:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -10+y
+        z: 1.5
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-60,-40,-30,-10,40,60]
+        z: [3,5,4,2,2,0,0]
+      width: [0,11,13,15,14,11,0]
+      height: [0,5,6,8,5,5,5,0]
+      texture: [4]
+    
+    
+      
+    
+      
+    
+    
+    
+      
+    
+      

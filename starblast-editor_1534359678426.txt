@@ -1,0 +1,362 @@
+y = -70
+
+multiplyArrays = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m[i])
+  return k;
+
+addArrays = (arr, m, mult=1) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m[i]*mult)
+  return k;
+  
+multiplyArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m)
+  return k;
+
+addArray = (arr, m, mult=1) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m*mult)
+  return k;
+
+circle = (m, id, xx, yy, zz, segments, radPosY, radPosZ, tx, h=1) ->
+  widths = [];
+  heights = [];
+  posx = [];
+  for i in [0..radPosY.length]
+    posx.push(0);
+    heights.push(h);
+    widths.push(radPosY[i]*Math.tan(Math.PI/segments))
+  for i in [0..segments] by 1
+    m.bodies[id+"segment"+i] = 
+      section_segments: 4
+      offset:
+        x: xx
+        y: yy
+        z: zz
+      position:
+        x: posx
+        y: radPosY
+        z: radPosZ
+      width: widths
+      height: heights
+      angle: 360*(i/segments)
+      texture: tx
+  return m
+
+squareBody = (model, id, xx, yy, zz, w, h, posx, posy, posz, txtop, txsides, txbottom, bump) ->
+  flatw = [];
+  flath = [];
+  for i in [0..w.length]
+    flatw.push(bump)
+    flath.push(bump)
+  
+  sides = 
+    section_segments: 4
+    offset:
+      x: xx+0.01
+      y: yy
+      z: zz
+    position:
+      x: addArrays(posx,w,1)
+      y: posy
+      z: posz
+    width: flatw
+    height: h
+    texture: txsides
+  top = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h)
+    width: w
+    height: flath
+    texture: txtop
+  bottom = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h,-1)
+    width: w
+    height: flath
+    texture: txbottom
+    
+  model.bodies[id+"t"] = top;
+  model.bodies[id+"b"] = bottom;
+  model.bodies[id+"sides"] = sides;
+    
+  return model;
+  
+skewedCircleWing = (xx, yy, zz, segments, radius, widths, positions, bumpPos, bumpH, tx, double=false, dir=1, startAt=0, seg=0, freestyle=false) ->
+  lengths = [];
+  angles = [];
+  lengths.push(0);
+  angles.push(0)
+  widths.unshift(0);
+  positions.unshift(positions[0]);
+  addAng = 0
+  angMult = 1
+  if(dir<0)
+    addAng = 180
+    angMult = -1
+  loopFor = segments-1
+    
+  if(seg!=0)
+    loopFor = seg
+  for i in [0..loopFor]
+    m = 1
+    if((i==0||i==segments-1)&&!freestyle)
+      m = 0.5
+    lengths.push(m*radius*Math.tan(Math.PI/(segments-1)))
+    angles.push(startAt+addAng+angMult*i/(segments-1)*57.3*Math.PI)
+
+  widths = widths.splice(0,loopFor+3)
+  positions = positions.splice(0,loopFor+3)
+  ###
+  if(double)
+    for i in [0..segments-1]
+      m = 1
+      if(i==0||i==segments-1)
+        m = 0.5
+      lengths.push(m*radius*Math.tan(Math.PI/(segments-1)))
+      angles.push(i/(segments-1)*57.3*Math.PI+180)
+      positions.push(positions[i+1])
+      widths.push(widths[i+1])###
+  widths.push(0);
+  positions.push(positions[positions.length-1])
+  angles.push(angles[angles.length-1]);
+  lengths.push(0)
+  
+  return k =
+    length: lengths
+    width: widths
+    angle: angles
+    position: positions
+    doubleside: true
+    bump:
+      position: bumpPos
+      size: bumpH
+    texture: tx
+    offset:
+      x: xx
+      y: yy
+      z: zz-(radius/Math.cos(Math.PI/(segments-1)))
+    
+reactorPipes = (a) ->
+  return k =
+      section_segments: 6
+      offset:
+        x: 0.01
+        y: 90+y
+        z: 22
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-40,-37,-35,-30,-20]
+        z: [-15,-6,-4,-1,0,0,0,0,0]
+      width: [3,3,3,3,3]
+      height: [3,3,3,3,3]
+      angle:a
+      texture: [13] 
+  
+model =
+  name: 'Dart'
+  level: 2
+  model: 4
+  size: 0.85
+  specs:
+    shield:
+      capacity: [90,120]
+      reload: [2,4]
+    generator:
+      capacity: [60,120]
+      reload: [18,28]
+    ship:
+      mass: 85
+      speed: [120,145]
+      rotation: [20,45]
+      acceleration: [130,150]
+  bodies:
+      
+    frontEnd:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -165+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,-3,0,5,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,18,19,10]
+      height: [0,7,12,12,10]
+      texture: [12,18,1,1] 
+    
+    backMain:
+      section_segments: 6
+      offset:
+        x: 5
+        y: 54+y
+        z: 5
+      position:
+        x: [0,0,0,-5,-5,-5,-5,-5,-5]
+        y: [-10,-5,5,30,60,70,80,80]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [10,25,30,40,40,30,10,0]
+      height: [10,20,20,20,20,20,5,0]
+      texture: [3.8] 
+      
+    backCockpitSmooth:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 45+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,0,20,30,-10,0,40,60]
+        z: [20,23,23,10,-10,-13,-13,-0,0,0,0]
+      width: [12,12,12,12,12,12,12,12]
+      height: [0,4,4,0,0,4,4,0]
+      texture: [3.8] 
+      
+    mainsail:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 135+y
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-30,0,50,110,0]
+        z: [-5,0,0,0,0,0,0,0,0]
+      width: [20,15,15,10,0]
+      height: [15,15,15,10,0]
+      texture: [4,8,13,17] 
+      propeller:true
+    
+    pipes1:reactorPipes(30)
+    pipes2:reactorPipes(50)
+    pipes3:reactorPipes(130)
+    pipes4:reactorPipes(150)
+    
+    guns: 
+      section_segments: 6
+      offset:
+        x: 42
+        y: 30+y
+        z: -10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-50,-60,-55,-30,-25,40,45,80,85]
+        z: [0,0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,5,7,7,5,5,10,10,0]
+      height: [0,5,7,7,5,5,7,7,0]
+      texture: [16.8,8,18,8,3,63] 
+      laser:
+        damage: [10,30]
+        rate: 1
+        type: 1
+        speed: [150,240]
+        number: 1
+        error: 0
+    
+    wings:
+      section_segments: 6
+      offset:
+        x: 20
+        y: 60+y
+        z: 0
+      position:
+        x: [0,0,0,-25,-30,0,0,0]
+        y: [-10,0,5,20,70]
+        z: [0,0,0,0,-20,0,0,0,0]
+      width: [40,40,65,20,10]
+      height: [10,8,8,7,0]
+      texture: [2.8,2.8,4,63] 
+      angle:90
+      
+    backHull1:
+      section_segments: 3
+      offset:
+        x: 0
+        y: 135+y
+        z: 5
+      position:
+        x: addArray([-5,-5,-3,-4,-12,0,0,0,0],25)
+        y: [-30,-30,0,50,100]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,13,10,0]
+      height: [0,15,13,10,0]
+      texture: [63] 
+      propeller:true
+    backHull2:
+      section_segments: 3
+      offset:
+        x: 0
+        y: 135+y
+        z: 5
+      position:
+        x: addArray(multiplyArray([-5,-5,-3,-4,-12,0,0,0,0],-1),-25)
+        y: [-30,-30,0,50,100]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,13,10,0]
+      height: [0,15,13,10,0]
+      texture: [63] 
+      propeller:true
+    backHullUnderside:
+      section_segments: 6
+      offset:
+        x: 25
+        y: 135+y
+        z: 0
+      position:
+        x: [0,-3,-3,-5,-12,0]
+        y: [-50,-30,0,50,100]
+        z: [0,0,-5,-3,5,0,0,0,0]
+      width: [0,15,13,10,0]
+      height: [0,6,6,6,0]
+      texture: [3.8,2.8,9.9,63] 
+      propeller:true
+  
+  wings:
+    circleMain: skewedCircleWing(0,90+y,115,7,48,[60,60,50,40,100,100,100],
+    [0,0,0,0,0,0,0,0],0,10,63,false,0,-180,2)
+    circleFull: skewedCircleWing(0,90+y,125,7,52,addArray([100,100,100,100,95,85,100,100],-75),
+    [0,0,0,0,0,0,0,0],0,5,4,false,0,-180,4)
+    engineShielding: skewedCircleWing(0,210+y,10,7,14,[30,30,50,50,50,50,30,30],
+    [10,10,0,0,0,0,10,10],30,10,63,false,0,0)
+      
+model = squareBody(model, "main", 0, 0+y, 0, 
+[4,16,17,18,18,20], #width
+[4,8,9,10,10,10,10], #height
+[0,0,0,0,0,0,0], #x
+[-165,-160,-100,-40,10,50], #y
+[0,0,0,0,0,0,0], #z
+[63,63,63,11,12], [63,63,12,18,4], [63,63,13,4,4], 3) #stuff
+
+model = squareBody(model, "cockpit", 0, 42+y, 10, 
+[10,10,10,10,10], #width
+[6,8,10,10,10], #height
+[0,0,0,0,0,0,0], #x
+[-60,-45,-20,5,10], #y
+[-6,0,0,0,0,0,0], #z
+[9,9,4], [18,9,9,4], 9, 3) #stuff
+
+model = circle(model, "c", 0, 90+y, 25, 12, [0,5,6,20,22,25,30], [40,40,2,2,0,0,-15], [4,3,18,3,4,4],0) 
+
+return model

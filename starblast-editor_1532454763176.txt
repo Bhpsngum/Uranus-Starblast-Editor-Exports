@@ -1,0 +1,260 @@
+y=-70
+return model =
+  name: 'Firewall HGS-3'
+  level: 1
+  model: 1
+  size: 0.6
+  zoom: 0.7
+  specs:
+    shield:
+      capacity: [350,350]
+      reload: [2,2]
+    generator:
+      capacity: [500,500]
+      reload: [5,5]
+    ship:
+      mass: 130
+      speed: [150,150]
+      rotation: [70,70]
+      acceleration: [80,80]
+  bodies:
+    frontCapacitorsStructure:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-70,-65,30,40,60,70]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,10,15,15,10]
+      height: [0,7,7,7,7,0]
+      texture: [2.8,2.8,1.8,1.8,4]
+    frontThingy:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -75+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-15,-10,10,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,5]
+      height: [0,10,10,5]
+      texture: [1.8,10,1.8]
+    frontDeflectors:
+      section_segments: 6
+      offset:
+        x: 12
+        y: -70+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-15,10,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,0]
+      height: [5,5,0]
+      texture: [0.8]
+      
+    pipes1:
+      section_segments: 6
+      offset:
+        x: -4
+        y: 0+y
+        z: 10
+      position:
+        x: [-7,0,0,-5,0,0,0,0,0,0]
+        y: [0,15,40,60]
+        z: [-5,0,0,-10,0,0,0,0,0]
+      width: [3,3,3,3,3,3,0]
+      height: [3,3,3,3,3,3,0]
+      texture: [63]
+    pipes2:
+      section_segments: 6
+      offset:
+        x: -4
+        y: -35+y
+        z: 10
+      position:
+        x: [-7,0,0,0,0,0,0,0,0,0]
+        y: [0,15,50]
+        z: [-5,0,0,0,0,0,0,0,0]
+      width: [3,3,3,3,3,3,0]
+      height: [3,3,3,3,3,3,0]
+      texture: [63]
+      
+    frontCap1:
+      section_segments: 6
+      offset:
+        x: 2
+        y: -40+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-35,-30,-25,-15,-7,-2]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,20,20,20,20,20,0]
+      height: [0,10,10,10,10,5,0]
+      texture: [18,4,16.8,4,4]
+      angle:90
+    frontCap2:
+      section_segments: 6
+      offset:
+        x: 2
+        y: 0+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-35,-30,-25,-15,-7,-2]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,20,20,20,20,20,0]
+      height: [0,10,10,10,10,5,0]
+      texture: [18,4,16.8,4,4]
+      angle:90
+      
+    capConnectors:
+      section_segments: 6
+      offset:
+        x: 20
+        y: 50+y
+        z: 0
+      position:
+        x: [6,8,8,0,0,0,0,0,0,0]
+        y: [-50,-33,-30,10,15,50]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [6,6,4,4,6,6]
+      height: [6,6,4,4,6,6]
+      texture: [4,3,4,3,4]
+    wingConnectors:
+      section_segments: 6
+      offset:
+        x: 7
+        y: 90+y
+        z: -2
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,5,25,30,50,55,65,70,68]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [15,28,28,15,13,30,30,10,0]
+      height: [0,12,12,10,8,10,10,8,0]
+      texture: [3.8,18,3.8,13,3.8,8,3.8,16.8]  
+      angle:90
+      
+    wingGunsTop:
+      section_segments: 6
+      offset:
+        x: 67
+        y: 50+y
+        z: 3
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-90,-75,-60,10,30,50,60,62,85,90,93]
+        z: [0,0,0,0,0,3,3,3,3,3,3,3,3]
+      width: [0,3,5,4,7,10,10,4,4,4,4,0]
+      height: [0,3,5,4,7,5,5,4,4,4,4,0]
+      texture: [16.8,18,8,4,1,10,1,1,16.8,1,1]
+      laser:
+        damage: [12,12]
+        rate: 4
+        type: 1
+        speed: [120,120]
+        number: 2
+        error: 0.5
+    wingGunsBottom:
+      section_segments: 6
+      offset:
+        x: 67
+        y: 50+y
+        z: -7
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-90,-75,-60,10,30,50,60,62,85,90,93]
+        z: [0,0,0,0,0,-3,-3,-3,-3,-3,-3,-3,-3]
+      width: [0,3,5,4,7,10,10,4,4,4,4,0]
+      height: [0,3,5,4,7,5,5,4,4,4,4,0]
+      texture: [16.8,18,8,4,1,10,1,1,16.8,1,1]
+    engineWings:
+      section_segments: 6
+      offset:
+        x: 62
+        y: 130+y
+        z: -2
+      position:
+        x: [2,2,0,0,0,0,0,0,0]
+        y: [-30,-10,-5,20,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [10,10,5,3,0]
+      height: [5,5,5,3,0]
+      texture: [3,4,13]
+      propeller:true
+      
+    cockpitBottom:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 50+y
+        z: -5
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-20,-10,20,30,60,63,80,82]
+        z: [0,0,0,0,0,5,5,5]
+      width: [0,20,20,30,30,20,20,0]
+      height: [0,5,5,5,5,10,10,0]
+      texture: [2.8,2.8,2.8,1.8,2.8,3.8,3.8]
+    cockpit:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 90+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-60,-30,-10,10,30,40]
+        z: [3,0,5,6,3,10,0,0,0]
+      width: [0,9,10,11,10,8]
+      height: [0,10,10,10,10,0]
+      texture: [12,9,9,9,4]
+      
+    enginesMainSides:
+      section_segments: 6
+      offset:
+        x: 22
+        y: 130+y
+        z: 0
+      position:
+        x: [0,0,-3,-3,-3,0,0,0,0,0]
+        y: [-40,-10,-5,20,40,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [5,8,10,10,8,0]
+      height: [8,10,10,10,8,0]
+      texture: [4,4,18,13,16.8]
+      propeller:true
+    mainEngine:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 160+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-50,-30,-25,0,5,10,15,20,40,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,15,15,12,12,15,10,0]
+      height: [0,15,15,15,15,12,12,15,10,0]
+      texture: [4,18,17,8,4,17,4,4,17]
+      propeller:true
+     pipes3:
+      section_segments: 6
+      offset:
+        x: -8
+        y: 85+y
+        z: 7
+      position:
+        x: [-25,-7,1,0,0,0,0,0,0,0]
+        y: [-10,25,50]
+        z: [-8,0,0,0,0,0,0,0,0]
+      width: [3,3,3,3,3,3,0]
+      height: [3,3,3,3,3,3,0]
+      texture: [63]

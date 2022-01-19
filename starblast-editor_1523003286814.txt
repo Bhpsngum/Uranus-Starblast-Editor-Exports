@@ -1,0 +1,116 @@
+return model =
+  name: 'Odyssey'
+  level: 7
+  model: 1
+  size: 4
+  specs:
+    shield:
+      capacity: [750,750]
+      reload: [15,15]
+    generator:
+      capacity: [330,330]
+      reload: [150,150]
+    ship:
+      mass: 700
+      speed: [45,45]
+      rotation: [20,20]
+      acceleration: [150,150]
+  bodies:
+    main:
+      section_segments: 10
+      offset:
+        x: 0
+        y: -10
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-100,-80,-85,-70,-60,-40,-25,30,40,100,90]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,10,15,20,25,30,30,30,25,15,0]
+      height: [0,10,15,20,25,30,30,30,27,18,0]
+      texture: [6,3,63,2,3,4,10,63,2,17]
+      propeller: true
+    cockpit:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -35
+        z: 28
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-45,-15,15,80,120]
+        z: [-10,-1,-1,-4,-15]
+      width: [0,12,13,10,0]
+      height: [0,6,9,5,0]
+      texture: [9,9,10,4]
+    bumpers:
+      section_segments: 12
+      offset:
+        x: 38
+        y: 20
+        z: 0
+      position:
+        x: [-8,-8,0,0,-6,-14,-14]
+        y: [-60,-65,-50,0,20,50,55]
+        z: [0,0,0,0,0,0,0]
+      width: [0,10,15,15,15,8,0]
+      height: [0,10,15,15,15,8,0]
+      texture: [63,3,11,63,8,11]
+      angle: 0
+    toppropulsors:
+      section_segments: 12
+      offset:
+        x: 65
+        y: 45
+        z: 50
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-15,5,0,10,20,25,30,40,85,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,8,12,15,15,12,12,15,10,0]
+      height: [0,8,12,15,15,12,12,15,10,0]
+      texture: [3,4,10,2,3,63,10,8,17]
+      propeller: true
+    bottompropulsors:
+      section_segments: 10
+      offset:
+        x: 65
+        y: 45
+        z: -50
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-15,5,0,10,20,25,30,40,85,80]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,8,12,15,15,12,12,15,10,0]
+      height: [0,8,12,15,15,12,12,15,10,0]
+      texture: [3,4,10,2,3,63,10,8,17]
+      propeller: true
+  wings:
+    topjoin:
+      offset:
+        x: 8
+        y: 100
+        z: 10
+      doubleside: true
+      length: [100]
+      width: [30,10]
+      angle:[35]
+      position: [-50,0,0,50]
+      texture: 3
+      bump:
+        position: 10
+        size: 30
+    bottomjoin:
+      offset:
+        x: 8
+        y: 100
+        z: -10
+      doubleside: true
+      length: [100]
+      width: [30,10]
+      angle: [-35]
+      position: [-50,0,0,50]
+      texture: [3]
+      bump:
+        position: -10
+        size: 30

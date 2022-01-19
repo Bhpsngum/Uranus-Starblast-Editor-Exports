@@ -1,0 +1,121 @@
+return model = 
+  name: 'Prototype-T'
+  level: 1
+  model: 15
+  size: 1
+  specs: 
+    shield:
+      capacity: [350,350]
+      reload: [20,20]
+    generator:
+      capacity: [300,300]
+      reload: [20,20]
+    ship:
+      mass: 130
+      speed: [150,150]
+      rotation: [50,50]
+      acceleration: [170,170]
+      dash:
+        rate: 2
+        burst_speed: [250,250]
+        speed: [175,175]
+        acceleration: [200,200]
+        initial_energy: [85,85]
+        energy: [40,40]
+  bodies:
+    front:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0]
+        y: [-150,-105,-25,0,25]
+        z: [-5,0,0,0,0]
+      width: [7,17,17,17,20]
+      height: [0,20,30,20,5]
+      texture: [63,11,2,63]
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 10
+      position:
+        x: [0,0,0,0,0]
+        y: [-70,-70,-25,0,100]
+        z: [0,0,0,0,9]
+      width: [0,10,15,15,10]
+      height: [0,15,25,20,0]
+      texture: [9,9,9,4]
+    side:
+      section_segments: 8
+      offset:
+        x: 40
+        y: 90
+        z: 10
+      position:
+        x: [-30,-10,-5,0]
+        y: [-200,-50,0,20]
+        z: [-5,0,0,0]
+      width: [0,10,10,0]
+      height: [0,10,10,0]
+      texture: [4,63,3]
+    bigpropel:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0]
+        y: [10,20,30,100,95]
+        z: [0,0,0,0,0]
+      width: [10,20,20,20,0]
+      height: [10,20,40,30,0]
+      texture: [63,63,10,4]
+      propeller: true
+    propulsors:
+      section_segments: 8
+      offset:
+        x: 15
+        y: 50
+        z: 10
+      position:
+          x: [0,0,0,0,0,5,10,10,10,10]
+          y: [-160,-130,-110,10,20,25,30,40,50,40]
+          z: [-5,-5,-5,-5,0,0,0,0,0,0]
+        width: [0,10,15,15,10,10,10,10,10,0]
+        height: [0,10,15,15,10,10,10,10,10,0]
+        texture: [3,63,3,3,3,63,4]
+        propeller: true
+  wings:
+    main:
+      doubleside: true
+      offset:
+        x: 15
+        y: -30
+        z: -3
+      length: [20,15]
+      width: [150,90,10]
+      angle: [-20,-20,0]
+      position: [-20,0,70]
+      texture: [4,63]
+      bump:
+        position: 20
+        size: 5
+    winglets:
+      doubleside: true
+      offset:
+        x: 20
+        y: 60
+        z: 10
+      length: [20,60,20]
+      width: [20,40,20]
+      angle: [0,0,0]
+      position: [0,0,10,0]
+      texture: [63,3]
+      bump:
+        position: 30
+        size: 10

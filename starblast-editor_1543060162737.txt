@@ -1,0 +1,616 @@
+anim = 0;
+
+rotateAroundZ = (name, oname, a, rotatePart, isWing=false) ->
+  o = model.bodies[oname];
+  
+  if(isWing)
+    part = model.wings[name];
+  else
+    part = model.bodies[name];
+  
+  ox = o.offset.x;
+  oy = o.offset.y;
+  
+  dx = part.offset.x-ox;
+  dy = part.offset.y-oy;
+  
+  ra = -a*0.0174533;
+  
+  ndx = dx*Math.cos(ra) - dy*Math.sin(ra);
+  ndy = dx*Math.sin(ra) + dy*Math.cos(ra);
+  
+  part.offset.x = ndx+ox;
+  part.offset.y = ndy+oy;
+  
+  if(rotatePart&&!isWing)
+    part.angle+=a
+  
+anchorToPart = (name, oname, xx, yy, zz, isWing=false, oisWing) ->
+    if(oisWing)
+      o = model.wings[oname];
+    else
+      o = model.bodies[oname];
+    
+    if(isWing)
+      part = model.wings[name];
+    else
+      part = model.bodies[name];
+      
+    part.offset.x = o.offset.x+xx;
+    part.offset.y = o.offset.y+yy;
+    part.offset.z = o.offset.z+zz;
+  
+
+multiplyArrays = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m[i])
+  return k;
+
+addArrays = (arr, m, mult=1) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m[i]*mult)
+  return k;
+  
+multiplyArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]*m)
+  return k;
+
+addArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length]
+    k.push(arr[i]+m)
+  return k;
+
+circle = (id, xx, yy, zz, segments, radPosY, radPosZ, tx, h=1) ->
+  widths = [];
+  heights = [];
+  posx = [];
+  m = model;
+  for i in [0..radPosY.length]
+    posx.push(0);
+    heights.push(h);
+    widths.push(radPosY[i]*Math.tan(Math.PI/segments))
+  for i in [0..segments] by 1
+    m.bodies[id+"segment"+i] = 
+      section_segments: 4
+      offset:
+        x: xx
+        y: yy
+        z: zz
+      position:
+        x: posx
+        y: radPosY
+        z: radPosZ
+      width: widths
+      height: heights
+      angle: 360*(i/segments)
+      texture: tx
+  
+wingFixedBumps = (xx, yy, zz, lengths, widths, angles, positions, tx, bumpPos, bumpS, toler) ->
+  anew = [];
+  l = [];
+  w = [];
+  p = [];
+  for i in [0..angles.length-1]
+    anew.push(angles[i])
+    l.push(lengths[i])
+    w.push(widths[i])
+    p.push(positions[i])
+    if(i==angles.length-1)
+      break;
+    if(Math.abs(angles[i]-angles[i+1])>toler)
+      anew.push(angles[i])
+      l.push(0)
+      w.push(widths[i+1])
+      p.push(positions[i+1])
+  
+  l.unshift(0)
+  w.unshift(0)
+  p.unshift(positions[0])
+  anew.unshift(anew[0])
+  
+  w.push(widths[widths.length-1])
+  p.push(positions[positions.length-1])
+  
+  l.push(0)
+  w.push(widths[widths.length-1])
+  p.push(positions[positions.length-1])
+  anew.push(anew[anew.length-1])
+  
+  return k = 
+    doubleside: true
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    length: l
+    width: w
+    angle: anew
+    position: p
+    texture: tx
+    bump:
+      position: bumpPos
+      size: bumpS
+
+squareBody = (id, xx, yy, zz, w, h, posx, posy, posz, txtop, txsides, txbottom, bump, a=0, sbumpMult=1, doubleSides=false) ->
+  flatw = [];
+  flath = [];
+  for i in [0..w.length]
+    flatw.push(bump*sbumpMult)
+    flath.push(bump)
+  
+  xoff = 0.01
+  if(a!=0) 
+    xoff = 0
+  
+  sides = 
+    section_segments: 4
+    offset:
+      x: xx+xoff
+      y: yy
+      z: zz
+    position:
+      x: addArrays(posx,w,1)
+      y: posy
+      z: posz
+    width: flatw
+    height: h
+    texture: txsides
+    angle: a
+  top = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h)
+    width: w
+    height: flath
+    texture: txtop
+    angle: a
+  bottom = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h,-1)
+    width: w
+    height: flath
+    texture: txbottom
+    angle: a
+  if(doubleSides)
+    dsides = 
+      section_segments: 4
+      offset:
+        x: xx+xoff
+        y: yy
+        z: zz
+      position:
+        x: multiplyArray(addArrays(posx,w,-1), 1)
+        y: posy
+        z: posz
+      width: flatw
+      height: h
+      texture: txsides
+      angle: a
+    model.bodies[id+"dsides"] = dsides;
+    
+  model.bodies[id+"t"] = top;
+  model.bodies[id+"b"] = bottom;
+  model.bodies[id+"sides"] = sides;
+  
+bodyStarY = (name, number, aroundX, aroundY) ->
+  b = model.bodies[name]
+  
+  for i in [1..number-1] by 1
+    n = name+"star"+i
+    nposx = [];
+    nposz = [];
+    
+    ang = (i*360/number)
+    ang = ang*0.0174533
+
+    for j in [0..b.position.x.length-1] by 1
+      if(j>=b.position.z.length)
+        break;
+      ox = b.position.x[j]
+      oz = b.position.z[j]
+      nposx.push(ox*Math.cos(ang)-oz*Math.sin(ang))
+      nposz.push(ox*Math.sin(ang)+oz*Math.cos(ang))
+    
+    ox = b.offset.x-aroundX
+    oz = b.offset.z-aroundY
+    
+    model.bodies[n] =
+      section_segments: b.section_segments
+      offset:
+        x: ox*Math.cos(ang)-oz*Math.sin(ang)+aroundX
+        y: b.offset.y
+        z: ox*Math.sin(ang)+oz*Math.cos(ang)+aroundY
+      position:
+        x: nposx
+        y: b.position.y.slice(0)
+        z: nposz
+      width: b.width.slice(0)
+      height: b.height.slice(0)
+      texture: b.texture.slice(0)
+      angle: 0
+      propeller: b.propeller
+  
+bodyStar = (name, number) ->
+  b = model.bodies[name]
+  for i in [1..number-1] by 1
+    n = name+"star"+i
+    model.bodies[n] =
+      section_segments: b.section_segments
+      offset:
+        x: b.offset.x
+        y: b.offset.y
+        z: b.offset.z
+      position:
+        x: b.position.x.slice(0)
+        y: b.position.y.slice(0)
+        z: b.position.z.slice(0)
+      width: b.width.slice(0)
+      height: b.height.slice(0)
+      texture: b.texture.slice(0)
+      angle: b.angle+(i*360/number)
+      
+gun = (radius, angle) ->
+  return k =
+    section_segments: 6
+    offset:
+      x: Math.cos(angle)*radius
+      y: -70
+      z: Math.sin(angle)*radius
+    position:
+      x: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      y: [-180,-200,-190,-180,-175,-170,-160,-110,-100,-90,-80,-30,-25,-15,-10,0,5,10,14]
+      z: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    width: [0,8,10,10,10,10,7,7,10,10,7,7,10,10,10,10,10,10,0]
+    height: [0,8,10,10,10,10,7,7,10,10,7,7,10,10,10,10,10,10,0]
+    texture: [16.8,0.8,0.8,3.8,0.8,0.8,3.8,18,0.8,18,3.8,18,0.8,3.8,0.8,16.8,0.8,0.8] 
+    
+engines = (xx, yy, zz, a, prop) ->
+   return k =
+    section_segments: 8
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: [0,0,0,0,0,0,0,0,0,0,0]
+      y: [0,15,20,35,40,50,55,70,75,30,0]
+      z: [0,0,0,0,0,0,0,0,0,0,0,0]
+    width: [15,15,18,18,15,15,18,18,15,10,10]
+    height: [15,15,18,18,15,15,18,18,15,10,10]
+    texture: [3,63,18,63,4,63,16,63,13] 
+    angle: a
+    propeller: prop
+  
+mapToRange = (v, min, max) ->
+  if(v<min)
+    return 0
+  if(v>max)
+    return 1
+  return (v-min)/(max-min)
+
+mode = "Burst"
+if(anim==1)
+  mode = "Spinning"
+
+model =
+  name: 'Brrrt LMT '+mode
+  level: 6
+  model: 13
+  size: 1.05
+  specs:
+    shield:
+      capacity: [250,450]
+      reload: [2,3]
+    generator:
+      capacity: [200+anim*(-150),300]
+      reload: [80+anim*50,65]
+    ship:
+      mass: 140
+      speed: [150,150]
+      rotation: [45+anim*(-30),105]
+      acceleration: [60,30]
+  bodies:
+    sides:
+      section_segments: 6
+      offset:
+        x: 20
+        y: 0
+        z: 17
+      position:
+        x: [-10,0,0,-10,0,0,0,0]
+        y: [-20,-10,30,40]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,0]
+      height: [5,5,5,5]
+      texture: [2.8,10,2.8] 
+    cockpitBottom:
+      section_segments: 6
+      offset:
+        x: 1
+        y: 10
+        z: 17
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-1,10,20,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [40,40,30,0]
+      height: [10,10,10,0]
+      texture: [3.8,63] 
+      angle:90
+     main:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-40,-40,-20,-10,30,50,80]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,20,20,30,30,20,20]
+      height: [0,20,20,20,20,15,15]
+      texture: [3.8,3.8,3.8]
+      
+    guns1: gun(30,Math.PI/3)
+    guns2: gun(30,Math.PI)
+    guns3: gun(30,Math.PI+Math.PI/3)
+    
+    gunsPatcher1:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -87
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,-5,-5,0,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [30,30,42,42,30]
+      height: [30,30,42,42,30]
+      texture: [63] 
+    gunsPatcher2:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -162
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,-5,-5,0,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [30,30,42,42,30]
+      height: [30,30,42,42,30]
+      texture: [63] 
+    gunsAnchor:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -60
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-12,-12,-10,10,14,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,7,10,10,8,8]
+      height: [0,7,10,10,8,8]
+      texture: [3,3,8,3,13] 
+     gunsConnectors:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -90
+        z: 0
+      position:
+        x: [25,25,25,0,0,0,0,0]
+        y: [-40,-40,-20,0,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,5,5,5]
+      height: [0,5,5,5,5]
+      texture: [3.8] 
+    gunsConnectorsF:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -180
+        z: 0
+      position:
+        x: [25,25,25,0,0,0,0,0]
+        y: [-40,-40,-20,0,150]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,5,5,5]
+      height: [0,5,5,5,5]
+      texture: [3.8] 
+      
+     gunReloaderBase:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [20,20,30,30,0,0,0,0,0]
+        y: [-21,-20,-10,10,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,10,10,0]
+      height: [0,10,10,10,0]
+      texture: [3.8,3.8,18,3.8]
+     gunReloaderTube:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -40
+        z: 0
+      position:
+        x: addArray([0,0,0,0,-2,-2,0,0],30)
+        y: [-16,-18,-13,0,0,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,6,6,10,10]
+      height: [0,5,6,6,8,8]
+      texture: [4,63,4] 
+    gunCharger:
+      section_segments: 4
+      offset:
+        x: 0
+        y: -10
+        z: 22
+      position:
+        x: addArray([7,7,7,0,0,0,0,0],13)
+        y: [-50,-40,-30,-20,-15,-15,20]
+        z: [4,4,4,0,0,0,0,0,0]
+      width: [0,4,4,4,4,7,7]
+      height: [0,2,2,2,2,5,5]
+      texture: [6,6,6,6,4,63] 
+    gunsSpinnin:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -160
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-110,-110,-50,0,50,100,100]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,42,42,42,42,42,0]
+      height: [0,42,42,42,42,42,0]
+      texture: [5,13,13,13,13,5]
+      laser:
+        damage: [25,6]
+        rate: 10
+        type: 1
+        speed: [100,70]
+        number: 1
+        angle: 0
+        error: 15
+        recoil: 40
+    gunsBurstFirin:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -260
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,0,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,0,0]
+      height: [0,0,0]
+      texture: [5,13,13,13,13,5]
+      laser:
+        damage: [25,6]
+        rate: 0.7
+        type: 1
+        speed: [70,70]
+        number: 6
+        angle: 0
+        error: 5
+        recoil: 50
+      
+    reactor:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 80
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-40,-30,-20,-10,0,10,30,40,50,60,100,50]
+        z: [0,0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,20,20,30,30,20,20,30,30,20,12,0]
+      height: [0,20,20,30,30,20,20,30,30,20,12,0]
+      texture: [4,8,4,4,18,17,18,4,4,13,17] 
+      propeller:true
+    reactorStructure:
+      section_segments: 8
+      offset:
+        x: 0.01
+        y: 100
+        z: 25
+      position:
+        x: [0,0,-10,0,0,0,0,0]
+        y: [-20,-10,0,10,30]
+        z: [-2,0,0,0,-2,0,0,0,0]
+      width: [3,3,3,3,3]
+      height: [3,3,3,3,3]
+      texture: [4] 
+      
+    engineConnectors:
+      section_segments: 6
+      offset:
+        x: 30
+        y: 35
+        z: 0
+      position:
+        x: [0,0,0,0,7,7,0,0]
+        y: [-10,0,5,20,37,37]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [20,20,10,10,10,0]
+      height: [12,12,10,10,10,0]
+      texture: [63,63,2.8] 
+      angle: 70
+    enginesAnchors:
+      section_segments: 6
+      offset:
+        x: 70
+        y: 40
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-42,-40,-23,-20,20,23,40,42]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,5,10,10,5,5,0]
+      height: [0,10,10,10,10,10,10,0]
+      texture: [3.8] 
+    enginesFront: engines(80,40,0,180,false)
+    enginesBack: engines(80,40,0,0,true)
+
+
+squareBody("cockpit", 0, -30, 20, 
+[5,7,7,7,10,10], [2,4,7,10,15,8], 
+[0,0,0,0,0,0,0,0], [10,20,40,65,70,100], [-5,5,8,4,0,0], 
+[4,9,9,4], [18,9,9,4], [1], 2, 0, 1, true)
+
+
+bodyStarY("reactorStructure", 8, 0, 0)
+if(anim==0)
+  bodyStarY("gunsConnectors", 6, 0, 0)
+  bodyStarY("gunsConnectorsF", 6, 0, 0)
+
+if(anim==0)
+  delete model.bodies.gunsSpinnin
+else
+  delete model.bodies.gunsConnectors
+  delete model.bodies.gunsConnectorsF
+  delete model.bodies.gunsPatcher1
+  delete model.bodies.gunsPatcher2
+  delete model.bodies.guns1
+  delete model.bodies.guns2
+  delete model.bodies.guns3
+  delete model.bodies.gunsBurstFirin
+  
+  
+offy = 0;
+for k,v of model.bodies 
+  v.offset.y += offy;
+    
+for k,v of model.wings 
+  v.offset.y += offy;
+  
+return model;

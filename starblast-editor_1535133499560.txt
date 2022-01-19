@@ -1,0 +1,337 @@
+model =
+  name: 'Aurum'
+  level: 1
+  model: 1
+  size: 2
+  specs:
+    shield:
+      capacity: [285,450]
+      reload: [7,10]
+    generator:
+      capacity: [100,120]
+      reload: [35,45]
+    ship:
+      mass: 400
+      speed: [80,105]
+      rotation: [70,90]
+      acceleration: [70,100]
+  specs:
+    shield:
+      capacity: [300,500]
+      reload: [8,11]
+    generator:
+      capacity: [70,100]
+      reload: [30,40]
+    ship:
+      mass: 450
+      speed: [75,90]
+      rotation: [50,70]
+      acceleration: [80,90]
+  bodies:
+    main:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -140
+        z: -5
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-25,-25,-20,-15,20,40,40]
+        z: [0,0,0,0,0,0,0]
+      width: [20,20,20,20,35,22,0]
+      height: [0,7,7,7,7,7,0]
+      texture: [1,1,15,4,1]
+    
+    main3:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -140
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-25,-25,-15,36,38,50,70,90,90]
+        z: [0,0,0,0,-5,-5,-5,-5,-5]
+      width: [20,20,10,20,18,17,17,17,17]
+      height: [0,7,12,12,10,10,10,10,0]
+      texture: [1,1,1,1,1,10,1]
+    main4:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -120
+        z: 5
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-25,-25,-16,-15,-10,-9,-3,-2,4,5,10,15,25,55,60,70,75,75]
+        z: [2,2,0,0,0,0,0,0,0,0,0,0,-3,-3,-3,-3,-3,-3]
+      width: [0,5,10,10,10,10,10,10,10,10,10,10,5,5,7,7,5,0]
+      height: [0,5,10,10,10,10,10,10,10,10,10,10,5,5,5,5,5,0]
+      texture: [7,9,11,9,11,9,11,9,11,9,11,63,63,4,8,4,4]
+    main5:
+      section_segments: 6
+      offset:
+        x: 5
+        y: -150
+        z: 7
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [0,0,0,0]
+      width: [0,2,2,0]
+      height: [0,2,2,0]
+      texture: [63]
+    main6:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 5
+        y: -156.5
+        z: 7
+      position:
+        x: [0,0,0,0]
+        y: [-3,-3,3,3]
+        z: [4,3,0,0]
+      width: [0,1.5,1.5,0]
+      height: [0,2,2,0]
+      texture: [18]
+    main7:
+      section_segments: 8
+      offset:
+        x: -1
+        y: -165  
+        z: -2.5
+      position:
+        x: [1,1,0.5,-2,-3]
+        y: [0,8,12,20,22]
+        z: [0,0,0,0,0]
+      width: [5,5,5,5,0]
+      height: [12,12,12,8,0]
+      texture: [1,63,1]
+      angle: 90
+    main8:
+      section_segments: 6
+      offset:
+        x: 10
+        y: -115  
+        z: 0
+      position:
+        x: [-1,-1,0,4,9]
+        y: [0,13,18,25,28]
+        z: [0,0,0,0,0]
+      width: [9,8,7,4,0]
+      height: [3,3,3,2,0]
+      texture: [63]
+      angle: 110
+    main9:
+      section_segments: 6
+      offset:
+        x: 15
+        y: -50  
+        z: 2
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-20,-20,-10,10,20,20]
+        z: [0,0,0,0,0,0]
+      width: [0,2,12,12,2,0]
+      height: [0,5,5,5,5,0]
+      texture: [2]
+      angle: 0
+    main10:
+      section_segments: 6
+      offset:
+        x: -1
+        y: -50  
+        z: -6.5
+      position:
+        x: [0,0,0,0]
+        y: [0,20,35,35]
+        z: [0,0,0,0]
+      width: [32,32,25,0]
+      height: [10,10,10,10,0]
+      texture: [3,18,4]
+      angle: 90
+    main11:
+      section_segments: 8
+      offset:
+        x: 15
+        y: -39
+        z: -6.5
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-30,-30,-25,0,25,30,20]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,5,5,5,3,0]
+      height: [0,3,5,5,5,3,0]
+      texture: [3,3,63,63,3,12]
+      angle: -90
+    main12:
+      section_segments: 8
+      offset:
+        x: 15
+        y: -50
+        z: -6.5
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-30,-30,-25,0,25,30,20]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,5,5,5,3,0]
+      height: [0,3,5,5,5,3,0]
+      texture: [3,3,63,63,3,12]
+      angle: -90
+    main13:
+      section_segments: 8
+      offset:
+        x: 15
+        y: -61
+        z: -6.5
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-30,-30,-25,0,25,30,20]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,5,5,5,3,0]
+      height: [0,3,5,5,5,3,0]
+      texture: [3,3,63,63,3,12]
+      angle: -90
+    main14:
+      section_segments: 6
+      offset:
+        x: 15
+        y: -50
+        z: 6
+      position:
+        x: [0,0,0,0]
+        y: [-10,-10,10,10]
+        z: [0,0,0,0]
+      width: [0,5,5,0]
+      height: [0,3,3,0]
+      texture: [4,15,4]
+      angle: 0
+    main15:
+      section_segments: 6
+      offset:
+        x: 15
+        y: -50
+        z: 5
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-6,-6,1,4,6,6]
+        z: [0,0,0,0,0,0]
+      width: [7,7,7,7,7,7]
+      height: [0,3,3,3,3,0]
+      texture: [4,18,4,63]
+      angle: 0
+      propeller: false
+      texture: [4,8,4,63]
+    main30:
+      section_segments: 8
+      offset:
+        x: 5
+        y: -175
+        z: -2.5
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-10,-15,-5,0,3,17,15]
+        z: [0,0,0,0,0,0,0]
+      width: [0,2,2,3,5,2,0]
+      height: [0,2,2,3,5,2,0]
+      angle: 0
+      laser:
+        damage: [40,60]
+        rate: 4
+        type: 2
+        speed: [190,240]
+        number: 1
+        error: 0
+      propeller: false
+      texture: [4,15,4,2,63,63]
+    main31:
+      section_segments: 4
+      angle: 90
+      offset:
+        x: 0
+        y: -30
+        z: 1
+      position:
+        x: [0,0,0,0]
+        y: [-15,-12,12,15]
+        z: [-3,0,0,-3]
+      width: [0,12,12,0]
+      height: [0,4,4,0]
+      texture: [3]
+    main32:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 5
+        y: -30
+        z: 1
+      position:
+        x: [0,0,0,0]
+        y: [1.5,-1.5,1,1.5]
+        z: [-7,0,0,0]
+      width: [0,10,10,0]
+      height: [0,7,7,0]
+      texture: [63]
+    main34:
+      section_segments: 8
+      angle: 90
+      offset:
+        x: 2
+        y: -30
+        z: 2
+      position:
+        x: [0,0,0]
+        y: [-1,1,1]
+        z: [0,0,0]
+      width: [10,10,0]
+      height: [7,7,0]
+      texture: [18]
+    main39:
+      section_segments: 6
+      offset:
+        x: 50
+        y: -50
+        z: -6.5
+      position:
+        x: [-3,-3,-3,0,0,0,0,0,0,0,0,0,0]
+        y: [-35,-35,-23,-15,-10,-9,-3,-2,4,5,10,20,10]
+        z: [2,2,0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,5,13,10,10,10,10,10,10,10,10,10,0]
+      height: [0,5,10,10,10,10,10,10,10,10,10,10,0]
+      texture: [3.8,18,11,18,11,18,11,18,11,18,63,17]
+      propeller: true
+    main2:
+      section_segments: 6
+      offset:
+        x: 45
+        y: -55
+        z: -6.5
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-15,-15,-5,-5,0,0,5,5,10,10,15,15]
+        z: [0,0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,19,19,5,5,19,19,5,5,19,19,0]
+      height: [0,13,13,5,5,13,13,5,5,13,13,0]
+      texture: [3.8]
+      angle: 0
+      
+    longGuns:
+      section_segments: 6
+      offset:
+        x: 24
+        y: -140
+        z: -6
+      position:
+        x: [0,0,0,0,0,0,0,-10,0]
+        y: [-70,-80,-70,-60,-10,0,10,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,2,3,2,2,10,10,10]
+      height: [0,2,3,2,2,4,4,4]
+      texture: [17,63,63,4] 
+
+offy=80
+for k,v of model.bodies
+  v.offset.y+=offy
+  
+return model

@@ -1,0 +1,114 @@
+return model =
+  name: 'Starfighter' 
+  level: 3
+  model: 1 
+  size: 1 
+  specs: 
+    shield:
+      capacity: [150,220]
+      reload: [5,7] 
+    generator: 
+      capacity: [80,145] 
+      reload: [19,29] 
+    ship: 
+      mass: 125 
+      speed: [110,140] 
+      rotation: [35,48] 
+      acceleration: [140,160] 
+  bodies: 
+    main: 
+      section_segments: 10 
+      offset: 
+        x: 0 
+        y: 0 
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0] 
+        y: [-100,-98,-95,-70,-40,120,120,150,80,90,100]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,0,10,20,30,20,20,15,30,30,20,0] 
+      height: [0,-14,-4,20,20,30,20,15,15,15,10,10] 
+      texture: [2,2,2,2,2,2,2,2,2] 
+    back: 
+      section_segments: 10 
+      offset: 
+        x: 0 
+        y: 0 
+        z: 0 
+      position: 
+        x: [0,0,0,0,0] 
+        y: [90,95,100,105,90] 
+        z: [0,0,0,0,0] 
+      width: [10,15,18,19,2] 
+      height: [3,5,7,8,2] 
+      texture: [2] 
+      propeller: true 
+    cockpit: 
+      section_segments: 8 
+      offset: 
+        x: 0
+        y: -25 
+        z: 12 
+      position: 
+        x: [0,0,0,0,0,0] 
+        y: [-10,-55,-23,10,5] 
+        z: [0,0,0,0,0,0] 
+      width: [0,10,15,15,0] 
+      height: [10,0,15,15,0] 
+      texture: [4]
+    laser: 
+      section_segments: 10
+      offset: 
+        x: 0
+        y: 50
+        z: 15 
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0] 
+        y: [-30,-25,0,10,20,25,30,-40,70,60] 
+        z: [0,0,0,0,0,0,0,-8,0,0] 
+      width: [0,10,15,15,15,10,10,22,10,0] 
+      height: [0,10,15,15,15,5,10,25,15,0] 
+      texture: [6,4,10,3,4,3,2]
+  wings:
+    top:
+      doubleside: true
+      offset:
+        x: -15
+        y: 80
+        z: 0
+      length: [60]
+      width: [50,30]
+      angle: [60]
+      position: [0,50]
+      texture: [2]
+      bump:
+        position: 10
+        size: 50
+    side:
+      doubleside: true
+      offset:
+        x: -10
+        y: -75
+        z: 60
+      length: [100]
+      width: [30,20]
+      angle: [220]
+      position: [200,160]
+      texture: [2]
+      bump:
+        position: 10
+        size: 10
+    wings:
+      offset:
+        x:0
+        y:50
+        z: 0
+      length: [100]
+      width: [100,70]
+      angle: [0]
+      position: [-40,50]
+      texture: [2]
+      bump:
+        position: 10
+        size: 15
+    

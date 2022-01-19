@@ -1,0 +1,175 @@
+return model =
+  name: 'Fly'
+  level: 2
+  model: 2
+  size: 2.5
+  specs:
+    shield:
+      capacity: [250,450]
+      reload: [6,8]
+    generator:
+      capacity: [180,360]
+      reload: [45,80]
+    ship:
+      mass: 450
+      speed: [85,130]
+      rotation: [60,85]
+      acceleration: [100,120]
+  bodies:
+    main1:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 10
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-60,-65,-55,-23,25,30,60,65,65]
+        z: [-7,-7,-5,0,0,0,0,0,0]
+      width: [0,11,19,32,32,22,22,16,0]
+      height: [0,7,12,17,20,20,20,16,0]
+      texture: [12,63,10,1,5,8,12,4]
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -30
+        z: 20
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,0,20,30,45,82]
+        z: [-5,-3,0,1,9,14]
+      width: [0,8,14,12,8,5]
+      height: [0,10,15,15,8,5]
+      propeller: false
+      texture: [7,9,9,11,4]
+    cannon:
+      section_segments: 8
+      offset:
+        x: 31
+        y: 38
+        z: 26
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-25,0,-18,-12,25,30]
+        z: [0,0,0,0,0,0]
+      width: [0,5,9,12,12,0]
+      height: [0,5,9,14,14,0]
+      angle: 0
+      texture: [6,4,63,11,4]
+      laser:
+        damage: [40,80]
+        rate: 1
+        type: 1
+        speed: [160,180]
+        number: 1
+        error: 2.5
+      propeller: false
+    cannon1:
+      section_segments: 8
+      offset:
+        x: 120
+        y: 20
+        z: -4
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-40,-20,-30,0,25,29]
+        z: [0,0,0,0,0,0]
+      width: [0,4,6,11,7,0]
+      height: [0,5,6,11,7,0]
+      angle: 5
+      laser:
+        damage: [10,20]
+        rate: 2
+        type: 1
+        speed: [110,150]
+        number: 1
+        error: 2.5
+      propeller: false
+      texture: [6,8,10,4,63]
+    cannon2:
+      section_segments: 8
+      offset:
+        x: 10
+        y: 62
+        z: 27
+      position:
+        x: [-2,0,0,0,0,0]
+        y: [-52,-42,-10,5,30,20]
+        z: [0,0,0,0,0,0]
+      width: [0,12,12,12,10,0]
+      height: [0,10,14,14,10,0]
+      angle: 0
+      texture: [63,4,10,12,17]
+      propeller: true
+    cannon3:
+      section_segments: 8
+      offset:
+        x: 10
+        y: 72
+        z: 10
+      position:
+        x: [0,0,0]
+        y: [-5,10,1]
+        z: [0,0,0]
+      width: [10,7,0]
+      height: [10,7,0]
+      angle: 0
+      texture: [18,17]
+      propeller: true
+    cannon4:
+      section_segments: 8
+      offset:
+        x: 45
+        y: -45
+        z: -8
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-40,-55,-30,0,25,29]
+        z: [0,0,0,0,0,0]
+      width: [0,5,6,11,7,0]
+      height: [0,5,6,11,7,0]
+      angle: 5
+      laser:
+        damage: [10,20]
+        rate: 2
+        type: 1
+        speed: [110,150]
+        number: 1
+        error: 2.5
+      propeller: false
+      texture: [6,8,10,4,63]
+  wings: 
+
+    main2:
+      length: [15,2,80,12]
+      width: [35,45,75,40,20]
+      angle: [-10,-20,-25,0]
+      position: [15,15,15,-10,-10]
+      doubleside: true
+      offset:
+        x: 35
+        y: 28
+        z: 30
+      bump:
+        position: 20
+        size: 15
+      texture: [8,4,11,63]
+    main3:
+      length: [30]
+      width: [55,25]
+      angle: [-25]
+      position: [10,-20]
+      doubleside: true
+      offset:
+        x: 20
+        y: -20
+        z: 5
+      bump:
+        position: 30
+        size: 20
+      texture: [8]
+
+
+
+

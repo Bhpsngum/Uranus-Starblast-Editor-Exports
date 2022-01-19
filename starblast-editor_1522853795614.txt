@@ -1,0 +1,103 @@
+f=0
+ttofy1=0
+ttofy2=0
+ttofz=0
+return model =
+  name: 'U-Sniper'
+  level: 5
+  model: 1
+  size: 1.8
+  specs:
+    shield:
+      capacity: [200,300]
+      reload: [4,6]
+    generator:
+      capacity: [80,160]
+      reload: [40,60]
+    ship:
+      mass: 200
+      speed: [70,90]
+      rotation: [50,70]
+      acceleration: [60,110]
+  bodies:
+    f_topTurret1_base:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 0+ttofy1+f
+        z: 0+ttofz
+      position:
+        x: [0,0,0,0,0]
+        y: [-50,-40,0,40,50]
+        z: [0,0,0,0,0]
+      width: [0,40,50,40,0]
+      height: [0,7,7,7,0]
+      texture: [2,8,8,2]
+    f_topTurret1_pivot:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+ttofy1+f
+        z: 17+ttofz
+      position:
+        x: [0,0,0,0,0]
+        y: [-10,-5,5,10]
+        z: [0,0,0,0,0]
+      width: [0,10,10,0]
+      height: [20,20,20,20]
+      texture: [2.9]
+    f_topTurret1_body:
+      section_segments: 6
+      offset:
+        x: 0.1
+        y: 10+ttofy1+f
+        z: 30+ttofz
+      position:
+        x: [-5,-5,-5,-5,0,0]
+        y: [-35,-35,-30,-35,-30,0]
+        z: [0,0,0,0,0,0]
+      width: [0,14,15,20,30,30]
+      height: [0,14,15,20,20,20]
+      angle:90
+      texture: [17.9,16,3.9]
+    f_topTurret1_capacitors:
+      section_segments: 6
+      offset:
+        x: 20
+        y: 40+ttofy1+f
+        z: 30+ttofz
+      position:
+        x: [0,0,0]
+        y: [-10,30,33]
+        z: [0,0,0]
+      width: [6,6,0]
+      height: [10,10,0]
+      texture: [16.9,3.9]
+    f_topTurret1_body2:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 40+ttofy1+f
+        z: 30+ttofz
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-95,-95,-88,-80,-62,-60,-25,-10,-2,20,23]
+        z: [-8,-8,2,5,5,15,20,15,0,0,0,0,0]
+      width: [0,10,13,13,13,20,20,20,20,20,0]
+      height: [0,6,16,20,20,10,5,5,15,15,0]
+      texture: [0.9,1,1,1,1,1,1,1,10,0.9]
+     f_topTurret1_guns:
+      section_segments: 6
+      offset:
+        x: 22
+        y: -4+f+ttofy1
+        z: 30+ttofz
+      position:
+        x: [0,0,0,0,0,0,-6,-6,0]
+        y: [-100,-165,-160,-145,-140,-44,-40,-20,-18]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,7,7,5,5,15,15,0]
+      height: [0,5,7,7,5,5,12,12,0]
+      texture: [16.9,6,6,6,1.9,3.9,8,3.9]
+    
+   

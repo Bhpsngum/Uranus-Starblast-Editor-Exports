@@ -1,0 +1,62 @@
+return model =
+  name: 'Surface Templates'
+  level: 1
+  model: 1
+  size: 1
+  bodies:
+    surfaceY:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0]
+        z: [-50,50,0,0,0,0,0,0,0]
+      width: [50,50]
+      height: [0,0]
+      texture: [2]
+      angle:180
+    tube1:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 20
+      position:
+        x: [-5,1,5,5,1,-5,0,0]
+        y: [-30,-25,-15,15,25,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [3,3,3,3,3,3]
+      height: [3,3,3,3,3,3]
+      texture: [3.8]
+      angle:90
+    tube2:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 10
+      position:
+        x: [-5,1,5,5,1,-5,0,0]
+        y: [-30,-25,-15,25,35,40]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [3,3,3,3,3,3]
+      height: [3,3,3,3,3,3]
+      texture: [3.8]
+      angle:90
+    glowyThingy:
+      section_segments: 12
+      offset:
+        x: 20
+        y: 0
+        z: -20
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-5,-8,-7,-6,-5,6]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,6,10,11,15]
+      height: [0,5,6,10,11,15]
+      texture: [17,4,18,3,13]
+      angle:0

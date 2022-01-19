@@ -1,0 +1,65 @@
+f=0
+meby=0
+mebz=0
+return model =
+  name: 'U-Sniper'
+  level: 5
+  model: 1
+  size: 1.8
+  specs:
+    shield:
+      capacity: [200,300]
+      reload: [4,6]
+    generator:
+      capacity: [80,160]
+      reload: [40,60]
+    ship:
+      mass: 200
+      speed: [70,90]
+      rotation: [50,70]
+      acceleration: [60,110]
+  bodies:
+    f_maneuverEngineBottom_engine:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0+mety+f
+        z: 0-metz
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-20,-35,-20,-15,15,20,35,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,15,16,16,16,10,0]
+      height: [0,10,15,16,16,16,10,0]
+      texture: [13,3,1,10,1,3,13]
+      propeller: true
+    f_maneuverEngineBottom_top:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+mety+f
+        z: -15-metz
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-30,-30,-20,-5,5,20,30,30]
+        z: [5,5,2,0,0,2,5,5]
+      width: [0,7,9,10,10,9,7,0]
+      height: [0,5,5,5,5,5,5,0]
+      texture: [3.9]
+    f_maneuverEngineBottom_connector:
+      section_segments: 6
+      offset:
+        x: -1
+        y: 0+mety+f
+        z: 6-metz
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [0,10,10]
+        z: [5,5,2,0,0,2,5,5]
+      width: [25,25,0]
+      angle:90
+      height: [10,10,0]
+      texture: [12]
+      
+    
+   

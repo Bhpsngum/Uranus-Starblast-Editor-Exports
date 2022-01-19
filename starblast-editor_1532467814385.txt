@@ -1,0 +1,78 @@
+fin = (y,r,a,h) ->
+  return k = 
+    doubleside: true
+    offset:
+      x: Math.cos(a*0.0174533)*r
+      y: y
+      z: Math.sin(a*0.0174533)*r
+    length: [5,10]
+    width: [10,7,3]
+    angle: [a,a]
+    position: [0,0+h*5,0+h*12]
+    texture: [3,17]
+    bump:
+      position: h*30
+      size: 20
+
+return model =
+  name: 'Firewall HGS-3'
+  level: 1
+  model: 1
+  size: 0.6
+  zoom: 0.7
+  specs:
+    shield:
+      capacity: [350,350]
+      reload: [2,2]
+    generator:
+      capacity: [500,500]
+      reload: [5,5]
+    ship:
+      mass: 130
+      speed: [150,150]
+      rotation: [70,70]
+      acceleration: [80,80]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-42,-40,-30,-20,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,12,8,8]
+      height: [0,10,12,8,8]
+      texture: [3,8,8,17]
+    main1:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-42,-40,-30,-20,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,12,8,8]
+      height: [0,10,12,8,8]
+      texture: [3,8,8,17]
+      angle:180
+  wings: 
+    finF1:fin(32,9,60,-1)
+    finF2:fin(32,9,30,-1)
+    finF3:fin(32,9,0,-1)
+    finF4:fin(32,9,-30,-1)
+    finF5:fin(32,9,-60,-1)
+    finF6:fin(32,9,90,-1)
+    finF7:fin(32,9,-90,-1)
+    
+    finB1:fin(-32,9,60,1)
+    finB2:fin(-32,9,30,1)
+    finB3:fin(-32,9,0,1)
+    finB4:fin(-32,9,-30,1)
+    finB5:fin(-32,9,-60,1)
+    finB6:fin(-32,9,90,1)
+    finB7:fin(-32,9,-90,1)

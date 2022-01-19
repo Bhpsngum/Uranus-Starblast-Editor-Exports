@@ -1,0 +1,91 @@
+y=0
+return model =
+  name: 'Bull'
+  level: 1
+  model: 18
+  size: 1.1
+  specs:
+    shield:
+      capacity: [275,275]
+      reload: [15,15]
+    generator:
+      capacity: [150,150]
+      reload: [20,20]
+    ship:
+      mass: 170
+      speed: [140,140]
+      rotation: [40,40]
+      acceleration: [150,150]
+      dash:
+        rate: 1
+        burst_speed: [200,200]
+        speed: [180,180]
+        acceleration: [170,170]
+        initial_energy: [45,45]
+        energy: [30,30]
+  bodies:
+    deckheck:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-50,-30,-20,30,40,60,70]
+        z: [6,6,6,0,0,6,6,6]
+      width: [0,15,17,17,17,17,12,0]
+      height: [0,2,2,2,2,2,2,0]
+      texture: [12,12,3,13,3,12,12]
+    sides1:
+      section_segments: 4
+      offset:
+        x: 14
+        y: 0+y
+        z: 16
+      position:
+        x: [-14,-1,1,0,0,1,-3,-14,0,0]
+        y: [-80,-50,-30,-20,30,40,60,70]
+        z: [-3,-3,-3,-5,-5,-3,-3,-3]
+      width: [0,2,2,2,2,2,2,0]
+      height: [5,6,6,4,4,6,6,6,4]
+      texture: [1]
+    sides2:
+      section_segments: 4
+      offset:
+        x: 14
+        y: 0+y
+        z: 7
+      position:
+        x: [-14,-1,1,0,0,1,-3,-14,0,0]
+        y: [-79,-50,-30,-20,30,40,60,69]
+        z: [3,-1,-3,-3,-3,-3,-1,3]
+      width: [0,0,0,0,0,0,0,0,0,0]
+      height: [0,2,4,4,4,4,2,0]
+      texture: [3]
+    keel:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 1+y
+        z: 5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-90,-80,-60,-20,30,60,69,72]
+        z: [12,7,0,-10,-10,0,7,7,0,0]
+      width: [0,5,5,5,5,4,3,0]
+      height: [0,7,10,5,5,10,7,0]
+      texture: [3]
+    underside:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 0+y
+        z: 1.5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-50,-30,-20,30,40,60,70]
+        z: [6,3,-1,-1,-1,-1,3,6]
+      width: [0,14,16,15,15,16,11,0]
+      height: [0,7,7,7,7,7,7,0]
+      texture: [4]

@@ -1,0 +1,105 @@
+return model =
+  name: 'Bastion'
+  level: 7
+  model: 3
+  size: 4
+  specs:
+    shield:
+      capacity: [400,400]
+      reload: [20,20]
+    generator:
+      capacity: [500,500]
+      reload: [100,100]
+    ship:
+      mass: 350
+      speed: [80,80]
+      rotation: [15,15]
+      acceleration: [125,125]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 50
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-145,-140,-120,-40,-5,35,30]
+        z: [0,0,0,0,0,0,0]
+      width: [0,10,16,25,21,15,0]
+      height: [0,10,16,25,21,15,0]
+      texture: [11,4,10,4,11,17]
+      propeller: true
+    thrusters:
+      section_segments: 8
+      offset:
+        x: 46
+        y: -10
+        z: 15
+      position:
+        x: [0,0,0,2,7,5]
+        y: [-55,-60,-10,20,40,50]
+        z: [0,0,0,0,0,0]
+      width: [0,3,6,7,6,0]
+      height: [0,3,6,7,6,0]
+      texture: [6,8,2,1,1]
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -8
+        z: 30
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-40,-30,-10,18,50]
+        z: [-5,-3,-1,0,0]
+      width: [0,5,10,10,0]
+      height: [0,3,5,7,0]
+      texture: [1,9,9,4,4]
+    cannon1:
+      section_segments: 8
+      offset:
+        x: 18
+        y: -80
+        z: 10
+      position:
+        x: [0,0,0,0,-5,-10,-10]
+        y: [-18,-20,10,35,45]
+        z: [0,0,0,0,0]
+      width: [0,3,4,7,0]
+      height: [0,3,4,7,0]
+      texture: [6,8,2,1,1]
+      laser:
+        damage: [6,6]
+        rate: 5
+        type: 1
+        speed: [200,200]
+        number: 1 
+     cannon2:
+      section_segments: 8
+      offset:
+        x: 46
+        y: -10
+        z: 5
+      position:
+        x: [0,0,0,2,7,5]
+        y: [-55,-60,-10,20,40,50]
+        z: [0,0,0,0,0,0]
+      width: [0,3,6,7,6,0]
+      height: [0,3,6,7,6,0]
+      texture: [6,8,2,1,1]
+  wings:
+    main:
+      doubleside: true
+      offset:
+        x: -10
+        y: 40
+        z: 10
+      length: [40,20,0,17]
+      width: [30,40,30,145,65]
+      angle: [0,0,-25,5]
+      position: [5,-20,-5,-30,-10]
+      texture: [63,11,4,63]
+      bump:
+        position: 35
+        size: 20

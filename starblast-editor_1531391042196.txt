@@ -1,0 +1,205 @@
+return model =
+  name: 'Amalgam'
+  level: 1
+  model: 14
+  size: 1
+  specs:
+    shield:
+      capacity: [300,300]
+      reload: [12,12]
+    generator:
+      capacity: [200,200]
+      reload: [10,10]
+    ship:
+      mass: 160
+      speed: [140,140]
+      rotation: [60,60]
+      acceleration: [140,140]
+      dash:
+        rate: 3
+        burst_speed: [240,240]
+        speed: [140,140]
+        acceleration: [140,140]
+        initial_energy: [40,40]
+        energy: [0,0]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-100,-120,-100,-60,0,90,140,140]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,15,30,40,40,30,5,0]
+      height: [1,15,30,45,45,30,5,0]
+      texture: [17,1,2,3,4,18,17]
+      propeller: true
+    engines:
+      section_segments: 12
+      offset:
+        x: -30
+        y: 20
+        z: 15
+      position:
+        x: [25,-2,-4,-2,0,0]
+        y: [0,40,74,98,108,105]
+        z: [18,10,0,0,0,0]
+      width: [9,10,9,14,11,0]
+      height: [2,10,9,14,11,0]
+      texture: [3,3,3,3,17]
+      propeller: true    
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -60
+        z: 35
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-40,-20,0,30,35]
+        z: [0,0,0,0,0]
+      width: [0,13,12,10,5]
+      height: [0,15,13,12,5]
+      texture: [9,9,8,9]
+      propeller: false
+    motor:
+      section_segments: 8
+      offset:
+        x: 20
+        y: -90
+        z: 30
+      position:
+        x: [0,0,0,0,0]
+        y: [90,80,90,111,95]
+        z: [0,0,0,0,0]
+      width: [0,0,10,5,0]
+      height: [0,0,15,0,0]
+      texture: [17,17,17,17]  
+    motor2:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -50
+        z: 35
+      position:
+        x: [0,0,0,0,0]
+        y: [90,80,90,111,95]
+        z: [0,0,0,0,0]
+      width: [0,0,10,5,0]
+      height: [0,0,15,0,0]
+      texture: [17,17,17,17]    
+    bumpers:
+      section_segments: 8
+      offset:
+        x: 40
+        y: 80
+        z: 0
+      position:
+        x: [-0,0,0,0,0,0,0]
+        y: [-80,-50,-20,0,20,50,55]
+        z: [0,0,0,0,0,0,0]
+      width: [0,10,15,15,15,5,0]
+      height: [0,10,10,15,15,10,0]
+      texture: [17,7,7,17,7]
+      angle: -130
+    bumpers2:
+      section_segments: 8
+      offset:
+        x: 40
+        y: 30
+        z: 0
+      position:
+        x: [-0,0,0,0,0,0,0]
+        y: [-80,-50,-20,0,20,50,55]
+        z: [0,0,0,0,0,0,0]
+      width: [0,10,15,15,15,5,0]
+      height: [0,10,10,15,15,10,0]
+      texture: [17,7,7,17,7]
+      angle: -130 
+    bumpers3:
+      section_segments: 8
+      offset:
+        x: 40
+        y: -20
+        z: 0
+      position:
+        x: [-0,0,0,0,0,0,0]
+        y: [-80,-50,-20,0,20,50,55]
+        z: [0,0,0,0,0,0,0]
+      width: [0,10,15,15,15,5,0]
+      height: [0,10,10,15,15,10,0]
+      texture: [17,7,7,17,7]
+      angle: -130    
+    arms:
+      section_segments: 8
+      offset:
+        x: 40
+        y: 0
+        z: -24
+      position:
+        x: [0,0,0,5,10,0,0,-10]
+        y: [-85,-70,-80,-30,0,30,100,90]
+        z: [0,0,0,0,0,0,0,0]
+      width: [1,5,6,15,15,15,10,0]
+      height: [1,5,6,20,30,25,10,0]
+      texture: [6,4,18,18,18,18,12]
+      angle: 1
+      propeller: true
+    canon:
+      section_segments: 12
+      offset:
+        x: 30
+        y: -40
+        z: 30
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-50,-45,-20,0,20,30,40]
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,7,7,3,5,0]
+      height: [0,5,15,15,3,5,0]
+      angle: 3
+      propeller: false
+      texture: [6,4,10,4,4,4]
+  wings:
+    main:
+      offset:
+        x: 40
+        y: -15
+        z: -10
+      length: [60,40]
+      width: [50,30,20]
+      angle: [-20,10]
+      position: [30,50,80]
+      texture: [4,18]
+      bump:
+        position: 50
+        size: 10
+    font:
+      length: [60]
+      width: [20,15]
+      angle: [-10,20]
+      position: [-20,-40]
+      texture: [7]
+      bump:
+        position: 30
+        size: 10
+      offset:
+        x: 20
+        y: 0
+        z: -20
+    font2:
+      offset:
+        x: 20
+        y: 40
+        z: -20
+      length: [60]
+      width: [20,15]
+      angle: [-10,20]
+      position: [20,40]
+      texture: [7]
+      bump:
+        position: 30
+        size: 10

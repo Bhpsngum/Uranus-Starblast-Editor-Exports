@@ -1,0 +1,99 @@
+return model =
+  name: 'Twin-Engine Cutester'
+  level: 1
+  model: 1
+  size: 1.1
+  specs:
+    shield:
+      capacity: [130,170]
+      reload: [2,4]
+    generator:
+      capacity: [70,100]
+      reload: [15,23]
+    ship:
+      mass: 100
+      speed: [105,125]
+      rotation: [70,120]
+      acceleration: [120,150]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -30
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-85,-85,-80,-70,-50,-10,20,60,72,62]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,10,12,15,20,30,30,28,10,0]
+      height: [0,5,7,10,15,20,15,14,10,0]
+      texture: [63,63,3,63,10,2,18,4,17]
+      propeller: true
+    cannon:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -30
+        z: -15
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-70,-80,-20,0,20,50]
+        z: [0,0,0,0,1,5]
+      width: [0,5,15,10,15,0]
+      height: [0,5,15,15,10,0]
+      angle: 0
+      laser:
+        damage: [20,55]
+        rate: 1
+        type: 2
+        speed: [130,170]
+        number: 1
+        error: 0
+        recoil: 150
+      propeller: false
+      texture: [3]
+    cockpit:
+      section_segments: 10
+      offset:
+        x: 0
+        y: -50
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-45,-20,0,20,35]
+        z: [-3,0,0,0,0]
+      width: [0,12,15,12,0]
+      height: [0,10,15,10,0]
+      texture: [7,9,9,7]
+      propeller: false
+    deco:
+      section_segments: 10
+      offset:
+        x: 40
+        y: 30
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-60,-50,-30,0,30,50,40]
+        z: [0,0,0,0,0,0,0]
+      width: [0,15,20,20,15,10,0]
+      height: [0,15,20,20,15,10,0]
+      texture: [4,4,63,63,12,17]
+      angle: 0
+      propeller: true
+  wings:
+    main:
+      length: [7,25]
+      width: [40,40,30]
+      angle: [60,0]
+      position: [-20,-20,0]
+      texture: [4,63]
+      doubleside: true
+      bump:
+        position: 30
+        size: 10
+      offset:
+        x: 10
+        y: 30
+        z: 10

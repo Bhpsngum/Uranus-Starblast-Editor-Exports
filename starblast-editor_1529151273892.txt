@@ -1,0 +1,474 @@
+y = 0
+return model =
+  name: 'Side-Interceptor'
+  level: 5
+  model: 2
+  size: 1.8
+  specs:
+    shield:
+      capacity: [275,350]
+      reload: [4,6]
+    generator:
+      capacity: [100,150]
+      reload: [30,50]
+    ship:
+      mass: 280
+      speed: [70,100]
+      rotation: [60,90]
+      acceleration: [120,160]
+  bodies:
+    main:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -80+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0,-25,-15,0,25,55,90,120,170]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,3,10,25,30,30,25,25,30,15]
+      height: [0,3,10,25,30,30,23,17,13,0]
+      texture: [17,17,3,63,63,3,3,4,12]
+      laser:
+        damage: [60,100]
+        rate: 1
+        type: 2
+        speed: [140,220]
+        number: 1
+        recoil: 180
+        error: 0
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -84+y
+        z: 19
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-15,-11,-4,5,30,63]
+        z: [0,5,8,10,8,3]
+      width: [3,5,6,6,8,9]
+      height: [0,2,2,2,4,3]
+      texture: [9,9,9,1]
+    anntenae:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -84+y
+        z: 24
+      position:
+        x: [20,20,20,20,20,15]
+        y: [-80,-78,-35,-30,20,30,20]
+        z: [0,0,0,0,0,-5,0]
+      width: [0,2,2,1,1,1,0]
+      height: [0,2,2,1,1,1,0]
+      texture: [4,13,4,3,3,3]
+      angle: 0
+      
+    gunMainRails:
+      section_segments: 6
+      offset:
+        x: 15
+        y: -150+y        
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-54,-50,40,60]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,3,5]
+      height: [0,5,5,7]
+      texture: [4,3,4,3]
+      angle: 0
+    gunMainBottomRail:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -150+y        
+        z: -15
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-44,-40,40,60]
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,5,7]
+      height: [0,3,3,5]
+      texture: [4,3,4,3]
+      angle: 0
+    gunMainTopRail:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -150+y        
+        z: 15
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-44,-40,40,60]
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,5,7]
+      height: [0,3,3,5]
+      texture: [4,3,4,3]
+      angle: 0
+      
+    gunsSideTop:
+      section_segments: 6
+      offset:
+        x: 40
+        y: -100+y        
+        z: 15
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-90,-100,-80,0,5,28,30,68,70]
+        z: [0,0,0,0,0,0,-8,-15,-15]
+      width: [0,6,5,5,7,7,10,10,0]
+      height: [0,6,5,5,7,7,15,10,0]
+      texture: [16.8,18,3,1,10,2.9,2.9]
+      angle: 0
+      laser:
+        damage: [3,5]
+        rate: 5
+        type: 1
+        speed: [100,150]
+        number: 1
+        error: 5
+    gunsSideBottom:
+      section_segments: 6
+      offset:
+        x: 40
+        y: -100+y        
+        z: -15
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-90,-100,-80,0,5,28,30,68,70]
+        z: [0,0,0,0,0,0,8,15,15]
+      width: [0,6,5,5,7,7,10,10,0]
+      height: [0,6,5,5,7,7,15,10,0]
+      texture: [16.8,18,3,1,10,2.9,2.9]
+      angle: 0
+      laser:
+        damage: [3,5]
+        rate: 5
+        type: 1
+        speed: [100,150]
+        number: 1
+        error: 5
+      
+    propellerMain:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 100+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-85,-50,-20,0,40,50,40]
+        z: [0,0,0,0,0,0,0]
+      width: [0,25,30,20,20,15,0]
+      height: [0,25,25,20,20,15,0]
+      texture: [3.9,8,2.9,3.9,12.5,16.9]
+      angle: 0
+      propeller: true
+    propellersTop:
+      section_segments: 6
+      offset:
+        x: 40
+        y: 70+y
+        z: 11
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-55,-50,-20,0,40,50,40]
+        z: [0,0,0,0,0,0,0]
+      width: [0,17,17,12,12,10,0]
+      height: [0,14,14,12,12,10,0]
+      texture: [17.9,3.9,2.9,3.9,12.5,16.9]
+      angle: 0
+      propeller: true
+    propellersBottom:
+      section_segments: 6
+      offset:
+        x: 45
+        y: 80+y
+        z: -11
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-75,-70,-20,0,40,50,40]
+        z: [0,0,0,0,0,0,0]
+      width: [0,17,17,12,12,10,0]
+      height: [0,14,14,12,12,10,0]
+      texture: [17.9,3.9,2.9,3.9,12.5,16.9]
+      angle: 0
+      propeller: true
+    tubes1:
+      section_segments: 4
+      offset:
+        x: 23
+        y: 130+y        
+        z: 10
+      position:
+        x: [-5,0,0,0,0,-10,0]
+        y: [-50,-30,-20,-15,0,10]
+        z: [-3,0,0,0,0,-7,0]
+      width: [3,3,3,3,3,3,0]
+      height: [3,3,3,3,3,3,0]
+      texture: [1,1,17,1,1,3]
+      angle: 0
+    tubes2:
+      section_segments: 4
+      offset:
+        x: 15
+        y: 130+y        
+        z: 20
+      position:
+        x: [-3,0,0,0,0,-7,0]
+        y: [-50,-30,-20,-15,0,10]
+        z: [-7,0,0,0,0,-15,0]
+      width: [3,3,3,3,3,3,0]
+      height: [3,3,3,3,3,3,0]
+      texture: [1,1,17,1,1,3]
+      angle: 0
+      
+    middleTubeTop:
+      section_segments: 6
+      offset:
+        x: 40
+        y: 0+y        
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-50,-10,10,20]
+        z: [0,0,12,12,0,0,0]
+      width: [5,5,5,5]
+      height: [5,5,5,5]
+      texture: [1]
+      angle: 0
+    middleTubeBottom:
+      section_segments: 6
+      offset:
+        x: 45
+        y: 0+y        
+        z: 0
+      position:
+        x: [-3,-3,0,0,0,0,0]
+        y: [-50,-10,10,20]
+        z: [0,0,-12,-12,0,0,0]
+      width: [5,5,5,5]
+      height: [5,5,5,5]
+      texture: [1]
+      angle: 0
+    
+    bottomHull:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y        
+        z: -14
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-70,-30,-10,20,40,90,100]
+        z: [-9,-9,-9,0,0,-2,-2,-5]
+      width: [0,20,20,15,15,20,20,0]
+      height: [0,10,10,17,17,15,15,0]
+      texture: [4,3,1,10,1,3]
+      angle: 0
+    bottomSideWingHolders:
+      section_segments: 6
+      offset:
+        x: 26
+        y: 0+y        
+        z: -34
+      position:
+        x: [-15,-15,0,0,0,0,-15,-15,-15]
+        y: [-60,-60,-40,-30,20,30,50,70,80]
+        z: [15,15,0,0,0,0,15,15,15]
+      width: [0,10,10,10,10,10,10,10,0]
+      height: [0,10,10,10,10,10,10,10,0]
+      texture: [4]
+      angle: 0
+    
+    top:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0+y
+        z: 15
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-50,-30,-10,0,15,30,50]
+        z: [5,7,1,0,0,0,0]
+      width: [15,13,10,10,13,13,10]
+      height: [7,3,10,10,9,7,10]
+      texture: [1,10,1,12,13,4]
+      angle: 0
+      
+    sidesB:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: -8
+        y: 25+y
+        z: 0
+      position:
+        x: [0,0,0,0,-10,0,0,0,0,0]
+        y: [-68,-65,-60,-57,-10]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,20,25,5,7]
+      height: [0,5,7,4,6]
+      texture: [4,63,4,4,4,4,4,63,4]
+    sidesF:
+      section_segments: 6
+      angle: 90
+      offset:
+        x: -8
+        y: -35+y
+        z: 0
+      position:
+        x: [0,0,0,0,10,0,0,0,0,0]
+        y: [-68,-65,-60,-57,-10]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,20,25,5,7]
+      height: [0,5,7,4,6]
+      texture: [4,63,4,4,4,4,4,63,4]
+     
+  wings:
+    wings1f:
+      doubleside: true
+      offset:
+        x: 70
+        y: -40+y
+        z: 0
+      length: [-20,-10,-40]
+      width: [50,50,130,30]
+      angle: [280,315,335]
+      position: [0,0,-50,0]
+      texture: 4
+      bump:
+        position: 10
+        size: -7
+    wings2f:
+      doubleside: true
+      offset:
+        x: 70
+        y: -40+y
+        z: 0
+      length: [20,10,40]
+      width: [50,50,130,30]
+      angle: [-100,-135,-155]
+      position: [0,0,-50,0]
+      texture: 4
+      bump:
+        position: 10
+        size: 7
+    wings1b:
+      doubleside: true
+      offset:
+        x: 70
+        y: 30+y
+        z: 0
+      length: [-20,-10,-40]
+      width: [50,50,130,30]
+      angle: [280,315,335]
+      position: [0,0,50,0]
+      texture: 4
+      bump:
+        position: 10
+        size: -7
+    wings2b:
+      doubleside: true
+      offset:
+        x: 70
+        y: 30+y
+        z: 0
+      length: [20,10,40]
+      width: [50,50,130,30]
+      angle: [-100,-135,-155]
+      position: [0,0,50,0]
+      texture: 4
+      bump:
+        position: 10
+        size: 7
+    
+    gunFrontT1:
+      length: [10,8]
+      width: [10,10,10]
+      angle: [60,20]
+      position: [0,0,0]
+      doubleside: true
+      bump:
+        position: 30
+        size: 5
+      texture: [17]
+      offset:
+        x: -16
+        y: -130+y
+        z: 3
+    gunFrontB1:
+      length: [10,8]
+      width: [10,10,10]
+      angle: [-60,-20]
+      position: [0,0,0]
+      doubleside: true
+      bump:
+        position: 30
+        size: 5
+      texture: [17]
+      offset:
+        x: -16
+        y: -130+y
+        z: -3
+        
+    gunFrontT2:
+      length: [10,8]
+      width: [10,10,10]
+      angle: [60,20]
+      position: [0,0,0]
+      doubleside: true
+      bump:
+        position: 30
+        size: 5
+      texture: [17]
+      offset:
+        x: -16
+        y: -150+y
+        z: 3
+    gunFrontB2:
+      length: [10,8]
+      width: [10,10,10]
+      angle: [-60,-20]
+      position: [0,0,0]
+      doubleside: true
+      bump:
+        position: 30
+        size: 5
+      texture: [17]
+      offset:
+        x: -16
+        y: -150+y
+        z: -3
+        
+    gunFrontT3:
+      length: [10,8]
+      width: [10,10,10]
+      angle: [60,20]
+      position: [0,0,0]
+      doubleside: true
+      bump:
+        position: 30
+        size: 5
+      texture: [17]
+      offset:
+        x: -16
+        y: -170+y
+        z: 3
+    gunFrontB3:
+      length: [10,8]
+      width: [10,10,10]
+      angle: [-60,-20]
+      position: [0,0,0]
+      doubleside: true
+      bump:
+        position: 30
+        size: 5
+      texture: [17]
+      offset:
+        x: -16
+        y: -170+y
+        z: -3

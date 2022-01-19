@@ -1,0 +1,79 @@
+boxPart = (a) ->
+  return k = 
+    section_segments: 6
+    offset:
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: [0,0,0,0,0,0]
+      y: [-25,-35,-30,0]
+      z: [0,0,0,0,-20,-20,-20,-20]
+    width: [0,8,30,30]
+    height: [0,8,10,10]
+    texture: [16.9,13,18]
+    angle:a
+boxPart2 = (a) ->
+  return k = 
+    section_segments: 6
+    offset:
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: [0,0,0,0,0,0]
+      y: [-25,-20,0]
+      z: [0,0,0,0,-20,-20,-20,-20]
+    width: [0,25,25]
+    height: [0,12,12]
+    texture: [1.9,11,18]
+    angle:a    
+crossPart = (a) ->
+  return k = 
+    section_segments: 6
+    offset:
+      x: 0
+      y: 0
+      z: 12
+    position:
+      x: [0,0,0,0,0,0]
+      y: [-12,-5]
+      z: [0,0,0,0,-20,-20,-20,-20]
+    width: [3,4]
+    height: [0,0]
+    texture: [16.8]
+    angle:a
+
+return model =
+  name: 'Burstcharger Mk1'
+  level: 1
+  model: 2
+  size: 0.8
+  zoom: 1
+  specs:
+    shield:
+      capacity: [250,250]
+      reload: [4,4]
+    generator:
+      capacity: [100,100]
+      reload: [30,30]
+    ship:
+      mass: 110
+      speed: [150,150]
+      rotation: [70,70]
+      acceleration: [60,60]
+  bodies:
+    main1:boxPart(90)
+    main2:boxPart(-90)
+    main3:boxPart(0)
+    main4:boxPart(180)
+    
+    b21:boxPart2(90)
+    b22:boxPart2(-90)
+    b23:boxPart2(0)
+    b24:boxPart2(180)
+    
+    c1:crossPart(90)
+    c2:crossPart(-90)
+    c3:crossPart(0)
+    c4:crossPart(180)

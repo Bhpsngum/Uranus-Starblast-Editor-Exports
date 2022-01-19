@@ -1,0 +1,77 @@
+return model =
+  name: '30-Angle Corridor'
+  level: 1
+  model: 1
+  size: 1
+  bodies:
+    main1:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-40,-40,-30,0,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,28,30,30,25]
+      height: [0,28,30,30,25]
+      texture: [1]
+      angle:-30
+    main2:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-40,-40,-30,0,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,28,30,30,25]
+      height: [0,28,30,30,25]
+      texture: [1]
+      angle:180
+    smooth:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 8
+        z: 0
+      position:
+        x: [-1,-1]
+        y: [-15,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [30,30]
+      height: [30,30]
+      texture: [1]
+      angle:-15
+    
+    dockportMedium:
+      section_segments: 12
+      offset:
+        x: 20
+        y: -34
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-12,-13,-10,-10,-2,-2,7]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,14,15,17,20,24,24]
+      height: [0,14,15,17,20,24,24]
+      texture: [11,3,4,8,1]
+      angle:-30
+    dockportMedium1:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 40
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-12,-13,-10,-10,-2,-2,7]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,14,15,17,20,24,24]
+      height: [0,14,15,17,20,24,24]
+      texture: [11,3,4,8,1]
+      angle:180

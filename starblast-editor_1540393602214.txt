@@ -1,0 +1,210 @@
+anim = 0;
+
+rotateAroundZ = (name, oname, a, rotatePart) ->
+  ox = model.bodies[oname].offset.x;
+  oy = model.bodies[oname].offset.y;
+  
+  dx = model.bodies[name].offset.x-ox;
+  dy = model.bodies[name].offset.y-oy;
+  
+  ra = -a*0.0174533;
+  
+  ndx = dx*Math.cos(ra) - dy*Math.sin(ra);
+  ndy = dx*Math.sin(ra) + dy*Math.cos(ra);
+  
+  model.bodies[name].offset.x = ndx+ox;
+  model.bodies[name].offset.y = ndy+oy;
+  
+  if(rotatePart)
+    model.bodies[name].angle+=a
+
+model =
+  name: 'Fly'
+  level: 1
+  model: 1
+  size: 1.05
+  specs:
+    shield:
+      capacity: [75,100]
+      reload: [2,3]
+    generator:
+      capacity: [40,60]
+      reload: [10,15]
+    ship:
+      mass: 60
+      speed: [125,145]
+      rotation: [110,130]
+      acceleration: [100,120]
+  bodies:
+    front:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: -3
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-125,-120,-80,-50,10,30,32]
+        z: [-7,-7,-7,0,0,0,0,0,0]
+      width: [10,15,20,30,30,20,0]
+      height: [0,8,8,15,15,10,0]
+      texture: [63,63,63,2.8,2.8,2.8]
+    gunMain:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -80
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-20,-55,-40,10,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,6,7,6]
+      height: [0,5,6,7,6]
+      texture: [17,8,4,63]   
+    gunRods:
+      section_segments: 4
+      offset:
+        x: 12
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-150,-150,10,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,4,4,0]
+      texture: [4] 
+    gunRodsHolders:
+      section_segments: 6
+      offset:
+        x: 12
+        y: -65
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,-30,-10,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,6,8,8,0]
+      height: [0,5,8,8,0]
+      texture: [4.8,4,63,4] 
+    
+    gunCircle1:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -130
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-5,-5,-3,3,5,5,2,-2]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [8,10,12,20,20,12,10,8,8]
+      height: [8,10,12,20,20,12,10,8,8]
+      texture: [16.8,3.8,3.8,16.8,3.8,3.8,16.8,16.8] 
+    gunCircle2:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -140
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-5,-5,-3,3,5,5,2,-2]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [8,10,12,20,20,12,10,8,8]
+      height: [8,10,12,20,20,12,10,8,8]
+      texture: [16.8,3.8,3.8,16.8,3.8,3.8,16.8,16.8] 
+    gunCircle3:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -150
+        z: 2
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-5,-5,-3,3,5,5,2,-2]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [8,10,12,20,20,12,10,8,8]
+      height: [8,10,12,20,20,12,10,8,8]
+      texture: [16.8,3.8,3.8,16.8,3.8,3.8,16.8,16.8] 
+      
+    frontSideArm1:
+      section_segments: 6
+      offset:
+        x: 37
+        y: 0
+        z: 0
+      position:
+        x: [-10,0,0,0,0,0,0,0]
+        y: [-50,-45,-18,-10,10,18]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,10,14,14,0]
+      height: [4,7,7,12,12,0]
+      texture: [3.8,3.8,63,63,63]
+      angle: -60
+    frontSideArm2:
+      section_segments: 6
+      offset:
+        x: 75
+        y: -20
+        z: 0
+      position:
+        x: [0,0,0,-5,0,0,0,0]
+        y: [-90,-80,0,10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,10,10,0]
+      height: [0,7,7,3]
+      texture: [3.8] 
+      angle:0
+      
+    backReactor:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 45
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-40,-30,-10,-5,0,0,30,30,35,50,60,90,40]
+        z: [0,0,0,0,0,0,0,0,0,0,0,0]
+      width: [18,26,20,20,18,16,16,18,20,20,21,15,0]
+      height: [5,16,20,20,18,16,16,18,20,20,21,15,0]
+      propeller:true
+      texture: [4,4,63,4,4,17,4,4,8,4,13,17] 
+    
+      
+  ###wings: main:
+    length: [60,20]
+    width: [100,50,40]
+    angle: [-10,10]
+    position: [0,20,10]
+    doubleside: true
+    offset:
+      x: 0
+      y: 10
+      z: 5
+    bump:
+      position: 30
+      size: 20
+    texture: [11,63]
+###
+
+offy = 0;
+for k,v of model.bodies 
+  v.offset.y += offy;
+    
+for k,v of model.wings 
+  v.offset.y += offy;
+  
+b = model.bodies
+w = model.wings
+b.gunRods.offset.y += anim*(-60);
+b.gunCircle1.offset.y += anim*(-20);
+b.gunCircle2.offset.y += anim*(-40);
+b.gunCircle3.offset.y += anim*(-60);
+
+rotateAroundZ("frontSideArm1","frontSideArm1",-30*anim,1)
+rotateAroundZ("frontSideArm2","frontSideArm1",-30*anim,1)
+  
+return model;

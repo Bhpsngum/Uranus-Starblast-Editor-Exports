@@ -1,0 +1,87 @@
+return model =
+  name: 'Fly'
+  level: 1
+  model: 1
+  size: 1.05
+  specs:
+    shield:
+      capacity: [75,100]
+      reload: [2,3]
+    generator:
+      capacity: [40,60]
+      reload: [10,15]
+    ship:
+      mass: 60
+      speed: [125,145]
+      rotation: [110,130]
+      acceleration: [100,120]
+  bodies:
+    main:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-60,-50,-20,10,30,55,75,90]
+        z: [-15,-9,-3,0,0,0,0,0,0]
+      width: [0,35,35,25,25,35,35,20]
+      height: [0,10,17,20,20,18,15,0]
+      texture: [4,10,63,63,63,63,12,17]
+    hood:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 6
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-60,-50,-20,-20]
+        z: [-18,-8,4,4,0,0,0,0,0]
+      width: [20,20,20,0]
+      height: [5,5,5,0]
+      texture: [2]
+    under:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: -17
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-60,-60,70,70]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,20,20,0]
+      height: [0,3,3,0]
+      texture: [4]
+    bumper:
+      section_segments: 6
+      offset:
+        x: 1
+        y: -50
+        z: -14
+      position:
+        x: [7,5,0,0,0,0,0,0,0,0]
+        y: [-1,20,30,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [10,10,10,0]
+      angle:90
+      height: [8,8,8,0]
+      texture: [4]
+    wheelsF:
+      section_segments: 16
+      offset:
+        x: 28
+        y: -25
+        z: -16
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [2,2,0,1,9,10,8,8]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,10,14,14,10,5,0]
+      angle:90
+      height: [0,5,10,14,14,10,5,0]
+      texture: [11,11,4,4,4,11,11]
+    
+ 

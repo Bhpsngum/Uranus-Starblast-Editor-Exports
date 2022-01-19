@@ -1,0 +1,93 @@
+return model =
+  name: 'Bolt'
+  level: 7
+  model: 3
+  size: 1.1
+  specs:
+    shield:
+      capacity: [100,130]
+      reload: [2,5]
+    generator:
+      capacity: [60,80]
+      reload: [12,25]
+    ship:
+      mass: 80
+      speed: [120,140]
+      rotation: [30,50]
+      acceleration: [70,150]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 50
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-145,-140,-120,-40,-5,35,30]
+        z: [0,0,0,0,0,0,0]
+      width: [0,10,16,25,21,15,0]
+      height: [0,10,16,25,21,15,0]
+      texture: [11,4,10,4,12,17]
+      propeller: true
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -8
+        z: 30
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-40,-30,-10,18,50]
+        z: [-5,-3,-1,0,0]
+      width: [0,5,10,10,0]
+      height: [0,3,5,7,0]
+      texture: [1,9,9,4,4]
+     cannonSideB:
+      section_segments: 8
+      offset:
+        x: 31
+        y: 0
+        z: 8
+      position:
+        x: [0,0,0,-2,-10,-15]
+        y: [-55,-60,-10,20,40,50]
+        z: [0,0,0,0,0,0]
+      width: [0,3,6,7,6,0]
+      height: [0,3,6,7,6,0]
+      texture: [6,8,2,1,1]
+      laser:
+        damage: [4,6]
+        rate: 3
+        type: 1
+        speed: [100,130]
+        number: 2
+  wings:
+    join:
+      length: [30,20]
+      width: [33,33,23]
+      angle: [0,40]
+      position: [0,0,0]
+      doubleside: true
+      offset:
+        x: 0
+        y: 20
+        z: 0
+      bump:
+        position: 30
+        size: 25
+      texture: [63]
+    main:
+      length: [0,20,2,20]
+      width: [0,20,60,60,25]
+      angle: [-15,-10,-40,-115]
+      position: [20,20,-6,-6,35]
+      doubleside: true
+      offset:
+        x: 25
+        y: 15
+        z: 16
+      bump:
+        position: 30
+        size: 8
+      texture: [3,3,63]

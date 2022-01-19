@@ -1,0 +1,90 @@
+return model =
+  name: 'Fly'
+  level: 1
+  model: 1
+  size: 1.05
+  specs:
+    shield:
+      capacity: [75,100]
+      reload: [2,3]
+    generator:
+      capacity: [40,60]
+      reload: [10,15]
+    ship:
+      mass: 60
+      speed: [125,145]
+      rotation: [110,130]
+      acceleration: [100,120]
+  bodies:
+    side:
+      section_segments: 6
+      offset:
+        x: 20
+        y: 0
+        z: 0
+      position:
+        x: [-20,-20,-10,0,0,-20,-20,0,0,0,0,0,0]
+        y: [-160,-120,-50,-40,10,40,45]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,15,15,15,15,0]
+      height: [0,10,10,5,5,5,0]
+      texture: [63,63,3,10,4]
+      angle:0
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-110,-50,20,40,60,50]
+        z: [0,-3,-5,-2,0,0,0,0,0]
+      width: [0,15,15,12,7,0]
+      height: [0,10,10,9,7,0]
+      texture: [9,1,8,4,17]
+      propeller:true
+      angle:0
+    bottom:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-90,-40,20,40]
+        z: [-10,0,0,0,0,0,0,0,0]
+      width: [0,20,20,0]
+      height: [0,15,15,0]
+      texture: [4]
+      angle:0
+    cockpit:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 15
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-70,-50,10,30]
+        z: [-2,-3,-3,-8,0,0,0,0,0]
+      width: [0,12,12,0]
+      height: [0,5,5,0]
+      texture: [2,9,2]
+      angle:0
+    template:
+      section_segments: 6
+      offset:
+        x: 18
+        y: 0
+        z: 3
+      position:
+        x: [-5,0,0,0,0,0,0,0,0,0]
+        y: [-50,20,30,50,40]
+        z: [-5,0,0,0,0,0,0,0,0]
+      width: [7,10,10,8,0]
+      height: [7,10,10,8,0]
+      texture: [3.8,63,13,16.8]
+      angle:0
+      propeller:true

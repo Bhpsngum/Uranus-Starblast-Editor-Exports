@@ -1,0 +1,125 @@
+y = 80
+return model =
+  name: 'AC4C WraithWing B'
+  level: 3
+  model: 4
+  size: 0.85
+  specs:
+    shield:
+      capacity: [130,160]
+      reload: [2,3]
+    generator:
+      capacity: [70,170]
+      reload: [20,40]
+    ship:
+      mass: 90
+      speed: [110,145]
+      rotation: [30,65]
+      acceleration: [140,160]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-93,-90,-80,-60,-30,-20,-10,0,30,40]
+        z: [0,0,0,0,0,-4,-5,-5,-5,-5]
+      width: [0,10,15,18,16,15,0]
+      height: [0,15,25,25,20,15,0]
+      texture: [3,2,63,2,2,4,63,63,63]
+    engines:
+      section_segments: 8
+      offset:
+        x: 13
+        y: 80+y
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-135,-100,-80,-40,-50]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,8,10,5,0]
+      height: [0,8,10,5,0]
+      texture: [3,2,13,17]
+      propeller:true
+    cockpit:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -120+y
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-15,-5,10,40,50]
+        z: [-20,-3,0,0,0]
+      width: [0,7,10,12,0]
+      height: [0,10,15,15,0]
+      texture: [9]
+      propeller: false
+    front:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -130+y
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-46,-45,-42,-40,-45,-40,-13,0,30,50]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,9,10,12,12,14,15,15,15,15,15]
+      height: [0,7,8,10,10,12,15,15,15,15,15]
+      texture: [16.8,4,4,3,18,10,1,11,12]
+      propeller: false
+    guns:
+      section_segments: 6
+      offset:
+        x: 40
+        y: -110+y
+        z: -4
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-50,-22,-52,-50,-35,-20,25,30,35,51,55,58]
+        z: [0,0,0,0,0,0,0,5,6,6,6,6,6]
+      width: [0,4,6,7,7,4,4,5,5,5,5,0]
+      height: [0,4,6,7,7,4,4,9,8,8,8,0]
+      texture: [17,16,17,4,4,3,4,4,18,12]
+      propeller: false
+      laser:
+        damage: [5,10]
+        rate: 2
+        type: 1
+        speed: [150,170]
+        number: 1
+        error: 0
+    side:
+      section_segments: 6
+      offset:
+        x: 35
+        y: -55+y
+        z: -3
+      position:
+        x: [0,0,0,-10,0,0,0]
+        y: [-20,0,2,40,30,50]
+        z: [0,0,0,0,0]
+      width: [30,24,0]
+      height: [14,8,0]
+      texture: [18,3]
+      angle:90
+      propeller: false
+  wings: 
+    main:
+      doubleside: true
+      offset:
+       x: 0
+       y: -55+y
+       z: -10
+      length: [40,2]
+      width: [100,40,4]
+      angle: [2,-45,0]
+      position: [20,0,0]
+      texture: [4,3]
+      bump:
+       position: [-20]
+       size: 13

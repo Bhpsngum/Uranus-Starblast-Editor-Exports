@@ -1,0 +1,1145 @@
+anim = 0;
+
+rotateAroundZ = (name, oname, a, rotatePart, isWing=false) ->
+  o = model.bodies[oname];
+  
+  if(isWing)
+    part = model.wings[name];
+  else
+    part = model.bodies[name];
+    
+  ox = o.offset.x;
+  oy = o.offset.y;
+  
+  dx = part.offset.x-ox;
+  dy = part.offset.y-oy;
+  
+  ra = -a*0.0174533;
+  
+  ndx = dx*Math.cos(ra) - dy*Math.sin(ra);
+  ndy = dx*Math.sin(ra) + dy*Math.cos(ra);
+  
+  part.offset.x = ndx+ox;
+  part.offset.y = ndy+oy;
+  
+  if(rotatePart&&!isWing)
+    part.angle+=a
+    
+anchorToPart = (name, oname, xx, yy, zz, isWing=false, oisWing) ->
+    if(oisWing)
+      o = model.wings[oname];
+    else
+      o = model.bodies[oname];
+    
+    if(isWing)
+      part = model.wings[name];
+    else
+      part = model.bodies[name];
+      
+    part.offset.x = o.offset.x+xx;
+    part.offset.y = o.offset.y+yy;
+    part.offset.z = o.offset.z+zz;
+  
+
+multiplyArrays = (arr, m) ->
+  k = [];
+  for i in [0..arr.length-1]
+    k.push(arr[i]*m[i])
+  return k;
+
+addArrays = (arr, m, mult=1) ->
+  k = [];
+  for i in [0..arr.length-1]
+    k.push(arr[i]+m[i]*mult)
+  return k;
+  
+multiplyArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length-1]
+    k.push(arr[i]*m)
+  return k;
+
+addArray = (arr, m) ->
+  k = [];
+  for i in [0..arr.length-1]
+    k.push(arr[i]+m)
+  return k;
+  
+fillArray = (what, length) ->
+  k = [];
+  for i in [0..length-1]
+    k.push(what)
+  return k;
+  
+segments = (num) ->
+  k = [];
+  for i in [0..num-1]
+    k.push((360/num)*i)
+  return k;
+
+circle = (id, xx, yy, zz, segments, radPosY, radPosZ, tx, h=1) ->
+  widths = [];
+  heights = [];
+  posx = [];
+  m = model;
+  for i in [0..radPosY.length]
+    posx.push(0);
+    heights.push(h);
+    widths.push(radPosY[i]*Math.tan(Math.PI/segments))
+  for i in [0..segments] by 1
+    m.bodies[id+"segment"+i] = 
+      section_segments: 4
+      offset:
+        x: xx
+        y: yy
+        z: zz
+      position:
+        x: posx
+        y: radPosY
+        z: radPosZ
+      width: widths
+      height: heights
+      angle: 360*(i/segments)
+      texture: tx
+  
+wingFixedBumps = (xx, yy, zz, lengths, widths, angles, positions, tx, bumpPos, bumpS, toler) ->
+  anew = [];
+  l = [];
+  w = [];
+  p = [];
+  for i in [0..angles.length-1]
+    anew.push(angles[i])
+    l.push(lengths[i])
+    w.push(widths[i])
+    p.push(positions[i])
+    if(i==angles.length-1)
+      break;
+    if(Math.abs(angles[i]-angles[i+1])>toler)
+      anew.push(angles[i])
+      l.push(0)
+      w.push(widths[i+1])
+      p.push(positions[i+1])
+  
+  l.unshift(0)
+  w.unshift(0)
+  p.unshift(positions[0])
+  anew.unshift(anew[0])
+  
+  w.push(widths[widths.length-1])
+  p.push(positions[positions.length-1])
+  
+  l.push(0)
+  w.push(widths[widths.length-1])
+  p.push(positions[positions.length-1])
+  anew.push(anew[anew.length-1])
+  
+  return k = 
+    doubleside: true
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    length: l
+    width: w
+    angle: anew
+    position: p
+    texture: tx
+    bump:
+      position: bumpPos
+      size: bumpS
+
+squareBody = (id, xx, yy, zz, w, h, posx, posy, posz, txtop, txsides, txbottom, bump, a=0, sbumpMult=1, doubleSides=false) ->
+  flatw = [];
+  flath = [];
+  for i in [0..w.length]
+    flatw.push(bump*sbumpMult)
+    flath.push(bump)
+  
+  xoff = 0.01
+  if(a!=0) 
+    xoff = 0
+  
+  sides = 
+    section_segments: 4
+    offset:
+      x: xx+xoff
+      y: yy
+      z: zz
+    position:
+      x: addArrays(posx,w,1)
+      y: posy
+      z: posz
+    width: flatw
+    height: h
+    texture: txsides
+    angle: a
+  top = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h)
+    width: w
+    height: flath
+    texture: txtop
+    angle: a
+  bottom = 
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: posx
+      y: posy
+      z: addArrays(posz,h,-1)
+    width: w
+    height: flath
+    texture: txbottom
+    angle: a
+  if(doubleSides)
+    dsides = 
+      section_segments: 4
+      offset:
+        x: xx+xoff
+        y: yy
+        z: zz
+      position:
+        x: multiplyArray(addArrays(posx,w,-1), 1)
+        y: posy
+        z: posz
+      width: flatw
+      height: h
+      texture: txsides
+      angle: a
+    model.bodies[id+"dsides"] = dsides;
+    
+  model.bodies[id+"t"] = top;
+  model.bodies[id+"b"] = bottom;
+  model.bodies[id+"sides"] = sides;
+  
+bodyStarY = (name, number, aroundX, aroundY, aoffset = 0, offx = 0, spawn) ->
+  b = model.bodies[name]
+  
+  delete model.bodies[name]
+  
+  for i in [0..(number-1)] by 1
+    
+    if(spawn!=undefined&&!spawn[i])
+      continue
+    
+    if(i == 0)
+      n = name
+    else
+      n = name+"star"+i
+    nposx = [];
+    nposz = [];
+    
+    ang = (i*360/number)+aoffset
+    a = ang
+    ang = ang*0.0174533
+
+    for j in [0..b.position.x.length-1] by 1
+      if(j>=b.position.z.length)
+        break;
+      ox = b.position.x[j]
+      oz = b.position.z[j]
+      nposx.push(ox*Math.cos(ang)-oz*Math.sin(ang))
+      nposz.push(ox*Math.sin(ang)+oz*Math.cos(ang))
+    
+    ox = b.offset.x-aroundX
+    oz = b.offset.z-aroundY
+    
+    segments = b.section_segments
+    
+    if(segments.length != undefined)
+      segments = addArray(segments,a)
+    
+    model.bodies[n] =
+      section_segments: segments
+      offset:
+        x: 0
+        y: b.offset.y
+        z: aroundY
+      position:
+        x: addArray(nposx,ox*Math.cos(ang)-oz*Math.sin(ang)+aroundX+offx)
+        y: b.position.y.slice(0)
+        z: addArray(nposz,ox*Math.sin(ang)+oz*Math.cos(ang)+aroundY)
+      width: b.width.slice(0)
+      height: b.height.slice(0)
+      texture: b.texture.slice(0)
+      angle: 0
+      propeller: b.propeller
+      vertical: b.vertical
+  
+bodyStar = (name, number) ->
+  b = model.bodies[name]
+  for i in [0..number-1] by 1
+    if(i == 0)
+      n = name
+    else
+      n = name+"star"+i
+    model.bodies[n] =
+      section_segments: b.section_segments
+      offset:
+        x: b.offset.x
+        y: b.offset.y
+        z: b.offset.z
+      position:
+        x: b.position.x.slice(0)
+        y: b.position.y.slice(0)
+        z: b.position.z.slice(0)
+      width: b.width.slice(0)
+      height: b.height.slice(0)
+      texture: b.texture.slice(0)
+      angle: b.angle+(i*360/number)
+      vertical: b.vertical
+
+glEx = 0
+glRet = 1;
+if(anim>0.98)
+  glEx = 1;
+  glRet = 0;
+      
+shieldPiece = (xx, yy, zz, t=1) ->
+  return k =
+    section_segments: 4
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: [-10,-10,-5,-5,0,0,35]
+      z: multiplyArray([0,0,2,2,4,4,60,0,0],t)
+    width: [0,20,20,5,5,35,25]
+    height: [0,5,5,3,3,3,0]
+    texture: [3,3+14*glRet,3,4,3,63]
+    angle: 0
+    
+mapToRange = (v, min, max) ->
+  if(v<min)
+    return 0
+  if(v>max)
+    return 1
+  return (v-min)/(max-min)
+
+duplicateBody = (name, newName) ->
+  if(newName==undefined)
+    newName = name+"duplicate"
+  b = model.bodies[name]
+  model.bodies[newName] =
+    section_segments: b.section_segments
+    offset:
+      x: b.offset.x
+      y: b.offset.y
+      z: b.offset.z
+    position:
+      x: b.position.x.slice(0)
+      y: b.position.y.slice(0)
+      z: b.position.z.slice(0)
+    width: b.width.slice(0)
+    height: b.height.slice(0)
+    texture: b.texture.slice(0)
+  n = model.bodies[newName]
+  if(b.angle!=undefined)
+    n.angle = b.angle
+  if(b.propeller!=undefined)
+    n.propeller = b.propeller
+  return n
+  
+bodyTubeRepeatMirror = (name) ->
+  b = model.bodies[name]
+  l = b.width.length-1
+  newpx = b.position.x.slice(0,l)
+  newpy = b.position.y.slice(0,l)
+  newpz = b.position.z.slice(0,l)
+  newW = b.width.slice(0,l)
+  newH = b.height.slice(0,l)
+  newtx = b.texture.slice(0,l)
+  for i in [l..0]
+    newpx.push(b.position.x[i])
+    newpy.push(b.position.y[i]*-1)
+    newpz.push(b.position.z[i])
+    
+    newW.push(b.width[i])
+    newH.push(b.height[i])
+    
+  for i in [b.texture.length-1..0]  
+    newtx.push(b.texture[i])
+    
+  b.position.x = newpx
+  b.position.y = newpy
+  b.position.z = newpz
+  b.width = newW
+  b.height = newH
+  b.texture = newtx
+  
+label = (xx, yy, zz, length, width = 0.3) ->
+  return k =
+    section_segments: [-90,90]
+    offset:
+      x: 0
+      y: yy-width
+      z: zz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: addArray([0,length],xx)
+      z: [0,0,0,0,0,0,0,0,0]
+    width: [width,width]
+    height: [0,0,0,0]
+    texture: [0.7]
+    angle: 90
+    
+pipeBottom = (xx, yy, zz) ->
+  return k =
+    section_segments: 8
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: [0,0,-4,-10,0,0,0,0,0,0,0,0]
+      y: [-15,-8,-5,0]
+      z: [0,0,0,0,0,0,0,0,0,0,0]
+    width: [3,3,6,3]
+    height: [3,3,3,3]
+    texture: [3]
+    angle: 180
+    vertical: true
+    
+cockpitPod = (xx, yy, zz, ang) ->
+  return k = 
+    section_segments: 8
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: [0,3,3,4,4,4.5,4.5]
+      z: [0,0,0,0,0,0,0,0,0]
+    width: [2,2,1.8,1.4,1.6,1,0]
+    height: [2,2,1.8,1.4,1.6,1,0]
+    texture: [1,1,17,1,1] 
+    vertical: true
+    angle: ang
+      
+yeet = 0
+
+parabolicDish = (xx, yy, zz, angle, tx, stepAmount, step, stepunit, showfocus = false) ->
+  
+  if(showfocus)
+    yeet = 
+      section_segments: 4
+      offset:
+        x: xx
+        y: yy-(1/(4*(1/stepunit)*(1/stepunit)))
+        z: zz
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-1,0,1]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,1,0]
+      height: [0,1,0]
+      texture: [17] 
+  
+  rad = []
+  ypos = []
+  
+  for i in [0..stepAmount-1]
+    ypos.push(-(step/stepunit*i)*(step/stepunit*i))
+    rad.push(step*i)
+  
+  lastypos = ypos[ypos.length-1]
+  
+  for i in [stepAmount-1..0]
+    ypos.push((ypos[i]-lastypos)*1.1+ypos[i])
+    rad.push(rad[i]*1.1)
+  
+  return k = 
+    section_segments: 16
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: multiplyArray(ypos,0)
+      y: ypos
+      z: multiplyArray(ypos,0)
+    width: rad
+    height: rad
+    texture: tx
+    angle: angle
+    
+thrustCircle = (xx, yy, zz) ->
+  return k =
+    section_segments: [80,90,100,80+180,90+180,100+180]
+    offset:
+      x: xx
+      y: yy
+      z: zz
+    position:
+      x: [0,0,0,0,0,0,0,0]
+      y: [-2,-2,2,2]
+      z: [0,0,0,0,0,0,0,0,0]
+    width: multiplyArray([0,3,3,0],zz/14)
+    height: multiplyArray([0,3,3,0],zz/14)
+    texture: [2.5]
+
+###
+"lasers":[
+{"x":1.072,"y":-1.76,"z":0.048,"angle":0,"damage":[12,12],
+"rate":6,"type":1,"speed":[50,50],"number":2,"spread":0,"error":0.5,"recoil":0},
+{"x":-1.072,"y":-1.76,"z":0.048,"angle":0,"damage":[12,12],
+"rate":6,"type":1,"speed":[50,50],"number":2,"spread":0,"error":0.5,"recoil":0}]
+###
+
+###'"specs":{"shield":{"capacity":[350,350],"reload":[2,2]},
+"generator":{"capacity":[750,750],"reload":[30,30]},
+"ship":{"mass":130,"speed":[150,150],"rotation":[70,70],"acceleration":[100,100]}},
+###
+
+model =
+  name: 'LSV OnMyPosition'
+  level: 6
+  model: 17
+  size: 1
+  specs:
+    shield:
+      capacity: [300,100]
+      reload: [3,3]
+    generator:
+      capacity: [220,60]
+      reload: [80,100]
+    ship:
+      mass: 130
+      speed: [150,150]
+      rotation: [30,60]
+      acceleration: [50,100]
+  bodies:
+    
+    antennaDish: parabolicDish(0,-38,40,0,[1],6,2,8.5,false)
+    
+    hullAntennaAnchor:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 22
+        z: 47
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-1,2,2,1,1,5,5]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [10,9,6,6,4,3,0]
+      height: [10,9,6,6,4,3,0]
+      texture: [1,1,3,3,4] 
+      vertical: true
+    antennaBox:
+      section_segments: addArray(segments(6),360/12)
+      offset:
+        x: 0
+        y: -47
+        z: 28
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-3,-3,5,8,8]
+        z: [0,0,0,2,2,0,0,0,0]
+      width: [0,4,4,5,0]
+      height: [0,2,2,1,0]
+      texture: [3.8,18,3.8]
+      angle: 0
+    antennaRod:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -56
+        z: 38
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,0,5,10,10]
+        z: [0,0,-7,-7,-7,0,0,0,0]
+      width: [0,.5,.5,.5,0]
+      height: [0,.5,.5,.5,0]
+      texture: [3.8]  
+      angle: 0
+    antenna:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -56
+        z: 40
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-.4,-.4,.4,.4]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,1,1,0]
+      height: [0,3,3,0]
+      texture: [16.8]
+      angle: 0
+    
+    
+    cockpitPod1: cockpitPod(3.5,-1,112,130)
+    cockpitPod2: cockpitPod(3.5,-1,107,130)
+    cockpitPod3: cockpitPod(3.5,-1,102,130)
+    cockpitPod4: cockpitPod(3.5,-1,112,130)
+    
+    cockpitTop:
+      section_segments: [45,125,235,315]
+      offset:
+        x: 0
+        y: -110.5
+        z: 23
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-17,-11.5,10,30]
+        z: [0,0,0,-1.5,0,0,0,0,0]
+      width: [0,9.5,16.5,17]
+      height: [2,2,2,4]
+      texture: [1]
+    windshield:
+      section_segments: 3
+      offset:
+        x: 0
+        y: -110
+        z: 19
+      position:
+        x: [-30,-11,10,15,0,0,0,0]
+        y: [-14,-12,-7,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,20,10,10]
+      height: [0,5,5,5]
+      texture: [7,8.7,8.3] 
+      angle: 90
+    cockpitMiddle:
+      section_segments: [45,132,228,315]
+      offset:
+        x: 0
+        y: -110.5
+        z: 15
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-24,-18.5,-5,30]
+        z: [0,0,0,1.5,0,0,0,0,0]
+      width: [0,10.5,18,20]
+      height: [2,2,2,4]
+      texture: [1]
+    windowsBottom:
+      section_segments: [45,135]
+      offset:
+        x: 0.1
+        y: -110.5
+        z: 11
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-20,-20,-19,-17.5,-5,10,10,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,8,8,11,18,19,20,21]
+      height: [4,4,4,4,4,4,4,4]
+      texture: [1,1,15,9,9,1]
+    connectWindowsMiddleFront:
+      section_segments: [45,135,225,315]
+      offset:
+        x: 0
+        y: -134
+        z: 11
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,3.5]
+        z: [3,0,0,0,0,0,0,0,0]
+      width: [0,7]
+      height: [0,4]
+      texture: [1] 
+    connectBottom:
+      section_segments: [45,135,225,315]
+      offset:
+        x: 0
+        y: -110.5
+        z: 6
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-20,-20,-17.5,-5,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,8,12,19,21]
+      height: [4,4,4,4,4]
+      texture: [1]
+    cockpitBottom:
+      section_segments: addArray(segments(6),360/12)
+      offset:
+        x: 0
+        y: -106.5
+        z: 3
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-24,-24,-22,-8,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5.5,8,13.5,15]
+      height: [0,2,5,5,5]
+      texture: [0.8]
+    cockpitBottomRidge:
+      section_segments: addArray(segments(6),360/12)
+      offset:
+        x: 0
+        y: -106.5
+        z: -1
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-22,-8,10,30]
+        z: [8.5,0,0,4,0,0,0,0]
+      width: [7.6,7,7,15]
+      height: [10,4,6.5,6.5,6]
+      texture: [0.8]
+    ridgeHullConnect:
+      section_segments: 4
+      offset:
+        x: 1
+        y: -80
+        z: 1
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-1,7,13,14]
+        z: [0,0,2,0,0,0,0,0,0]
+      width: [30,30,10,0]
+      height: [6,6,7,0]
+      texture: [1] 
+      angle: 90
+    ridgeTubes:
+      section_segments: 6
+      offset:
+        x: 12
+        y: -120
+        z: -1
+      position:
+        x: [-10,-3,0,0,-1,-3,-3,0,0]
+        y: [-9,-3,5,20,27,45,55]
+        z: [5,1,0,0,-3,-7,-7,0,0,0,0]
+      width: multiplyArray([1,1,1,1,1,1,1],1.5)
+      height: multiplyArray([1,1,1,1,1,1,1],1.5)
+      texture: [2.8]
+    
+    frontTop:
+      section_segments: [45,120,240,315]
+      offset:
+        x: 0
+        y: -70
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,-10,-4,-4,10,35,45,70]
+        z: [0,2.5,2.5,0,0,0,0,0,0]
+      width: [0,20.5,24.5,21,30,30,23,23]
+      height: [0,17,17,17,17,17,14,14]
+      texture: [63,63,63,1] 
+    frontBottom:
+      section_segments: [75,135,225,285]
+      offset:
+        x: 0
+        y: -70
+        z: -5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,10,35,45,70]
+        z: [6,0,0,0,0,0,0,0,0]
+      width: [17,17,17,23,23]
+      height: [5,17,17,12,12]
+      texture: [3.37]
+    frontTube1:
+      section_segments: 6
+      offset:
+        x: 18
+        y: -50
+        z: 25
+      position:
+        x: [0,0,0,-5.5,-10.5,0,0,0,0]
+        y: [-12,-5,15,25,35]
+        z: [-5,0,0,-2,-4,0,0,0,0,0]
+      width: [2,2,2,2,2]
+      height: [2,2,2,2,2]
+      texture: [2.8] 
+    frontTube2:
+      section_segments: 6
+      offset:
+        x: 13
+        y: -50
+        z: 25
+      position:
+        x: [0,0,0,-3.5,-10.5,0,0,0,0]
+        y: [-17,-10,15,22,35]
+        z: [-5,0,0,-2,-17,0,0,0,0]
+      width: [2,2,2,2,2]
+      height: [2,2,2,2,2]
+      texture: [2.8] 
+      
+    pipeBottom1: pipeBottom(-18,-15,40)
+    pipeBottom2: pipeBottom(-18,-15,48)
+    pipeBottom3: pipeBottom(-18,-15,56)
+      
+    sideDeco1:
+      section_segments: [15,75+90,55+90*2,35+90*3]
+      offset:
+        x: 20
+        y: 0
+        z: 52
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [3,20,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [9,4,0]
+      height: [5,5,0]
+      texture: [3.8] 
+      vertical: true
+    sideDeco2:
+      section_segments: [15,75+90,55+90*2,35+90*3]
+      offset:
+        x: 20
+        y: 0
+        z: 42
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [3,20,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [9,4,0]
+      height: [5,5,0]
+      texture: [3.8] 
+      vertical: true
+    
+    reactorHullConn:
+      section_segments: [45,45+90,45+90*2,45+90*3]
+      offset:
+        x: 0
+        y: -30
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-50,-50,-30,0,30]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,25,40,40,20]
+      height: [0,6,6,6,6]
+      texture: [1]
+    
+    fuelTank:
+      section_segments: addArray(segments(12),360/24)
+      offset:
+        x: 0
+        y: 46
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: multiplyArray([-10,-10,-9,-7,1,1.5,3.5,4,7,9,10,10],3.5)
+        z: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      width: multiplyArray([0,5,9,10,10,11,11,10,10,9,5,0],1.5)
+      height: multiplyArray([0,5,9,10,10,11,11,10,10,9,5,0],1.5)
+      texture: [63,63,63,63,2,2,2,63] 
+      angle: 90
+      
+    fTankRad:
+      section_segments: [0,120,240]
+      offset:
+        x: 0
+        y: 14.6
+        z: -21.5
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,0]
+        z: [-3,-3,0,0,0,0,0,0,0]
+      width: [1.5,0]
+      height: [1.5,0]
+      texture: [5.75] 
+      vertical: true
+    fTankWrite1:
+      label(-8,45.2,14.6,7)
+    fTankWrite2:
+      label(-8,46.7,14.6,10)
+    fTankWrite3:
+      label(-8,48.2,14.6,4)
+    
+    reactorFuelConnectorTop:
+      section_segments: [45,45+90,45+90*2,45+90*3]
+      offset:
+        x: 30
+        y: 0
+        z: 3
+      position:
+        x: [10,10,10,0,0,30,0,0,0]
+        y: [-55,-50,-40,-20,10,20]
+        z: [6,12,12,0,0,0,0,0,0,0]
+      width: [6,6,6,6,6,6]
+      height: [0,2,2,2,2,2]
+      texture: [4] 
+      angle: 180
+    reactorFuelConnectorBottom:
+      section_segments: [45,45+90,45+90*2,45+90*3]
+      offset:
+        x: 30
+        y: 0
+        z: -3
+      position:
+        x: [10,10,10,0,0,30,0,0,0]
+        y: [-55,-50,-40,-20,10,20]
+        z: [-6,-12,-12,0,0,0,0,0,0,0]
+      width: [6,6,6,6,6,6]
+      height: [0,2,2,2,2,2]
+      texture: [4] 
+      angle: 180
+      
+    reactorMain:
+      section_segments: 16
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-16,-15,-10,-5,5,10,20,22,30,30,29,29,30,30,32,32]
+        z: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,20,20,30,30,24,23,16,14,12,12,10,10,8,6,0]
+      height: [0,20,20,30,30,24,23,16,14,12,12,10,10,8,6,0]
+      texture: [1,1,1,1,1,1,1,4,4,4,17,4,3,3,8] 
+      vertical: true
+    reactorPod:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 19
+        z: 21
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-15,-7,3,3,5,5,7,8,7,7]
+        z: [-5,0,0,0,0,0,0,0,0,0,0,0]
+      width: [5,5,5,4,4,5,5,4,4,0]
+      height: [5,5,5,4,4,5,5,4,4,0]
+      texture: [3,3,3,18,3,3,8,3,17] 
+      vertical: true
+      angle: 0
+    reactorBetweenPods:
+      section_segments: [45,45+90,45+90*2,45+90*3]
+      offset:
+        x: 0
+        y: 0
+        z: 20
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-22,-15,15,22]
+        z: [0,3,3,0,0,0,0,0,0]
+      width: [5,5,5,5]
+      height: [0.1,7,7,0.1]
+      texture: [1,1,1]
+      angle: 90/4
+      vertical: false
+    reactorPipe1:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 19
+        z: 26
+      position:
+        x: addArray([0,0,0,0,0,0,0,0,0,0,0],2.5)
+        y: [-15,-7,-3,0]
+        z: [0,0,-2,-7,0,0,0,0,0,0,0,0]
+      width: [2,2,2,2]
+      height: [2,2,2,2]
+      texture: [63] 
+      vertical: true
+      angle: 0
+    reactorPipe2:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 19
+        z: 26
+      position:
+        x: addArray([0,0,0,0,0,0,0,0,0,0,0],-2.5)
+        y: [-15,-7,-3,0]
+        z: [0,0,-2,-7,0,0,0,0,0,0,0,0]
+      width: [2,2,2,2]
+      height: [2,2,2,2]
+      texture: [63] 
+      vertical: true
+      angle: 0
+    reactorBottomPieces:
+      section_segments: [0,135,225]
+      offset:
+        x: 0
+        y: -20
+        z: -10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [2,0,0,2,5,15]
+        z: [0,0,0,0,-4,-4,0,0,0,0,0,0]
+      width: [0,6,8,10,14,14]
+      height: [0,6,8,10,14,14]
+      texture: [16.7,3.8,3.8,1] 
+      vertical: true
+      angle: 0
+    reactorBottomPieces2:
+      section_segments: [-70,70,135,225]
+      offset:
+        x: 0
+        y: -20
+        z: -22
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [2,2,4,15]
+        z: [6,6,0,0,0,0,0,0,0,0]
+      width: [0,6,6,6]
+      height: [0,6,6,6]
+      texture: [3.8] 
+      vertical: true
+      angle: 0
+      
+    reactorPipeBack:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 32
+        z: -16
+      position:
+        x: addArray([0,0,0,0,0,0,0,0,0,0,0],9)
+        y: [-16,-12,-8,-7,0,5,15]
+        z: [3,0,0,0,0,1,8,0,0,0,0,0,0,0,0]
+      width: [3,3,3,2,2,2,2]
+      height: [3,3,3,2,2,2,2]
+      texture: [1,1,1,63] 
+      angle: 0
+      
+     prop:
+      section_segments: 8
+      offset:
+        x: 65
+        y: 70
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [20,20]
+      height: [20,20]
+      texture: [4,63,4]  
+      propeller: true
+     engineRod:
+      section_segments: 8
+      offset:
+        x: 65
+        y: 20
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-15,-15,-10,-5,-2,50,75]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,7,7,4,4,0]
+      height: [0,5,7,7,4,4,0]
+      texture: [18,16,4,16,17] 
+    injectorHoldersL:
+      section_segments: [15,55+90,35+90*2,45+30+90*3]
+      offset:
+        x: -65
+        y: 12
+        z: 8
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-2,-2,2,2]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,4,4,0]
+      texture: [2.8]
+    injectorHoldersR:
+      section_segments: [15,55+90,35+90*2,45+30+90*3]
+      offset:
+        x: 65
+        y: 12
+        z: 8
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-2,-2,2,2]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,4,4,0]
+      height: [0,4,4,0]
+      texture: [2.8]
+      angle: 0
+    injectorR:
+      section_segments: 4
+      offset:
+        x: 65
+        y: 10
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,1,5,7,2]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,1,2,1,0]
+      height: [0,1,2,1,0]
+      texture: [4,18,4]
+      propeller: true
+      angle: 0
+    injectorL:
+      section_segments: 4
+      offset:
+        x: -65
+        y: 10
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [0,1,5,7,2]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,1,2,1,0]
+      height: [0,1,2,1,0]
+      texture: [4,18,4]
+      propeller: true
+      angle: 0
+    
+#model.bodies["focus"] = yeet
+
+bodyStarY("reactorPod",8,0,0)
+bodyStarY("reactorPipe1",8,0,0,22.5,0,[0,1,1,1,1,1,1,0])
+bodyStarY("reactorPipe2",8,0,0,22.5,0,[0,1,1,1,1,1,1,0])
+
+bodyStarY("reactorBottomPieces",8,0,0,0)
+bodyStarY("reactorBottomPieces2",8,0,0,0)
+
+bodyStarY("fTankRad",3,0,-23,0,-12)
+
+bodyTubeRepeatMirror("windshield")
+
+bodyStarY("injectorHoldersL",8,-65,0,0)
+bodyStarY("injectorHoldersR",8,65,0,0)
+
+bodyStarY("injectorL",8,-65,0,0)
+bodyStarY("injectorR",8,65,0,0)
+
+###
+yy = 10
+angles = [216, 261, 329, 309, 399, 444, 57, 125, 215, 55, 145, 235, 140, 230, 298, 261, 351, 441]
+lengths = [2, 3, 3, 4, 2, 2, 3, 4, 3, 4, 4, 4, 4, 3, 2, 4, 4, 4]
+for i in [0..6]
+  for j in [0..3]
+  a = angles[i]
+  yy += 10
+  model.bodies["thrusterCircleR"+i+j] = thrustCircle(65,yy,10)
+  bodyStarY("thrusterCircleR"+i+j,16,65,0,a,0,fillArray(1,lengths[i]))
+###
+
+bodyStar("reactorBetweenPods",8)
+
+a = 360*Math.random()
+for k,v of model.bodies
+  if(k.startsWith("antenna"))
+    o = v.offset.y + 47
+    v.position.y = addArray(v.position.y,o)
+    v.offset.y = -47
+    v.angle = a
+
+offy = 40;
+for k,v of model.bodies 
+  if(v.vertical)
+    v.offset.z += -offy;
+  else
+    v.offset.y += offy;
+    
+for k,v of model.wings 
+  v.offset.y += offy;
+  
+return model;

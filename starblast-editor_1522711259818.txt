@@ -1,0 +1,112 @@
+return model =
+  name: 'SplitShipChallenge'
+  level: 6
+  model: 1
+  size: 2
+  specs:
+    shield:
+      capacity: [200,350]
+      reload: [4,6]
+    generator:
+      capacity: [120,200]
+      reload: [50,60]
+    ship:
+      mass: 400
+      speed: [70,80]
+      rotation: [30,50]
+      acceleration: [70,100]
+  bodies:
+    connectionFront:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -150
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,0,0]
+        z: [0,0,0,0,0,0,0,0]
+      width: [60,60,0]
+      height: [40,40,0]
+      texture: [1]
+    middle_connectionFront:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -90
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-60,-40,0,0]
+        z: [0,0,0,0,0,0,0,0]
+      width: [60,60,0]
+      height: [40,40,0]
+      texture: [1]
+    middle_connectionBack:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 90
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-60,-40,0,0]
+        z: [0,0,0,0,0,0,0,0]
+      width: [60,60,0]
+      angle:180
+      height: [40,40,0]
+      texture: [2]
+    connectionBack:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 150
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-10,0,0]
+        z: [0,0,0,0,0,0,0,0]
+      width: [60,60,0]
+      height: [40,40,0]
+      texture: [1]
+    capacitor1:
+      section_segments: 8
+      offset:
+        x: 60
+        y: -70
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-40,-38,-30,30,38,40]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,16,20,20,16,0]
+      height: [0,16,20,20,16,0]
+      texture: [3,4,17,4,3]
+    capacitor2:
+      section_segments: 8
+      offset:
+        x: 60
+        y: 20
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-40,-38,-30,30,38,40]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,16,20,20,16,0]
+      height: [0,16,20,20,16,0]
+      texture: [3,4,17,4,3]
+    middle_body:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-130,50,130]
+        z: [0,0,0,0,0,0,0,0]
+      width: [40,40,50]
+      height: [30,30,40]
+      texture: [10,2]
+
+  

@@ -1,0 +1,91 @@
+return model =
+  name: 'Reactor Module by Uranus'
+  level: 1
+  model: 1
+  size: 1
+  bodies:
+    main:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-50,-50,-30,30,50,50]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,40,40,15,0]
+      height: [0,15,40,40,15,0]
+      texture: [3,1,1,1]
+    
+    dockportMedium:
+      section_segments: 12
+      offset:
+        x: 0
+        y: -50
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-12,-13,-10,-10,-2,-2,7]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,14,15,17,20,24,24]
+      height: [0,14,15,17,20,24,24]
+      texture: [11,3,4,8,1]
+    dockportMedium2:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 50
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-12,-13,-10,-10,-2,-2,7]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,14,15,17,20,24,24]
+      height: [0,14,15,17,20,24,24]
+      texture: [11,3,4,8,1]
+      angle:180
+      
+    tubes1:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -40
+        z: 10
+      position:
+        x: [0,15,17,17,0,0]
+        y: [-50,-30,-20,-10]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [2,2,2,2]
+      height: [2,2,2,2]
+      texture: [63]
+      angle:120
+    tubes2:
+      section_segments: 6
+      offset:
+        x: 0
+        y: -40
+        z: 5
+      position:
+        x: [2,17,19,19,0,0]
+        y: [-55,-35,-25,-15]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [2,2,2,2]
+      height: [2,2,2,2]
+      texture: [63]
+      angle:120
+    
+    reactor:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-53,-53,-49,-53,-49,-45,-40,0]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,20,25,30,30,35,50]
+      height: [0,15,20,25,30,30,30,30]
+      texture: [17,17,18,4,3,1]
+      angle:90

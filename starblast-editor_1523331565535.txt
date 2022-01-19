@@ -1,0 +1,242 @@
+return model =
+  name: 'Dark-Defender'
+  level: 4
+  model: 4
+  size: 1.6
+  specs:
+    shield:
+      capacity: [250,300]
+      reload: [5,7]
+    generator:
+      capacity: [50,90]
+      reload: [20,35]
+    ship:
+      mass: 250
+      speed: [75,100]
+      rotation: [40,70]
+      acceleration: [80,100]
+  bodies:
+    frontBody:
+      section_segments: 4
+      offset:
+        x: 0
+        y: 40
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-120,50]
+        z: [0,0,0,0,0,0,0]
+      width: [19,19]
+      height: [10,10]
+      texture: [1]
+    cockpit:
+      section_segments: 12
+      offset:
+        x: 0
+        y: 53
+        z: 19
+      position:
+        x: [0,0,0,0,0]
+        y: [15,20,46,64,68]
+        z: [0,0,0,0,0]
+      width: [7,12,15,12,0]
+      height: [0,12,15,12,0]
+      texture: [3,9,9,4]
+      propeller: false
+    frontSide:
+      section_segments: 6
+      offset:
+        x: 19
+        y: 40
+        z: 0
+      position:
+        x: [-10,-3,0,0,3,5,0,0]
+        y: [-130,-130,-120,-70,-40,-10,60,65]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,5,5,10,12,12,0]
+      height: [0,3,9,9,9,9,9,0]
+      texture: [63]
+    wingTip:
+      section_segments: 6
+      offset:
+        x: 50
+        y: 40
+        z: 0
+      position:
+        x: [-19,24,0,0,3,5,0,0]
+        y: [-106,15]
+        z: [0,0,0,0,0,0,0]
+      width: [3,3]
+      height: [1,1]
+      texture: [4]
+    weapon:
+      section_segments: 8
+      offset:
+        x: 26.5
+        y: -25
+        z: 0
+      position:
+        x: [0,0,0,-4,0]
+        y: [-40,-26,-30,20,70]
+        z: [0,0,0,0,0]
+      width: [0,2,4,7]
+      height: [0,2,4,2.4]
+      texture: [6,6,18]
+      laser:
+        damage: [6,9]
+        rate: 3
+        type: 1
+        speed: [130,160]
+        number: 1
+        error: 0
+    body:
+      section_segments: 6
+      offset:
+        x: 1
+        y: 40
+        z: 15
+      position:
+        x: [-1,-1,10,10]
+        y: [-73,-70,60,60]
+        z: [-6,-6,-3,-3]
+      width: [0,6,18,0]
+      height: [0,6,12,0]
+      texture: [1]
+    bodyStripe:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 40
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [-70,-68,-20,30]
+        z: [-6,-6,-3,2]
+      width: [0,6,9,12]
+      height: [0,2,2,2]
+      texture: [1,1,63]
+    bodyTopPlate:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 40
+        z: 20
+      position:
+        x: [0,0,0,0]
+        y: [5,5,40]
+        z: [1,1,4]
+      width: [0,16,16]
+      height: [0,2,2]
+      texture: [1,10]
+    back:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 100
+        z: 12
+      position:
+        x: [0,0,0,0]
+        y: [-6,0,20,22]
+        z: [0,0,0,0]
+      width: [0,31,21,0]
+      height: [0,13,12,0]
+      texture: [1]
+  wings:
+    midTip:
+      doubleside: true
+      offset:
+        x: 60
+        y: 15
+        z: 0
+      length: [13]
+      width: [30,0]
+      angle: [0,0]
+      position: [20,40]
+      texture: [63]
+      bump:
+        position: 60
+        size:5
+    midTipBack:
+      doubleside: true
+      offset:
+        x: 60
+        y: 45
+        z: 0
+      length: [13]
+      width: [30,0]
+      angle: [0,0]
+      position: [20,10]
+      texture: [63]
+      bump:
+        position: -40
+        size:5
+    backFlat:
+      doubleside: true
+      offset:
+        x: 27
+        y: 42
+        z: -5
+      length: [34]
+      width: [57,40]
+      angle: [8,0]
+      position: [23,14]
+      texture: [4]
+      bump:
+        position: -0
+        size:3
+    backFlatBottomRed:
+      doubleside: true
+      offset:
+        x: 27
+        y: 42
+        z: -6
+      length: [34]
+      width: [70,40]
+      angle: [8,0]
+      position: [16,14]
+      texture: [63]
+      bump:
+        position: -0
+        size:3
+    mid:
+      doubleside: true
+      offset:
+        x: 30
+        y: -40
+        z: 0
+      length: [37]
+      width: [90,0]
+      angle: [0,0]
+      position: [20,80]
+      texture: [63]
+      bump:
+        position: 60
+        size: 6
+    midBody:
+      doubleside: true
+      offset:
+        x: 14
+        y: -40
+        z: 0
+      length: [40]
+      width: [120,0]
+      angle: [0,0]
+      position: [20,80]
+      texture: [63]
+      bump:
+        position: 40
+        size: 9
+    frontPointy:
+      doubleside: true
+      offset:
+        x: 0
+        y: -80
+        z: 0
+      length: [20]
+      width: [60,0]
+      angle: [0,0]
+      position: [-35,0]
+      texture: [1,63]
+      bump:
+        position: 80
+        size: 20
